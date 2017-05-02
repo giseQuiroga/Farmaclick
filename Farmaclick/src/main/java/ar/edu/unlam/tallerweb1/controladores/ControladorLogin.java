@@ -48,9 +48,4 @@ public class ControladorLogin {
 	public ModelAndView inicio() {
 		return new ModelAndView("redirect:/login");
 	}
-	
-	@RequestMapping(path = "/holaMundo", method = RequestMethod.GET)
-	public ModelAndView holaMundo() {
-		return new ModelAndView("holaMundo");
-	}
 }
