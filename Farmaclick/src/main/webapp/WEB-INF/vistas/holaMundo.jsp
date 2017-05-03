@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-HOLA MUNDO CRUEL!
+nombre: ${usuario.nombre} </br>
+apellido: ${usuario.apellido} </br>
+email: ${usuario.email} </br>
+password: ${usuario.password} </br>
 </body>
 </html>

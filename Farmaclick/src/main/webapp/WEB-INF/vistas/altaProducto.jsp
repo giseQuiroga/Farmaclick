@@ -31,7 +31,7 @@
 	  <div class="collapse navbar-collapse navbar-ex1-collapse">
 	    <ul class="nav navbar-nav">
 	      <li class="active"><a href="#">Crear Producto</a></li>
-	      <li><a href="#">Registrarse</a></li>
+	      <li><a href="registroUsuario">Registrarse</a></li>
 	      <li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	          Iniciar Sesión <b class="caret"></b>
