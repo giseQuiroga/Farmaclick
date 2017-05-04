@@ -48,5 +48,5 @@ public class ControladorRegistroUsuario {
 			}
 			return new ModelAndView("holaMundo", model);
 		}
-
+		
 }
