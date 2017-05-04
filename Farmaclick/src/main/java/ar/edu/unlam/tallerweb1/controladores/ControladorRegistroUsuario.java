@@ -49,4 +49,6 @@ public class ControladorRegistroUsuario {
 			return new ModelAndView("holaMundo", model);
 		}
 
+/* COMENTARIO AGREGADO AL CODIGO PARA PRUEBA */
+		
 }
