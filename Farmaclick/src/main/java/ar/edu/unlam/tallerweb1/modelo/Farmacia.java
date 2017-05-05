@@ -10,17 +10,17 @@ public class Farmacia {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String CUIT;
+	private String cuit;
 	private String razonSocial;
 	private Integer telefono;
 	private String email;
 	private String password;
 	
-	public String getCUIT() {
-		return CUIT;
+	public String getCuit() {
+		return cuit;
 	}
-	public void setCUIT(String cUIT) {
-		CUIT = cUIT;
+	public void setCUIT(String cuit) {
+		this.cuit = cuit;
 	}
 	public String getRazonSocial() {
 		return razonSocial;
