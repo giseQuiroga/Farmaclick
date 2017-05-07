@@ -108,9 +108,13 @@
 						<div class="form-group ">
 <!-- 							<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a> -->
 						 <button type="submit" class="btn btn-success">Registrar</button>
+						 
 						</div>
+						
 <!--             <button type="submit" class="btn btn-success">Registrar</button> -->						
 					</form:form> 
+					<a href="loginUsuario"><button class="btn btn-success">Volver</button></a>
+					
 				</div>
 			</div>
 		</div>
