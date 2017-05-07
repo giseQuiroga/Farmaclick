@@ -26,6 +26,8 @@
 		        </c:if>
 		        </br>
 		        <a href="registroUsuario" class="btn btn-notice btn-lg btn-primary btn-block">Registrarse</a>	
+		        </br>
+		        <a href="registroFarmacia" class="btn btn-notice btn-lg btn-primary btn-block">Registrá tu farmacia</a>
 			</div>
 			</br>
 		</div>
