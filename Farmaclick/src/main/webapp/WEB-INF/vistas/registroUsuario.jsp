@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 
@@ -20,20 +19,16 @@
 		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-					<c:if test="${not empty error}">
-			        <h4><span>${error}</span></h4>
-			        <br>
-		    		</c:if>	
-
 		<title>Registrar Usuario</title>
 	</head>
 	<body>
-	
 		<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
 				<h1>Registrar Usuario.</h1>
 					<form:form action="registrar-usuario" method="POST" modelAttribute="usuario">
+					
+
 
 <!--         <label for="email">Ingresar Correo Electronico</label> -->
 <%--         <form:input path="email" id="email" type="email" class="form-control"/> --%>
@@ -55,8 +50,7 @@
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									
 									
-									<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre" required 
-									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{5,15}" title="Mayor a 3 caracteres, menor a 15 y solo letras."/>
+									<input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Ingrese su nombre"/>
 								</div>
 							</div>
 						</div>
@@ -66,8 +60,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="apellido" id="apellido"  placeholder="Ingrese su apellido" required 
-									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{0,15}" title="Mayor a 3 caracteres, menor a 15 y solo letras." />
+									<input type="text" class="form-control" name="apellido" id="apellido"  placeholder="Ingrese su apellido"/>
 								</div>
 							</div>
 						</div>
@@ -78,9 +71,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="email" class="form-control" name="email" id="email"  placeholder="Ingrese su Email" required 
-									pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" 
-									title="Ej.: miCorreo@gmail.com"/>
+									<input type="text" class="form-control" name="email" id="email"  placeholder="Ingrese su Email"/>
 								</div>
 							</div>
 						</div>
@@ -90,51 +81,27 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  
-									placeholder="Ingrese Su Password" required pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ!?¡¿*/%&$@-#+._-]{8,12}"
-									title="Minimo 4 caracteres" />
+									<input type="password" class="form-control" name="password" id="password"  placeholder="Ingrese Su Password"/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Reingrese Password</label>
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Ingrese Su Password" required 
-									pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ!?¡¿*/%&$@-#+._-]{8,12}"
-									oninvalid="setCustomValidity('Password y Reingrese Password deben coincidir.')" />
+									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirme su Password"/>
 								</div>
-							
-	<!--  PARA VALIDAR LOS PASSWORDS  --> 	
-								
-						<script type="text/javascript">
-							var password, password2;
-
-							password = document.getElementById('password');
-							confirm = document.getElementById('confirm');
-							
-							password.onchange = confirm.onkeyup = passwordMatch;
-							
-							function passwordMatch() {
-							    if(password.value !== confirm.value)
-							        confirm.setCustomValidity('Las contraseñas deben coincidir.');
-							    else
-							        confirm.setCustomValidity('');
-							}
-						</script>	
-	<!--  PARA VALIDAR LOS PASSWORDS  --> 	
-												
 							</div>
 						</div>
 
 						<div class="form-group ">
 <!-- 							<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a> -->
-			</br>			 <button type="submit" class="btn btn-success btn-lg btn-primary btn-block">Registrar</button>
+						 <button type="submit" class="btn btn-success">Registrar</button>
 						</div>
 <!--             <button type="submit" class="btn btn-success">Registrar</button> -->						
-					</form:form> 					
+					</form:form> 
 				</div>
 			</div>
 		</div>
