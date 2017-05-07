@@ -17,7 +17,7 @@ public class ControladorLogin {
 
 	@Inject
 	private ServicioLogin servicioLogin;
-	/*
+	
 	@RequestMapping("/login")
 	public ModelAndView irALogin() {
 
@@ -48,40 +48,4 @@ public class ControladorLogin {
 	public ModelAndView inicio() {
 		return new ModelAndView("redirect:/login");
 	}
-	*/
-	
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/* login de farmaclik (hacer lo mismo que lo que dice el login de taller)*/
-	
-	@RequestMapping("/loginUsuario")
-	public ModelAndView irAloginFarmaclick() {
-
-		ModelMap modelo = new ModelMap();
-		Usuario usuario = new Usuario();
-		modelo.put("usuario", usuario);
-		return new ModelAndView("loginUsuario", modelo);
-	}
-	
-	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
-	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario) {
-		ModelMap model = new ModelMap();
-
-		if (servicioLogin.consultarUsuario(usuario) != null) {
-			return new ModelAndView("redirect:/home");
-		} else {
-			model.put("error", "Usuario o clave incorrecta");
-		}
-		return new ModelAndView("loginUsuario", model);
-	}
-	
-	@RequestMapping(path = "/home", method = RequestMethod.GET)
-	public ModelAndView irAHome() {
-		return new ModelAndView("home");
-	}
-	
-	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public ModelAndView inicio() {
-		return new ModelAndView("redirect:/loginUsuario");
-	}
-	
 }
