@@ -19,7 +19,7 @@ public class Farmacia {
 	public String getCuit() {
 		return cuit;
 	}
-	public void setCUIT(String cuit) {
+	public void setCuit(String cuit) {
 		this.cuit = cuit;
 	}
 	public String getRazonSocial() {
