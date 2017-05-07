@@ -37,7 +37,7 @@
 	          Iniciar Sesión <b class="caret"></b>
 	        </a>
 	        <ul class="dropdown-menu">
-	          <li><a href="#">Usuario</a></li>
+	          <li><a href="loginUsuario">Usuario</a></li>
 	          <li><a href="#">Farmacia</a></li>
 	        </ul>
 	      </li>
