@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 
@@ -20,7 +21,27 @@
 
 		<title>Registrar Farmacia</title>
 	</head>
+	
+	
 	<body>
+	<!--  PARA VALIDAR LOS PASSWORDS  --> 	
+								
+						<script type="text/javascript">
+							var password, password2;
+
+							password = document.getElementById('password');
+							confirm = document.getElementById('confirm');
+							
+							password.onchange = confirm.onkeyup = passwordMatch;
+							
+							function passwordMatch() {
+							    if(password.value !== confirm.value)
+							        confirm.setCustomValidity('Las contraseñas deben coincidir.');
+							    else
+							        confirm.setCustomValidity('');
+							}
+						</script>	
+	<!--  PARA VALIDAR LOS PASSWORDS  --> 	
 		<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
@@ -49,7 +70,8 @@
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									
 									
-									<input type="text" class="form-control" name="razonSocial" id="razonSocial"  placeholder="Ingrese razon social"/>
+									<input type="text" class="form-control" name="razonSocial" id="razonSocial"  placeholder="Ingrese razon social"
+									required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,15}" title="Mayor a 3 caracteres, menor a 20 y solo letras."/>
 								</div>
 							</div>
 						</div>
@@ -59,7 +81,8 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="cuit" id="cuit"  placeholder="Ingrese el CUIT"/>
+									<input type="text" class="form-control" name="cuit" id="cuit"  placeholder="Ingrese el CUIT"
+									required pattern="[0-9]{11,11}" title="CUIT incorrecto."/>
 								</div>
 							</div>
 						</div>
@@ -70,7 +93,8 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="telefono" id="telefono"  placeholder="Ingrese un telefono"/>
+									<input type="text" class="form-control" name="telefono" id="telefono"  placeholder="Ingrese un telefono"
+									required pattern="[0-9]{8,8}" title="Telefono incorrecto."/>
 								</div>
 							</div>
 						</div>
@@ -80,7 +104,9 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Ingrese un e-mail"/>
+									<input type="email" class="form-control" name="email" id="email"  placeholder="Ingrese un e-mail"
+									required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" 
+									title="Ej.: miFarmacia@mail.com"/>
 								</div>
 							</div>
 						</div>
@@ -90,7 +116,8 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Ingrese un password"/>
+									<input type="password" class="form-control" name="password" id="password"  placeholder="Ingrese un password"
+									required pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ!?¡¿*/%&$@-#+._-]{8,12}" title="Minimo 4 caracteres" />
 								</div>
 							</div>
 						</div>
@@ -100,7 +127,9 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Ingrese el password nuevamente"/>
+									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Ingrese el password nuevamente"
+									placeholder="Ingrese Su Password" required pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ!?¡¿*/%&$@-#+._-]{8,12}"
+									oninvalid="setCustomValidity('Ambos password deben coincidir.')"  />
 								</div>
 							</div>
 						</div>
