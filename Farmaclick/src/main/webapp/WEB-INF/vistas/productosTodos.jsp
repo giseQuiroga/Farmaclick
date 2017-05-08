@@ -51,49 +51,32 @@
 	    </form>
 	  </div>
 	</nav>
-		<div class = "container">
+	<div class = "container">
 			<div class="panel panel-default">
-			    <div class="panel-heading">Nuevo Producto</div>
+				<div class="panel-heading">Listado de Productos</div>
 			    <div class="panel-body">
-			    	<form:form action="listadoProductos" modelAttribute="producto" method="POST" class="form-horizontal" role="form">
-					  <div class="form-group">
-					    <label class="col-lg-2 control-label">Nombre:</label>
-					    <div class="col-lg-4">
-					      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
-					    </div>
-					    <label class="col-lg-2 control-label">Laboratorio:</label>
-					    <div class="col-lg-4">
-					      <input type="text" class="form-control" id="laboratorio" name="laboratorio" placeholder="Laboratorio">
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-lg-2 control-label">Código:</label>
-					    <div class="col-lg-4">
-					      <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código">
-					    </div>
-					    <label class="col-lg-2 control-label">Precio:</label>
-					    <div class="col-lg-4">
-					      <input type="text" class="form-control" id="precio" name="precio" placeholder="Precio">
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-lg-2 control-label">Acción Farmacológica:</label>
-					    <div class="col-lg-4">
-					      <textarea class="form-control" id="accion" name="accion" placeholder="Acción Farmacológica" rows="4"></textarea>
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <div class="col-lg-2 pull-right">
-					      <button type="submit" class="btn btn-success">Guardar</button>
-					    </div>
-					  </div>
-					</form:form>
+					<table class="table table-striped">
+						<thead>
+							<th>Codigo</th>
+							<th>Nombre del Producto</th>
+							<th>Laboratorio</th>
+							<th>Precio</th>
+							<th>Accion Farmacologica</th>
+						</thead>
+						<tbody>
+							<c:forEach begin="0" end="1" step="1" varStatus="loopCounter">
+								<tr>
+									<td><c:out value="${producto.codigo}"/> </td> 
+									<td><c:out value="${producto.nombre}"/> </td>
+									<td><c:out value="${producto.laboratorio}"/> </td> 
+									<td><c:out value="${producto.precio}"/> </td>
+									<td><c:out value="${producto.accion}"/> </td>
+								</tr> 
+							</c:forEach> 
+						</tbody>
+					</table>	
 				</div>
 			</div>
 		</div>
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-		<script src="js/bootstrap.min.js" type="text/javascript"></script>
-	</body>
+</body>
 </html>
