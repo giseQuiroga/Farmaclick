@@ -1,5 +1,8 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,7 +22,7 @@ public class ControladorProductos {
 	}
 	
 	@RequestMapping(path = "/listadoProductos", method = RequestMethod.POST)
-	public ModelAndView validarRegistroFarmacia(@ModelAttribute("producto") Producto producto){
+	public ModelAndView validarRegistroProducto(@ModelAttribute("producto") Producto producto){
 		ModelMap model = new ModelMap();
 		
 		/*aca se debe registrar*/
@@ -30,7 +33,9 @@ public class ControladorProductos {
 		nuevoProducto.setPrecio(producto.getPrecio());
 		nuevoProducto.setAccion(producto.getAccion());
 		
-		model.put("nuevoProducto", nuevoProducto);
+		List<Producto> lista= new LinkedList<Producto>();
+		lista.add(nuevoProducto);
+		model.put("lista", lista);
 		
 		return new ModelAndView("productosTodos", model);
 	}

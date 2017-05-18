@@ -64,13 +64,13 @@
 							<th>Accion Farmacologica</th>
 						</thead>
 						<tbody>
-							<c:forEach begin="0" end="1" step="1" varStatus="loopCounter">
+							<c:forEach items="${lista}" var="item">
 								<tr>
-									<td><c:out value="${producto.codigo}"/> </td> 
-									<td><c:out value="${producto.nombre}"/> </td>
-									<td><c:out value="${producto.laboratorio}"/> </td> 
-									<td><c:out value="${producto.precio}"/> </td>
-									<td><c:out value="${producto.accion}"/> </td>
+									<td><c:out value="${item.codigo}"/> </td> 
+									<td><c:out value="${item.nombre}"/> </td>
+									<td><c:out value="${item.laboratorio}"/> </td> 
+									<td><c:out value="${item.precio}"/> </td>
+									<td><c:out value="${item.accion}"/> </td>
 								</tr> 
 							</c:forEach> 
 						</tbody>
