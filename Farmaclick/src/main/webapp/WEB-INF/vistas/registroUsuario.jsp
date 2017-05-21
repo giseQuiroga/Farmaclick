@@ -20,34 +20,22 @@
 		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-					<c:if test="${not empty error}">
-			        <h4><span>${error}</span></h4>
-			        <br>
-		    		</c:if>	
+						
 
 		<title>Registrar Usuario</title>
 	</head>
 	<body>
-	
+
 		<div class="container">
-			<div class="row main">
-				<div class="main-login main-center">
-				<h1>Registrar Usuario.</h1>
+			<div>
+				<div>
+					<div class="bg-primary text-center" style="margin-top:50px; border-top-right-radius: 7px; border-top-left-radius: 7px;">
+					</br>
+					<h2>REGISTRAR USUARIO</h2>
+					</br>
+				</div>
+				</br>
 					<form:form action="registrar-usuario" method="POST" modelAttribute="usuario">
-
-<!--         <label for="email">Ingresar Correo Electronico</label> -->
-<%--         <form:input path="email" id="email" type="email" class="form-control"/> --%>
-
-<!--         <br> -->
-<!--         <label for="password">Ingresar Contraseña</label> -->
-<%--         <form:input path="password" type="password" id="password" class="form-control"/> --%>
-
-<!--         <br> -->
-
-<!--         <div class="form-group col-lg-12"> -->
-<!--             <button type="submit" class="btn btn-success">Registrar</button> -->
-<!--         </div> -->
-						
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Su Nombre</label>
 							<div class="cols-sm-10">
@@ -65,7 +53,7 @@
 							<label for="username" class="cols-sm-2 control-label">Su Apellido</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="apellido" id="apellido"  placeholder="Ingrese su apellido" required 
 									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{0,15}" title="Mayor a 3 caracteres, menor a 15 y solo letras." />
 								</div>
@@ -91,7 +79,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
 									<input type="password" class="form-control" name="password" id="password"  
-									placeholder="Ingrese Su Password" required pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ!?¡¿*/%&$@-#+._-]{8,12}"
+									placeholder="Ingrese su Password" required pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ!?¡¿*/%&$@-#+._-]{8,12}"
 									title="Minimo 4 caracteres" />
 								</div>
 							</div>
@@ -102,7 +90,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Ingrese Su Password" required 
+									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Ingrese su Password" required 
 									pattern="[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ!?¡¿*/%&$@-#+._-]{8,12}"
 									oninvalid="setCustomValidity('Password y Reingrese Password deben coincidir.')" />
 								</div>
@@ -128,7 +116,12 @@
 												
 							</div>
 						</div>
-
+						<div class="text-center text-danger">
+							<c:if test="${not empty error}">
+						        <h2><span><strong>${error}</strong></span></h2>
+				    		</c:if>
+				    	</div>
+						
 						<div class="form-group ">
 <!-- 							<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a> -->
 			</br>			 <button type="submit" class="btn btn-success btn-lg btn-primary btn-block">Registrar</button>

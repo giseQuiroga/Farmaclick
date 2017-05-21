@@ -2,6 +2,8 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,9 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.servicios.ServicioRegistroUsuario;
 
 @Controller
 public class ControladorRegistroUsuario {
+	
+	@Inject
+	private ServicioRegistroUsuario servicioRegistroUsuario;
+	
 	ArrayList <Usuario> registroUsuario = new ArrayList<Usuario>();
 
 /* Me manda a la vista del Registro de Usuario */
@@ -93,7 +100,7 @@ public class ControladorRegistroUsuario {
 			
 			/* Si lo encuentro me lleva otra vez al registro, si no me lleva a un jsp OK */
 			if(encontro == 1){
-				model.put("error", "Usuario ya registrado.");
+				model.put("error", "Usuario registrado, Intente con otro Email.");
 				return new ModelAndView("registroUsuario", model);
 			} else {
 				misRegistros.add(nuevoUsuario);
