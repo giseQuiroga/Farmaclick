@@ -1,5 +1,9 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.ArrayList;
+
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,10 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.servicios.ServicioRegistroFarmacia;
 
 @Controller
 public class ControladorRegistroFarmacia {
-	/*ArrayList <Usuario> registroUsuario = new ArrayList<Usuario>();*/
+	
+	@Inject
+	private ServicioRegistroFarmacia servicioRegistroFarmacia;
 	
 /* Me manda a la vista del Registro de Farmacia */
 		@RequestMapping("/registroFarmacia")
@@ -24,16 +32,19 @@ public class ControladorRegistroFarmacia {
 		@RequestMapping(path = "/confirmarRegistroFarmacia", method = RequestMethod.POST)
 		public ModelAndView validarRegistroFarmacia(@ModelAttribute("farmacia") Farmacia farmacia){
 			ModelMap model = new ModelMap();
+			//resultadoRegistroFarmacia
+			model.put("farmacia", farmacia);
+			String mensaje;
+			if (servicioRegistroFarmacia.verificarFarmaciaExistente(farmacia) == false){
+				mensaje = "El CUIT ingresado ya esta registrado.";
+				model.put("mensaje", mensaje);
+				return new ModelAndView("registroFarmacia", model);
+			}
+			if (servicioRegistroFarmacia.verificarFarmaciaExistente(farmacia) == true){
+				mensaje = "Se registro correctamente la Farmacia.";
+				model.put("mensaje", mensaje);
+			}
 			
-			/*aca se debe registrar*/
-			Farmacia nuevaFarmacia = new Farmacia();
-			nuevaFarmacia.setCuit(farmacia.getCuit());
-			nuevaFarmacia.setRazonSocial(farmacia.getRazonSocial());
-			nuevaFarmacia.setTelefono(farmacia.getTelefono());
-			nuevaFarmacia.setEmail(farmacia.getEmail());
-			nuevaFarmacia.setPassword(farmacia.getPassword());
-			
-			model.put("nuevaFarmacia", nuevaFarmacia);
 			
 			return new ModelAndView("confirmarRegistroFarmacia", model);
 		}

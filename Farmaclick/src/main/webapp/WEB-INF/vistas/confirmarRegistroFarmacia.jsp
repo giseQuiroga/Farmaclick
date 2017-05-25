@@ -3,14 +3,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Farmacia ${farmacia.razonSocial}</title>
+<title></title>
 </head>
 <body>
  </br>
- <h2>Farmacia ${farmacia.razonSocial} registrada correctamente</h2></br></br>
-CUIT: ${farmacia.cuit} </br>
-Telefono: ${farmacia.telefono} </br>
-E-mail: ${farmacia.email} </br>
-Password: ${farmacia.password} </br>
+ <h2>${mensaje}</h2></br></br>
 </body>
 </html>
