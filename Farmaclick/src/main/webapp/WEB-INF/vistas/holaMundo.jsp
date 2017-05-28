@@ -13,18 +13,24 @@
 </head>
 <body>
 
-<span>Usted se ha registrado correctamente</span></br></br>
-
-	<table class="table table-bordered table-responsive table-hover">
-		<tr>
-			<td>Nombre</td><td>Apellido</td><td>Email</td>
-		</tr>
+	<div class="container">
+		<div class="text-center text-danger bg-primary" style="margin-top:50px; border-top-right-radius: 7px; border-top-left-radius: 7px;">
+		</br>
+			<span><h2>Usted se ha registrado correctamente</h2></span></br>
+		</div>
+		
+		</br>
+			<table class="table table-bordered table-responsive table-hover">
 				<tr>
-					<td><c:out value="${usuarioNuevoRegistrado.nombre}"></c:out></td>
-					<td><c:out value="${usuarioNuevoRegistrado.apellido}"></c:out></td>
-					<td><c:out value="${usuarioNuevoRegistrado.email}"></c:out></td>
-				</tr>	
-		</table></br>
-		<a href="loginUsuario" class="btn btn-notice btn-lg btn-primary">Ir al Login</a>
+					<td>Nombre</td><td>Apellido</td><td>Email</td>
+				</tr>
+						<tr>
+							<td><c:out value="${usuarioNuevoRegistrado.nombre}"></c:out></td>
+							<td><c:out value="${usuarioNuevoRegistrado.apellido}"></c:out></td>
+							<td><c:out value="${usuarioNuevoRegistrado.email}"></c:out></td>
+						</tr>	
+				</table>
+				<a href="loginUsuario" class="btn btn-success btn-lg btn-block">Ir al Login</a>
+	</div>
 </body>
 </html>
