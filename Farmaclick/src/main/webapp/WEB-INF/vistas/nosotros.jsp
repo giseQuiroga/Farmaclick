@@ -43,7 +43,6 @@
 			      		<ul class="dropdown-menu">
 				          <li><a href="productosTodos">Listado de medicamentos</a></li>
 				          <li><a href="#">Buscar por genérico</a></li>
-				          <li><a href="altaProducto">Agregar Producto</a></li>
 				        </ul>
 				    </li>
 				    
@@ -57,53 +56,28 @@
 			    </form>
 			  </div>
 			</nav>
-		<!-- inicio de carrusel -->
-		<div id="carruselHome" class="carousel slide" data-ride="carousel">
-		<h2>Farmacias y medicamentos a un click de distancia</h2><br><br>
-		  <!-- Indicators -->
-		  <ol class="carousel-indicators">
-		    <li data-target="#carruselHome" data-slide-to="0" class="active"></li>
-		    <li data-target="#carruselHome" data-slide-to="1"></li>
-		    <li data-target="#carruselHome" data-slide-to="2"></li>
-		    <li data-target="#carruselHome" data-slide-to="3"></li>
-		    <li data-target="#carruselHome" data-slide-to="4"></li>
-		    <li data-target="#carruselHome" data-slide-to="5"></li>
-		  </ol>
-		
-		  <!-- Wrapper for slides -->
-		 <div class="carousel-inner">
-		    <div class="item active">
-		      <img src="img1.jpg" alt="Servicio eficiente">
-		    </div>
-		
-		    <div class="item">
-		      <img src="img2.jpg" alt="Estamos para ayudar">
-		    </div>
-		
-		    <div class="item">
-		      <img src="img3.jpg" alt="Sencillo y rápido">
-		    </div>
-		    
-		    <div class="item">
-		    <img src="img4.jpg" alt="Al alcance de nuestros clientes">
-		    </div>
-		    
-		    <div class="item">
-		    <img src="img5.jpg" alt="Aceptamos todos los medios de pago">
-		    </div>
-		 </div>
-		
-		  <!-- Left and right controls -->
-		  <a class="left carousel-control" href="#carruselHome" data-slide="prev">
-		    <span class="glyphicon glyphicon-chevron-left"></span>
-		    <span class="sr-only">Atras</span>
-		  </a>
-		  <a class="right carousel-control" href="#carruselHome" data-slide="next">
-		    <span class="glyphicon glyphicon-chevron-right"></span>
-		    <span class="sr-only">Siguiente</span>
-		  </a>
-		</div>	
-		 
+		<!-- descripcion -->
+			<div class="descripcion">
+				<h2>Nuestra misión</h2>
+				<h3>Revolucionar el mercado farmacéutico, acercando al cliente farmacias, medicamentos y otros productos 
+				solicitados, por medio de una aplicación que simplifica la transacción</h3>
+				
+				<h2>Nuestros clientes:</h2>
+				<h3><li>Farmacity</li></h3>
+				<h3><li>Farmacia Azul</li></h3>
+				<h3><li>Farmacia Paseo Liniers</li></h3>
+				<h3><li>Farmacia Central Oeste</li></h3>
+				<h3><li>Farmacias TKL</li></h3>	
+			
+				<h2>Nuestro grupo de trabajo:</h2>
+				<h3>Formado por 5 estudiantes de la Universidad Nacional de La Matanza, 
+				con ganas de innovar y brindar el mejor servicio a todo aquel que lo solicite.</h3>
+					<h3><li>Bareiro, Rocío</li></h3>
+					<h3><li>Castañer Vivas, Rocío</li></h3>
+					<h3><li>García, Pablo</li></h3>
+					<h3><li>Martinez, Matías</li></h3>
+					<h3><li>Quiroga, Gisela</li></h3>
+			</div>	 
 		</div>
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>

@@ -38,7 +38,7 @@
 	        </a>
 	        <ul class="dropdown-menu">
 	          <li><a href="loginUsuario">Usuario</a></li>
-	          <li><a href="#">Farmacia</a></li>
+	          <li><a href="listaFarmacias">Farmacia</a></li>
 	        </ul>
 	      </li>
 	    </ul>
