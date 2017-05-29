@@ -65,19 +65,17 @@ public class ControladorLogin {
 	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
 	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario) {
 		ModelMap model = new ModelMap();
-
-		if (servicioLogin.consultarUsuario(usuario) != null) {
-			return new ModelAndView("redirect:/home");
-		} else {
-			model.put("error", "Usuario o clave incorrecta");
+		//Logica de negocio en Servicio
+		
+		if (servicioLogin.consultarUsuario(usuario) == true){
+			return new ModelAndView("home", model);
 		}
-		return new ModelAndView("loginUsuario", model);
-	}
-	
-	@RequestMapping(path = "/home", method = RequestMethod.GET)
-	public ModelAndView irAHome() {
-		return new ModelAndView("home");
-	}
+		else{
+			model.put("error", "Email o Contraseña Incorrecta.");
+			return new ModelAndView("loginUsuario", model);
+		}
+	}	
+		
 	
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public ModelAndView inicio() {

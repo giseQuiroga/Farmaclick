@@ -16,7 +16,7 @@
 	<div class="container">
 		<div class="text-center text-danger bg-primary" style="margin-top:50px; border-top-right-radius: 7px; border-top-left-radius: 7px;">
 		</br>
-			<span><h2>Usted se ha registrado correctamente</h2></span></br>
+		<span><h2>Usted se ha registrado correctamente</h2></span></br>
 		</div>
 		
 		</br>
@@ -33,4 +33,4 @@
 				<a href="loginUsuario" class="btn btn-success btn-lg btn-block">Ir al Login</a>
 	</div>
 </body>
-</html>
+</html> 

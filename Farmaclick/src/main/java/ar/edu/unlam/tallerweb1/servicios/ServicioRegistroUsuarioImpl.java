@@ -60,9 +60,9 @@ public class ServicioRegistroUsuarioImpl implements ServicioRegistroUsuario {
 		Usuario usuarioAIngresar5 = new Usuario();
 		usuarioAIngresar5.setId(1);
 		usuarioAIngresar5.setNombre("Rocio");
-		usuarioAIngresar5.setApellido("Castaï¿½er");
-		usuarioAIngresar5.setEmail("castaï¿½er@gmail.com");
-		usuarioAIngresar5.setPassword("castaï¿½er");		
+		usuarioAIngresar5.setApellido("Castañer");
+		usuarioAIngresar5.setEmail("castañer@gmail.com");
+		usuarioAIngresar5.setPassword("castañer");		
 		misRegistros.add(usuarioAIngresar5);
 		
 		Boolean resultadoRegistroUsuario = null;

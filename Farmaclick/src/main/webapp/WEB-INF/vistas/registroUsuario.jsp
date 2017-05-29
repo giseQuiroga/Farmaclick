@@ -48,7 +48,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									
+								
 									
 									<input type="text" value="${usuarioIngresado.nombre}" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre" required 
 									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{5,15}" title="Mayor a 3 caracteres, menor a 15 y solo letras."/>
@@ -59,7 +59,7 @@
 						<div class="form-group">
 							<label for="username" class="cols-sm-2 control-label">Su Apellido</label>
 							<div class="cols-sm-10">
-								<div class="input-group">
+							<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									<input type="text" value="${usuarioIngresado.apellido}" class="form-control" name="apellido" id="apellido"  placeholder="Ingrese su apellido" required 
 									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{0,15}" title="Mayor a 3 caracteres, menor a 15 y solo letras." />
@@ -139,4 +139,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 	</body>
-</html>
+</html> 
