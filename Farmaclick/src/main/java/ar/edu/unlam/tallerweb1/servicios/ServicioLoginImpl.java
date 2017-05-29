@@ -64,8 +64,8 @@ public class ServicioLoginImpl implements ServicioLogin {
 		usuarioAIngresar5.setId(1);
 		usuarioAIngresar5.setNombre("Rocio");
 		usuarioAIngresar5.setApellido("Castañer");
-		usuarioAIngresar5.setEmail("castañer@gmail.com");
-		usuarioAIngresar5.setPassword("castañer");		
+		usuarioAIngresar5.setEmail("castaner@gmail.com");
+		usuarioAIngresar5.setPassword("castaner");		
 		misRegistros.add(usuarioAIngresar5);
 		
 		
@@ -105,15 +105,12 @@ public class ServicioLoginImpl implements ServicioLogin {
 				        return resultadoLogin;
 				    }
 					else{
-						/*Else de farmacia*/
-						resultadoLogin = false;
-						return resultadoLogin;
+						/*Else de farmacia */
 						}	
 				}
-				/*Else de usuario*/
-				resultadoLogin = false;
-				return resultadoLogin;
+				/*Else de usuario */
 			}
+			resultadoLogin = false;
 		 }
 		
 		return resultadoLogin;

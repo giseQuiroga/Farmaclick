@@ -42,7 +42,8 @@ public class ControladorRegistroUsuario {
 			}
 			else{
 				model.put("usuarioNuevoRegistrado", usuario);
+				return new ModelAndView("holaMundo", model);
 			}
-			return new ModelAndView("holaMundo", model);
+			
 		}	
 }

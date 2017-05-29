@@ -61,8 +61,8 @@ public class ServicioRegistroUsuarioImpl implements ServicioRegistroUsuario {
 		usuarioAIngresar5.setId(1);
 		usuarioAIngresar5.setNombre("Rocio");
 		usuarioAIngresar5.setApellido("Castañer");
-		usuarioAIngresar5.setEmail("castañer@gmail.com");
-		usuarioAIngresar5.setPassword("castañer");		
+		usuarioAIngresar5.setEmail("castaner@gmail.com");
+		usuarioAIngresar5.setPassword("castaner");		
 		misRegistros.add(usuarioAIngresar5);
 		
 		Boolean resultadoRegistroUsuario = null;
@@ -73,20 +73,19 @@ public class ServicioRegistroUsuarioImpl implements ServicioRegistroUsuario {
 			if (usuarioComparado.getEmail().equals(usuario.getEmail())) {
 				resultadoRegistroUsuario = false;
 		        return resultadoRegistroUsuario;
-		    }
-			else{
-				/* Comparo a ver si mi usuario esta en la lista */
-				Usuario nuevoUsuario = new Usuario();
-				nuevoUsuario.setNombre(usuario.getNombre());
-				nuevoUsuario.setApellido(usuario.getApellido());
-				nuevoUsuario.setEmail(usuario.getEmail());
-				nuevoUsuario.setPassword(usuario.getPassword());
-				
-				misRegistros.add(nuevoUsuario);
-				
-				return resultadoRegistroUsuario = true;
-			}
+		    }	
+			resultadoRegistroUsuario = true;
 		 }
+		
+		if(resultadoRegistroUsuario == true){
+			/* Agrego mi usuario */
+			Usuario nuevoUsuario = new Usuario();
+			nuevoUsuario.setNombre(usuario.getNombre());
+			nuevoUsuario.setApellido(usuario.getApellido());
+			nuevoUsuario.setEmail(usuario.getEmail());
+			nuevoUsuario.setPassword(usuario.getPassword());		
+			misRegistros.add(nuevoUsuario);	
+			}
 		
 		return resultadoRegistroUsuario;
 	}	
