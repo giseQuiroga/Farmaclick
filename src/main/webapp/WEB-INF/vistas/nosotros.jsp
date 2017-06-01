@@ -10,7 +10,7 @@
 		<div class = "container">
 				
 			<h1>¡Bienvenidos a FarmaClick!</h1>
-			<!-- ACÁ VA EL LOGO -->	
+			<!-- ACÁ VA EL LOGO QUE ECLIPSE NO MUESTRA-->	
 			 <nav class="navbar navbar-default">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
@@ -58,18 +58,18 @@
 			</nav>
 		<!-- descripcion -->
 			<div class="descripcion">
-				<h2>Nuestra misión</h2>
+				<h2><strong>Nuestra misión</h2>
 				<h3>Revolucionar el mercado farmacéutico, acercando al cliente farmacias, medicamentos y otros productos 
 				solicitados, por medio de una aplicación que simplifica la transacción</h3>
 				
-				<h2>Nuestros clientes:</h2>
+				<h2><strong>Nuestros clientes:</h2>
 				<h3><li>Farmacity</li></h3>
 				<h3><li>Farmacia Azul</li></h3>
 				<h3><li>Farmacia Paseo Liniers</li></h3>
 				<h3><li>Farmacia Central Oeste</li></h3>
 				<h3><li>Farmacias TKL</li></h3>	
 			
-				<h2>Nuestro grupo de trabajo:</h2>
+				<h2><strong>Nuestro grupo de trabajo:</h2>
 				<h3>Formado por 5 estudiantes de la Universidad Nacional de La Matanza, 
 				con ganas de innovar y brindar el mejor servicio a todo aquel que lo solicite.</h3>
 					<h3><li>Bareiro, Rocío</li></h3>
