@@ -43,7 +43,7 @@
 			      		<ul class="dropdown-menu">
 				          <li><a href="productosTodos">Listado de medicamentos</a></li>
 				          <li><a href="#">Buscar por genérico</a></li>
-				          <li><a href="altaProducto">Agregar Producto</a></li>
+				          <li><a href="alta">Agregar Producto</a></li>
 				        </ul>
 				    </li>
 				    
