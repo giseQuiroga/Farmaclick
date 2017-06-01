@@ -82,4 +82,22 @@ public class ControladorLogin {
 		return new ModelAndView("redirect:/loginUsuario");
 	}
 	
+	@RequestMapping ("/home")
+	public ModelAndView home(){
+		ModelMap model = new ModelMap();
+		return new ModelAndView("home", model);
+	}
+	
+	@RequestMapping ("/nosotros")
+	public ModelAndView nosotros(){
+		ModelMap model = new ModelMap();
+		return new ModelAndView("nosotros", model);
+	}
+	
+	@RequestMapping ("/listaFarmacias")
+	public ModelAndView listaFarmacias(){
+		ModelMap model = new ModelMap();
+		return new ModelAndView ("listaFarmacias", model);
+	}
+	
 }
