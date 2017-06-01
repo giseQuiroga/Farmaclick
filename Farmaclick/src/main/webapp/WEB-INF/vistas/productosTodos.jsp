@@ -64,7 +64,7 @@
 							<th>Accion Farmacologica</th>
 						</thead>
 						<tbody>
-							<c:forEach items="${lista}" var="item">
+							<c:forEach items="${listaProductos}" var="item">
 								<tr>
 									<td><c:out value="${item.codigo}"/> </td> 
 									<td><c:out value="${item.nombre}"/> </td>
