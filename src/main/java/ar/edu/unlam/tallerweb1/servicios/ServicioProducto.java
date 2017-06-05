@@ -4,5 +4,5 @@ import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 public interface ServicioProducto {
 
-	Producto verificarProducto(Producto producto);
+	Boolean verificarProducto(Producto producto);
 }

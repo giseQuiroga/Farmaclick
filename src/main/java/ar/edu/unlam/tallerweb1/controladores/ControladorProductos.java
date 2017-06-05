@@ -3,6 +3,8 @@ package ar.edu.unlam.tallerweb1.controladores;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,9 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Producto;
+import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
+import ar.edu.unlam.tallerweb1.servicios.ServicioRegistroFarmacia;
 
 @Controller
 public class ControladorProductos {
+	
+	@Inject
+	private ServicioProducto servicioProducto;
 
 	@RequestMapping("/alta")
 	public ModelAndView altaProducto(){
@@ -24,19 +31,21 @@ public class ControladorProductos {
 	@RequestMapping(path = "/listadoProductos", method = RequestMethod.POST)
 	public ModelAndView validarRegistroProducto(@ModelAttribute("producto") Producto producto){
 		ModelMap model = new ModelMap();
+		//resultadoRegistroFarmacia
+		model.put("producto", producto);
+		String mensaje;
+		if (!servicioProducto.verificarProducto(producto)){
+			mensaje = "El producto ingresado ya esta registrado.";
+			model.put("mensaje", mensaje);
+			return new ModelAndView("existeProducto", model);
+		}
+		else{
+			List<Producto> listaProductos=new LinkedList<Producto>();
+			listaProductos.add(producto);
+			model.put("listaProductos", listaProductos);
+			return new ModelAndView("productosTodos", model);
+		}
 		
-		/*aca se debe registrar*/
-		Producto nuevoProducto = new Producto();
-		nuevoProducto.setCodigo(producto.getCodigo());
-		nuevoProducto.setNombre(producto.getNombre());
-		nuevoProducto.setLaboratorio(producto.getLaboratorio());
-		nuevoProducto.setPrecio(producto.getPrecio());
-		nuevoProducto.setAccion(producto.getAccion());
 		
-		List<Producto> lista= new LinkedList<Producto>();
-		lista.add(nuevoProducto);
-		model.put("lista", lista);
-		
-		return new ModelAndView("productosTodos", model);
 	}
 }
