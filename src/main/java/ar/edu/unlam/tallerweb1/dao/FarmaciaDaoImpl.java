@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 
-@Service("farmaciaDao")
+@Service("FarmaciaDao")
 public class FarmaciaDaoImpl implements FarmaciaDao {
 	
 	@Inject
