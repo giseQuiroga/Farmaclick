@@ -10,12 +10,20 @@ public class Farmacia {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; 
 	private String cuit;
 	private String razonSocial;
 	private Integer telefono;
 	private String email;
 	private String password;
 	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getCuit() {
 		return cuit;
 	}

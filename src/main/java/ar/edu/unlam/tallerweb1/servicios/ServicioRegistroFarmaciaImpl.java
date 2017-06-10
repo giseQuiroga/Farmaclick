@@ -2,15 +2,21 @@ package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.edu.unlam.tallerweb1.dao.FarmaciaDao;
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 
 @Service("ServicioRegistroFarmacia")
 @Transactional
 public class ServicioRegistroFarmaciaImpl implements ServicioRegistroFarmacia{
 
+	@Inject
+	private FarmaciaDao farmaciaDao;
+	
 	public Boolean verificarFarmaciaExistente (Farmacia farmacia) {
 		
 		/* Hardcodeo Farmacias ya registradas */
@@ -31,15 +37,15 @@ public class ServicioRegistroFarmaciaImpl implements ServicioRegistroFarmacia{
 		f2.setEmail("f2@gmail.com");
 		f2.setPassword("farmacia2");		
 		farmaciasRegistradas.add(f2);
+		Boolean resultadoRegistroFarmacia = true;
 		
 		for(Farmacia cadaFarmacia : farmaciasRegistradas){
 			if (cadaFarmacia.getCuit().equals(farmacia.getCuit())){
-				Boolean resultadoRegistroFarmacia = false;
+				resultadoRegistroFarmacia = false;
 				return resultadoRegistroFarmacia;
 			}
-			
 		}
-		Boolean resultadoRegistroFarmacia = true;
+		farmaciaDao.guardarFarmaciaNueva(farmacia);
 		return resultadoRegistroFarmacia;	
 		
 	}
