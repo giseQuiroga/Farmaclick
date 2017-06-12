@@ -20,7 +20,7 @@
 			<form:form action="procesarBusqueda" method="POST" modelAttribute="productoBuscado">  
 				<div class="col-md-5">			
 					<label for="nombre">Buscar Producto</label>
-					<form:input path="nombre" id="nombre" type="text" class="form-control" />
+					<input path="nombre" id="nombre" type="text" class="form-control" />
 				</div>
 				<div class="col-md-1">
 					<br>				

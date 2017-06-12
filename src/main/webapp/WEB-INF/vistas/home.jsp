@@ -59,15 +59,17 @@
 			    
 			    <li><a href="nosotros">Sobre nosotros</a></li>   
 		    </ul>
+		    
 		    <!-- Buscador -->
 			<form:form class="navbar-form navbar-left" action="procesarBusqueda" method="POST" modelAttribute="productoBuscado">  
 				<div class="form-group">									
-					<form:input path="nombre" id="nombre" type="text" class="form-control" placeholder="Buscar..."/>
+					<input path="nombre" name="nombre" id="nombre" type="text" class="form-control" placeholder="Buscar..."/>
 				</div>
 				<button class="btn btn-info btn-lg" name="Submit" type="Submit">
 					<span class="glyphicon glyphicon-search"></span>  
 				</button>
 			</form:form>
+			
 			<!-- Viejo buscador (sin funcion)-->
 		    <!--form class="navbar-form navbar-left">
 		      <div class="form-group">
