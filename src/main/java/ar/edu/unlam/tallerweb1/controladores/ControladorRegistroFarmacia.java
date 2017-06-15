@@ -40,10 +40,10 @@ public class ControladorRegistroFarmacia {
 				model.put("mensaje", mensaje);
 				return new ModelAndView("registroFarmacia", model);
 			}
-			if (servicioRegistroFarmacia.verificarFarmaciaExistente(farmacia) == true){
+			
 				mensaje = "Se registro correctamente la Farmacia.";
 				model.put("mensaje", mensaje);
-			}
+			
 			
 			
 			return new ModelAndView("confirmarRegistroFarmacia", model);
