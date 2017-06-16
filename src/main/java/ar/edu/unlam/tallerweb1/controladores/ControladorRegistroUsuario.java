@@ -36,7 +36,7 @@ public class ControladorRegistroUsuario {
 			//Logica de negocio en Servicio
 			model.put("usuarioIngresado", usuario);
 			
-			if (servicioRegistroUsuario.buscarUsuario(usuario) == false){
+			if (servicioRegistroUsuario.buscarUsuario(usuario) == true){
 				model.put("error", "Usuario registrado, Intente con otro Email.");
 				return new ModelAndView("registroUsuario", model);
 			}

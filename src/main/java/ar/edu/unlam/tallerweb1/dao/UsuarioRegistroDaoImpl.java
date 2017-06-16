@@ -15,15 +15,6 @@ import ar.edu.unlam.tallerweb1.modelo.Usuario;
 public class UsuarioRegistroDaoImpl implements UsuarioRegistroDao {
 	@Inject
     private SessionFactory sessionFactory;
-
-	/*
-	/*Para buscar al usuario OPCION 1
-	@Override
-	public void buscarUsuario(Usuario usuario) {
-		final Session session = sessionFactory.getCurrentSession();
-		session.contains(usuario); /*no se si es contains
-	}
-	*/
 	
 	/*Para buscar usuario OPCION 2*/
 	@Override
