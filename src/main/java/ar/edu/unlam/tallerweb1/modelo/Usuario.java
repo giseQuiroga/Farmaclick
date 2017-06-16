@@ -15,13 +15,6 @@ public class Usuario {
 	private String apellido;
 	private String email;
 	private String password;
-	
-	/*Direccion del usuario
-	private String direccion;
-	private int numero;
-	private String barrio;
-	private String ciudad;
-	*/
 
 	/*GETTERS & SETTERS*/	
 	

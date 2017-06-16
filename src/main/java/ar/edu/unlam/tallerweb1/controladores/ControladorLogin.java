@@ -51,7 +51,7 @@ public class ControladorLogin {
 	*/
 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/* login de farmaclik (hacer lo mismo que lo que dice el login de taller)*/
+	/* login de farmaclick (hacer lo mismo que lo que dice el login de taller)*/
 	
 	@RequestMapping("/loginUsuario")
 	public ModelAndView irAloginFarmaclick() {

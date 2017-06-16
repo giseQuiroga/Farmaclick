@@ -16,8 +16,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
     private SessionFactory sessionFactory;
 
 	@Override
-	public Usuario consultarUsuario(Usuario usuario) {
-
+	public Usuario consultaUsuario(Usuario usuario) {
 		final Session session = sessionFactory.openSession();
 		return (Usuario) session.createCriteria(Usuario.class)
 				.add(Restrictions.eq("email", usuario.getEmail()))
