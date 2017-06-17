@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
-import ar.edu.unlam.tallerweb1.servicios.ServicioRegistroFarmacia;
+import ar.edu.unlam.tallerweb1.servicios.ServicioFarmacia;
 
 @Controller
 public class ControladorProductos {

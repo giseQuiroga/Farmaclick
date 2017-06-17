@@ -84,7 +84,7 @@
 						</div>
 
 						<div class="form-group">
-						${mensaje}</br>
+						${mensajeConfirmacionRegistroFarmaciaNueva}</br>
 							<label for="cuit" class="cols-sm-2 control-label">CUIT</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
