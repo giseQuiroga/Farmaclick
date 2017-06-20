@@ -48,10 +48,8 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-								
-									
 									<input type="text" value="${usuarioIngresado.nombre}" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre" required 
-									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{5,15}" title="Mayor a 3 caracteres, menor a 15 y solo letras."/>
+									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]{3,30}" title="Mayor a 2 caracteres, menor a 15 y solo letras."/>
 								</div>
 							</div>
 						</div>
@@ -62,7 +60,7 @@
 							<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									<input type="text" value="${usuarioIngresado.apellido}" class="form-control" name="apellido" id="apellido"  placeholder="Ingrese su apellido" required 
-									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{0,15}" title="Mayor a 3 caracteres, menor a 15 y solo letras." />
+									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]{0,30}" title="Mayor a 3 caracteres, menor a 15 y solo letras." />
 								</div>
 							</div>
 						</div>
@@ -76,6 +74,39 @@
 									<input type="email" value="${usuarioIngresado.email}" class="form-control" name="email" id="email" placeholder="Ingrese su Email" required 
 									pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" 
 									title="Ej.: miUsuario@gmail.com"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="adress" class="cols-sm-2 control-label">Dirección</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-wpforms" aria-hidden="true"></i></span>
+									<input type="text" value="${usuarioIngresado.direccion}" class="form-control" name="direccion" id="direccion" placeholder="Ingrese su direccion" required 
+									pattern="[a-zA-Z0-9 ñÑáéíóúÁÉÍÓÚ]{3,15}" title="Mayor a 3 caracteres, menor a 15 y solo letras."/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="city" class="cols-sm-2 control-label">Ciudad</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-home" aria-hidden="true"></i></span>
+									<input type="text" value="${usuarioIngresado.ciudad}" class="form-control" name="ciudad" id="ciudad" placeholder="Ingrese su ciudad" required 
+									pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]{5,30}" title="Mayor a 4 caracteres, menor a 15 y solo letras."/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="telephone" class="cols-sm-2 control-label">Teléfono</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+									<input type="text" value="${usuarioIngresado.telefono}" class="form-control" name="telefono" id="telefono" placeholder="Ingrese su teléfono" required 
+									pattern="[0-9]{5,10}" title="Mayor a 6 caracteres, menor a 11 y solo números"/>
 								</div>
 							</div>
 						</div>

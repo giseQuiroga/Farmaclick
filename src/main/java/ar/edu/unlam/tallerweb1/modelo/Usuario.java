@@ -15,7 +15,12 @@ public class Usuario {
 	private String apellido;
 	private String email;
 	private String password;
-
+	
+	/*DIRECCION DEL USUARIO*/
+	private String direccion;
+	private String ciudad;
+	private long telefono;
+	
 	/*GETTERS & SETTERS*/	
 	
 	public int getId() {
@@ -48,5 +53,22 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	public String getCiudad() {
+		return ciudad;
+	}
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+	public long getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(long telefono) {
+		this.telefono = telefono;
+	}
 }
