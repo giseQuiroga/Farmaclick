@@ -29,6 +29,9 @@
 				</br>
 		        
 		        <a href="registroFarmacia" class="btn btn-notice btn-lg btn-primary btn-block">Registrá tu farmacia</a>
+				</br>
+					        <a href="loginUsuario" class="btn btn-notice btn-lg btn-primary btn-block">Acceso para Usuarios</a>	
+			
 			</div>
 			</br>
 		</div>

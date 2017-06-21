@@ -28,6 +28,9 @@
 				</form:form>
 				</br>
 		        <a href="registroUsuario" class="btn btn-notice btn-lg btn-primary btn-block">Registrá tu usuario</a>	
+		        </br>
+		        <a href="loginFarmacia" class="btn btn-notice btn-lg btn-primary btn-block">Acceso para Farmacias</a>	
+		        
 		        </div>
 			</br>
 		</div>
