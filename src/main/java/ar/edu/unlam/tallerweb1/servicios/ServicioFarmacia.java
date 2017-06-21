@@ -4,4 +4,6 @@ import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 
 public interface ServicioFarmacia {
 	Boolean ingresarFarmaciaNueva(Farmacia farmacia);
+
+	Boolean logear(Farmacia farmacia);
 }

@@ -15,6 +15,7 @@ public class ServicioFarmaciaImpl implements ServicioFarmacia{
 	@Inject
 	private FarmaciaDao farmaciaDao;
 	
+	@Override
 	public Boolean ingresarFarmaciaNueva (Farmacia farmacia) {
 
 		Boolean resultadoRegistroFarmacia = true;
@@ -25,6 +26,22 @@ public class ServicioFarmaciaImpl implements ServicioFarmacia{
 		}
 		
 		farmaciaDao.guardarFarmaciaNueva(farmacia);
+		return resultadoRegistroFarmacia;	
+		
+	}
+
+
+	@Override
+	public Boolean logear(Farmacia farmacia) {
+
+		Boolean resultadoRegistroFarmacia = false;
+		Farmacia farmaciaPrueba = farmaciaDao.consultarFarmacia(farmacia);
+		if (farmaciaPrueba != null){
+			if (farmaciaPrueba.getPassword() == farmacia.getPassword()){
+				resultadoRegistroFarmacia = true;
+				return resultadoRegistroFarmacia;
+			}
+		}
 		return resultadoRegistroFarmacia;	
 		
 	}

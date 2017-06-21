@@ -21,8 +21,8 @@
 				        </c:if>
 		       		</div>
 					
-					CUIT<form:input path="cuit" id="cuit" type="text" class="form-control" /></br>
-					Contraseña<form:input path="password" type="password" id="password" class="form-control"/></br></br>     		  
+					CUIT<form:input path="cuit" id="cuit" type="text" class="form-control" name="cuit" /></br>
+					Contraseña<form:input path="password" type="password" id="password" name="password" class="form-control"/></br></br>     		  
 					
 					<button class="btn btn-success btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Entrar</button>  			
 				</form:form>

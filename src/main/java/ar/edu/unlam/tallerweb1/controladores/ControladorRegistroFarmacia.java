@@ -29,7 +29,21 @@ public class ControladorRegistroFarmacia {
 		return new ModelAndView("loginFarmacia", modelo);
 	}
 	
-	
+	// Login de Farmacias
+	@RequestMapping(path = "/validar-loginFarmacia", method = RequestMethod.POST)
+	public ModelAndView validarLoginFarmacia(@ModelAttribute("farmacia") Farmacia farmacia) {
+		ModelMap model = new ModelMap();
+		//Logica de negocio en Servicio
+		
+		if (servicioFarmacia.logear(farmacia) == true){
+			model.put("farmacia", farmacia);
+			return new ModelAndView("home", model);
+		}
+		else{
+			model.put("error", "CUIT o Contraseña Incorrecta.");
+			return new ModelAndView("loginFarmacia", model);
+		}
+	}	
 /* Me manda a la vista del Registro de Farmacia */
 		@RequestMapping("/registroFarmacia")
 		public ModelAndView irARegistroFarmacia() {
@@ -54,8 +68,5 @@ public class ControladorRegistroFarmacia {
 			mensajeConfirmacionRegistroFarmaciaNueva = "Se registro correctamente la Farmacia.";
 			model.put("mensajeConfirmacionRegistroFarmaciaNueva", mensajeConfirmacionRegistroFarmaciaNueva);
 			return new ModelAndView("home", model);
-			
-			
-			
 		}
 }
