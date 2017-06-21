@@ -150,7 +150,7 @@
 						
 <!--             <button type="submit" class="btn btn-success">Registrar</button> -->						
 					</form:form> 
-					<a href="loginUsuario"><button class="btn btn-success btn-lg btn-primary btn-block">volver</button></a>
+					<a href="loginFarmacia"><button class="btn btn-success btn-lg btn-primary btn-block">volver</button></a>
 					</br>
 				</div>
 			</div>

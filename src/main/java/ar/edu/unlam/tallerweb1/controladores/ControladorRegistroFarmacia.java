@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFarmacia;
 
 @Controller
@@ -18,6 +19,16 @@ public class ControladorRegistroFarmacia {
 	
 	@Inject
 	private ServicioFarmacia servicioFarmacia;
+	
+	/* Login Farmacia */
+	@RequestMapping("/loginFarmacia")
+	public ModelAndView irAloginFarmaclick() {
+		ModelMap modelo = new ModelMap();
+		Farmacia farmacia = new Farmacia();
+		modelo.put("farmacia", farmacia);
+		return new ModelAndView("loginFarmacia", modelo);
+	}
+	
 	
 /* Me manda a la vista del Registro de Farmacia */
 		@RequestMapping("/registroFarmacia")
