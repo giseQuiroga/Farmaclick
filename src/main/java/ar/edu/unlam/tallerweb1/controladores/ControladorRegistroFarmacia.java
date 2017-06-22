@@ -34,13 +34,13 @@ public class ControladorRegistroFarmacia {
 	public ModelAndView validarLoginFarmacia(@ModelAttribute("farmacia") Farmacia farmacia) {
 		ModelMap model = new ModelMap();
 		//Logica de negocio en Servicio
-		
-		if (servicioFarmacia.logear(farmacia) == true){
-			model.put("farmacia", farmacia);
+		Farmacia farmaciaObtenida = servicioFarmacia.logear(farmacia);
+		if (farmaciaObtenida != null){
+			model.put("farmacia", farmaciaObtenida);
 			return new ModelAndView("home", model);
 		}
 		else{
-			model.put("error", "CUIT o Contraseña Incorrecta.");
+			model.put("error", "CUIT o Contraseña incorrecta.");
 			return new ModelAndView("loginFarmacia", model);
 		}
 	}	

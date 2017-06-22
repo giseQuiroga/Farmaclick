@@ -32,17 +32,15 @@ public class ServicioFarmaciaImpl implements ServicioFarmacia{
 
 
 	@Override
-	public Boolean logear(Farmacia farmacia) {
+	public Farmacia logear(Farmacia farmacia) {
 
-		Boolean resultadoRegistroFarmacia = false;
-		Farmacia farmaciaPrueba = farmaciaDao.consultarFarmacia(farmacia);
-		if (farmaciaPrueba != null){
-			if (farmaciaPrueba.getPassword() == farmacia.getPassword()){
-				resultadoRegistroFarmacia = true;
-				return resultadoRegistroFarmacia;
+		Farmacia farmaciaObtenida = farmaciaDao.consultarFarmacia(farmacia);
+		if (farmaciaObtenida != null){
+			if (farmaciaObtenida.getPassword().equals(farmacia.getPassword())){
+				return farmaciaObtenida;
 			}
 		}
-		return resultadoRegistroFarmacia;	
+		return null;	
 		
 	}
 	
