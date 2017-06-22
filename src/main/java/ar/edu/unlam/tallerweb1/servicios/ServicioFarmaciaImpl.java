@@ -16,17 +16,16 @@ public class ServicioFarmaciaImpl implements ServicioFarmacia{
 	private FarmaciaDao farmaciaDao;
 	
 	@Override
-	public Boolean ingresarFarmaciaNueva (Farmacia farmacia) {
+	public Farmacia ingresarFarmaciaNueva (Farmacia farmacia) {
 
-		Boolean resultadoRegistroFarmacia = true;
+		
 		
 		if (farmaciaDao.consultarFarmacia(farmacia) != null){
-			resultadoRegistroFarmacia = false;
-			return resultadoRegistroFarmacia;
+			return null;
 		}
-		
 		farmaciaDao.guardarFarmaciaNueva(farmacia);
-		return resultadoRegistroFarmacia;	
+		Farmacia farmaciaObtenida = farmaciaDao.consultarFarmacia(farmacia);
+		return farmaciaObtenida;	
 		
 	}
 

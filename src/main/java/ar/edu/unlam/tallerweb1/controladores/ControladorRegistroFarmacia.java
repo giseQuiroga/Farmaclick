@@ -56,17 +56,18 @@ public class ControladorRegistroFarmacia {
 		public ModelAndView validarRegistroFarmacia(@ModelAttribute("farmacia") Farmacia farmacia){
 			
 			ModelMap model = new ModelMap();
-			model.put("farmacia", farmacia);
-			String mensajeConfirmacionRegistroFarmaciaNueva;
 			
-			if (servicioFarmacia.ingresarFarmaciaNueva(farmacia) == false){
+			String mensajeConfirmacionRegistroFarmaciaNueva;
+			Farmacia farmaciaNueva = servicioFarmacia.ingresarFarmaciaNueva(farmacia); 
+			if (farmaciaNueva == null){
 				mensajeConfirmacionRegistroFarmaciaNueva = "El CUIT ingresado ya esta registrado.";
+				model.put("farmacia", farmacia);
 				model.put("mensajeConfirmacionRegistroFarmaciaNueva", mensajeConfirmacionRegistroFarmaciaNueva);
 				return new ModelAndView("registroFarmacia", model);
 			}
 			
-			mensajeConfirmacionRegistroFarmaciaNueva = "Se registro correctamente la Farmacia.";
-			model.put("mensajeConfirmacionRegistroFarmaciaNueva", mensajeConfirmacionRegistroFarmaciaNueva);
+			
+			model.put("farmacia", farmaciaNueva);
 			return new ModelAndView("home", model);
 		}
 }

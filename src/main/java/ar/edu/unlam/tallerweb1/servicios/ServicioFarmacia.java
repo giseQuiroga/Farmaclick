@@ -3,7 +3,7 @@ import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 
 
 public interface ServicioFarmacia {
-	Boolean ingresarFarmaciaNueva(Farmacia farmacia);
+	Farmacia ingresarFarmaciaNueva(Farmacia farmacia);
 
 	Farmacia logear(Farmacia farmacia);
 }
