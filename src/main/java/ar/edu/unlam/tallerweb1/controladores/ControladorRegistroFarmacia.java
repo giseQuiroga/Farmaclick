@@ -70,4 +70,10 @@ public class ControladorRegistroFarmacia {
 			model.put("farmacia", farmaciaNueva);
 			return new ModelAndView("home", model);
 		}
+
+		public void setServicioFarmacia(ServicioFarmacia servicioFarmacia) {
+			this.servicioFarmacia = servicioFarmacia;
+		}
+		
+		
 }
