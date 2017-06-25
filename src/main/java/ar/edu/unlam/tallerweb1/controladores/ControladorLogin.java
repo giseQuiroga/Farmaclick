@@ -17,41 +17,6 @@ public class ControladorLogin {
 
 	@Inject
 	private ServicioLogin servicioLogin;
-	/*
-	@RequestMapping("/login")
-	public ModelAndView irALogin() {
-
-		ModelMap modelo = new ModelMap();
-		Usuario usuario = new Usuario();
-		modelo.put("usuario", usuario);
-		return new ModelAndView("login", modelo);
-	}
-
-	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
-	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario) {
-		ModelMap model = new ModelMap();
-
-		if (servicioLogin.consultarUsuario(usuario) != null) {
-			return new ModelAndView("redirect:/home");
-		} else {
-			model.put("error", "Usuario o clave incorrecta");
-		}
-		return new ModelAndView("login", model);
-	}
-	
-	@RequestMapping(path = "/home", method = RequestMethod.GET)
-	public ModelAndView irAHome() {
-		return new ModelAndView("home");
-	}
-	
-	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public ModelAndView inicio() {
-		return new ModelAndView("redirect:/login");
-	}
-	*/
-	
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/* login de farmaclick (hacer lo mismo que lo que dice el login de taller)*/
 	
 	@RequestMapping("/loginUsuario")
 	public ModelAndView irAloginFarmaclick() {
@@ -66,14 +31,14 @@ public class ControladorLogin {
 	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario) {
 		ModelMap model = new ModelMap();
 		//Logica de negocio en Servicio
-		
-		if (servicioLogin.consultarUsuario(usuario) == true){
+		Usuario usuarioObtenido = servicioLogin.logearUsuario(usuario);
+		if (usuarioObtenido != null){
+			model.put("usuario", usuarioObtenido);
 			return new ModelAndView("home", model);
 		}
-		else{
-			model.put("error", "Email o Contraseña Incorrecta.");
-			return new ModelAndView("loginUsuario", model);
-		}
+		model.put("error", "Email o contraseña incorrecta.");
+		return new ModelAndView("loginUsuario", model);
+		
 	}	
 		
 	

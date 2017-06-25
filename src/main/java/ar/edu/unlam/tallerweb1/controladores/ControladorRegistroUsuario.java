@@ -35,15 +35,15 @@ public class ControladorRegistroUsuario {
 			ModelMap model = new ModelMap();
 			//Logica de negocio en Servicio
 			model.put("usuarioIngresado", usuario);
-			
-			if (servicioRegistroUsuario.buscarUsuario(usuario) == true){
+			Usuario usuarioObtenido = servicioRegistroUsuario.buscarUsuario(usuario);
+			if (usuarioObtenido == null){
 				model.put("error", "Usuario registrado, Intente con otro Email.");
 				return new ModelAndView("registroUsuario", model);
 			}
-			else{
-				model.put("usuarioNuevoRegistrado", usuario);
-				return new ModelAndView("holaMundo", model);
-			}
+			
+				model.put("Usuario", usuarioObtenido);
+				return new ModelAndView("home", model);
+			
 			
 		}	
 }

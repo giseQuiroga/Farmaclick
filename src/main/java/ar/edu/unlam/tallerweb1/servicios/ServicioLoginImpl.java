@@ -17,16 +17,13 @@ public class ServicioLoginImpl implements ServicioLogin {
 	private UsuarioDao servicioLoginDao; 
 
 	@Override		
-	public Boolean consultarUsuario (Usuario usuario) {
-		Boolean resultado = null;
-		Usuario resultadoConsulta = servicioLoginDao.consultaUsuario(usuario);
+	public Usuario logearUsuario (Usuario usuario) {
+		
+		Usuario usuarioObtenido = servicioLoginDao.consultaUsuario(usuario);
 
-		if(resultadoConsulta == null){
-			resultado = false;
+		if(usuarioObtenido != null){
+			return usuarioObtenido;
 			}
-			else{
-				resultado = true;
-				}
-				return resultado;
-				}
+		return null;
 	}
+}

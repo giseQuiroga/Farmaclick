@@ -17,19 +17,17 @@ public class ServicioRegistroUsuarioImpl implements ServicioRegistroUsuario {
 	private UsuarioRegistroDao servicioUsuarioRegistroDao;
 
 	@Override
-	public Boolean buscarUsuario (Usuario usuario) {				
+	public Usuario buscarUsuario (Usuario usuario) {				
 		/*Valida que no sea un usuario repetido y lo registra*/
-		Boolean resultadoRegistroUsuario = null;
-		Usuario resultado = servicioUsuarioRegistroDao.buscarUsuario(usuario);
 		
-		if(resultado == null){
+		Usuario UsuarioObtenido = servicioUsuarioRegistroDao.buscarUsuario(usuario);
+		
+		if(UsuarioObtenido == null){
 				servicioUsuarioRegistroDao.guardarUsuario(usuario);
-				resultadoRegistroUsuario = false;
+				Usuario UsuarioObtenidoCompleto = servicioUsuarioRegistroDao.buscarUsuario(usuario);
+				return UsuarioObtenidoCompleto;
 			}
-			else{
-				 resultadoRegistroUsuario = true;
-				}
-		return resultadoRegistroUsuario;
+		return null;
 	}
 
 	

@@ -4,5 +4,5 @@ import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 public interface ServicioRegistroUsuario {
 	
-	Boolean buscarUsuario(Usuario Usuario);
+	Usuario buscarUsuario(Usuario Usuario);
 }
