@@ -28,4 +28,9 @@ public class ProductoDaoImpl implements ProductoDao {
 				.add(Restrictions.eq("precio", producto.getPrecio()))
 				.uniqueResult();
 	}
+	
+	public void guardarProducto(Producto producto){
+		final Session session = sessionFactory.getCurrentSession();
+		session.save(producto);
+	}
 }
