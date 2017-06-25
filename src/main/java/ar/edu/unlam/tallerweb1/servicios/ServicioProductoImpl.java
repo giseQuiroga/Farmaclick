@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.ProductoDao;
-import ar.edu.unlam.tallerweb1.dao.UsuarioDao;
-import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 @Service("servicioProducto")
@@ -18,7 +16,7 @@ import ar.edu.unlam.tallerweb1.modelo.Producto;
 public class ServicioProductoImpl implements ServicioProducto {
 
 	@Inject
-	private ProductoDao servicioProductoDao;
+	private ProductoDao productoDao;
 	
 	@Override
 	public Boolean verificarProducto(Producto producto) {
@@ -48,7 +46,7 @@ public class ServicioProductoImpl implements ServicioProducto {
 			}
 			
 		}
-		
+		productoDao.guardarProducto(producto);
 		return existeProducto;
 	}
 

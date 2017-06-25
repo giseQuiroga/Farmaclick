@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
-import ar.edu.unlam.tallerweb1.servicios.ServicioFarmacia;
 
 @Controller
 public class ControladorProductos {
@@ -22,7 +21,7 @@ public class ControladorProductos {
 	@Inject
 	private ServicioProducto servicioProducto;
 
-	@RequestMapping("/alta")
+	@RequestMapping("/altaProductos")
 	public ModelAndView altaProducto(){
 		ModelMap modelo = new ModelMap();
 		return new ModelAndView("altaProducto",modelo);
@@ -35,9 +34,9 @@ public class ControladorProductos {
 		model.put("producto", producto);
 		String mensaje;
 		if (!servicioProducto.verificarProducto(producto)){
-			mensaje = "El producto ingresado ya esta registrado.";
+			mensaje= "El producto ingresado ya esta registrado.";
 			model.put("mensaje", mensaje);
-			return new ModelAndView("existeProducto", model);
+			return new ModelAndView("altaProducto", model);
 		}
 		else{
 			List<Producto> listaProductos=new LinkedList<Producto>();
