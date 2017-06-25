@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
@@ -53,7 +55,12 @@
 		      		<ul class="dropdown-menu">
 			          <li><a href="productosTodos">Listado de medicamentos</a></li>
 			          <li><a href="buscarProducto">Buscar por genérico</a></li>
-			          <li><a href="alta">Agregar Producto</a></li>
+			          <c:set var = "mainObjectClass" value = "${mainObject.getClass().name}"/>
+     				  <c:if test = "${fn:contains(mainObjectClass, 'Farmacia')}">			          
+						<li><a href="alta">Agregar Producto</a></li>					  	
+				      </c:if>
+									          
+			       
 			        </ul>
 			    </li>
 			    

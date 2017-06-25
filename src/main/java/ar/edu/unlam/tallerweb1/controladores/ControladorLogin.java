@@ -33,7 +33,8 @@ public class ControladorLogin {
 		//Logica de negocio en Servicio
 		Usuario usuarioObtenido = servicioLogin.logearUsuario(usuario);
 		if (usuarioObtenido != null){
-			model.put("usuario", usuarioObtenido);
+			model.put("mainObject", usuarioObtenido);
+			
 			return new ModelAndView("home", model);
 		}
 		model.put("error", "Email o contraseña incorrecta.");

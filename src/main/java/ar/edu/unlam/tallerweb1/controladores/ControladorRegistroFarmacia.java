@@ -36,7 +36,8 @@ public class ControladorRegistroFarmacia {
 		//Logica de negocio en Servicio
 		Farmacia farmaciaObtenida = servicioFarmacia.logear(farmacia);
 		if (farmaciaObtenida != null){
-			model.put("farmacia", farmaciaObtenida);
+			model.put("mainObject", farmaciaObtenida);
+			
 			return new ModelAndView("home", model);
 		}
 		else{
@@ -67,7 +68,8 @@ public class ControladorRegistroFarmacia {
 			}
 			
 			
-			model.put("farmacia", farmaciaNueva);
+			model.put("mainObject", farmaciaNueva);
+			
 			return new ModelAndView("home", model);
 		}
 

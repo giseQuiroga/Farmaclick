@@ -38,10 +38,11 @@ public class ControladorRegistroUsuario {
 			Usuario usuarioObtenido = servicioRegistroUsuario.buscarUsuario(usuario);
 			if (usuarioObtenido == null){
 				model.put("error", "Usuario registrado, Intente con otro Email.");
+				
 				return new ModelAndView("registroUsuario", model);
 			}
 			
-				model.put("Usuario", usuarioObtenido);
+				model.put("mainObject", usuarioObtenido);
 				return new ModelAndView("home", model);
 			
 			
