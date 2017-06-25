@@ -89,6 +89,7 @@
 									<td><c:out value="${item.laboratorio}"/> </td> 
 									<td><c:out value="${item.precio}"/> </td>
 									<td><c:out value="${item.accion}"/> </td>
+									<td><c:out value="${item.farmacia.razonSocial}"/> </td>
 								</tr> 
 							</c:forEach> 
 						</tbody>
