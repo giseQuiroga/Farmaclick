@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -12,45 +13,53 @@
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	</head>
 	<body>
-	<nav class="navbar navbar-default" role="navigation">
-  <!-- El logotipo y el icono que despliega el menú se agrupan
-       para mostrarlos mejor en los dispositivos móviles -->
-	  <div class="navbar-header">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse"
-	            data-target=".navbar-ex1-collapse">
-	      <span class="sr-only">Desplegar navegación</span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	    </button>
-	    <a class="navbar-brand" href="#">FarmaClick</a>
-	  </div>
-	 
-	  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-	       otro elemento que se pueda ocultar al minimizar la barra -->
-	  <div class="collapse navbar-collapse navbar-ex1-collapse">
-	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Crear Producto</a></li>
-	      <li><a href="registroUsuario">Registrarse</a></li>
-	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	          Iniciar Sesión <b class="caret"></b>
-	        </a>
-	        <ul class="dropdown-menu">
-	          <li><a href="loginUsuario">Usuario</a></li>
-	          <li><a href="#">Farmacia</a></li>
-	        </ul>
-	      </li>
-	    </ul>
-	 
-	    <form class="navbar-form navbar-left" role="search">
-	      <div class="form-group">
-	        <input type="text" class="form-control" placeholder="Buscar Productos">
-	      </div>
-	      <button type="submit" class="btn btn-default">Buscar</button>
-	    </form>
-	  </div>
-	</nav>
+	<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:60%"></a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      
+		      
+		      
+		      <li class="dropdown">
+		      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		      		Productos<b class="caret"></b>
+		      	</a>
+		      		<ul class="dropdown-menu">
+			          <li><a href="Productos">Listado de medicamentos</a></li>
+			          <c:set var = "mainObjectClass" value = "${mainObject.getClass().name}"/>
+     				  <c:if test = "${fn:contains(mainObjectClass, 'Farmacia')}">			          
+						<li><a href="altaProductos">Agregar Producto</a></li>					  	
+				      </c:if>
+									          
+			       
+			        </ul>
+			    </li>
+			    
+			    
+		    </ul>
+		    
+		    <!-- Buscador -->
+			<form:form class="navbar-form navbar-left" action="procesarBusqueda" method="POST" modelAttribute="productoBuscado">  
+				<div class="form-group">									
+					<input path="nombre" name="nombre" id="nombre" type="text" class="form-control" placeholder="Buscar..."/>
+				</div>
+				<button class="btn btn-info btn-lg" name="Submit" type="Submit">
+					<span class="glyphicon glyphicon-search"></span>  
+				</button>
+			</form:form>
+			
+			<!-- Viejo buscador (sin funcion)-->
+		    <!--form class="navbar-form navbar-left">
+		      <div class="form-group">
+		        <input type="text" class="form-control" placeholder="Medicamentos, farmacias y mucho más">
+		      </div>
+		      <button type="submit" class="btn btn-default">Buscar</button>
+		    </form-->
+		  </div>
+		</nav>
+		
 		<div class = "container">
 			<div class="panel panel-default">
 			    <div class="panel-heading">Nuevo Producto</div>

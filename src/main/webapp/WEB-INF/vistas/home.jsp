@@ -29,25 +29,9 @@
 		      <a class="navbar-brand" href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:60%"></a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      <li class="dropdown">
-		      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		      		Registrarse<b class="caret"></b>
-		      	</a>
-		      		<ul class="dropdown-menu">
-			          <li><a href="registroFarmacia">Farmacias</a></li>
-			          <li><a href="registroUsuario">Usuarios</a></li>
-			        </ul>
-			    </li>    
 		      
-		      <li class="dropdown">
-		      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		      		Farmacias<b class="caret"></b>
-		      	</a>
-		      		<ul class="dropdown-menu">
-			          <li><a href="listaFarmacias">Listado de farmacias</a></li>
-			          <li><a href="#">Buscar por farmacia</a></li>
-			        </ul>
-			    </li>    
+		      
+		      
 		      <li class="dropdown">
 		      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		      		Productos<b class="caret"></b>
@@ -56,14 +40,14 @@
 			          <li><a href="Productos">Listado de medicamentos</a></li>
 			          <c:set var = "mainObjectClass" value = "${mainObject.getClass().name}"/>
      				  <c:if test = "${fn:contains(mainObjectClass, 'Farmacia')}">			          
-						<li><a href="alta">Agregar Producto</a></li>					  	
+						<li><a href="altaProductos">Agregar Producto</a></li>					  	
 				      </c:if>
 									          
 			       
 			        </ul>
 			    </li>
 			    
-			    <li><a href="nosotros">Sobre nosotros</a></li>   
+			    
 		    </ul>
 		    
 		    <!-- Buscador -->
