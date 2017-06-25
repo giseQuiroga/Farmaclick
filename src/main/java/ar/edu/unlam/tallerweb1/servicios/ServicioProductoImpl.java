@@ -50,5 +50,8 @@ public class ServicioProductoImpl implements ServicioProducto {
 		return existeProducto;
 	}
 
-
+	public List<Producto> obtenerProductos(){
+		List<Producto>productos=productoDao.obtenerProductos();
+		return productos;
+	}
 }

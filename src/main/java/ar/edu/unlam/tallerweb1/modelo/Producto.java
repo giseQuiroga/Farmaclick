@@ -13,7 +13,7 @@ public class Producto {
 	public long id;
 	public int codigo;
 	public String nombre;
-	public Farmacia farmacia;
+	public String farmacia;
 	public String laboratorio;
 	public String accion;
 	public float precio;
@@ -36,10 +36,10 @@ public class Producto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Farmacia getFarmacia() {
+	public String getFarmacia() {
 		return farmacia;
 	}
-	public void setFarmacia(Farmacia farmacia) {
+	public void setFarmacia(String farmacia) {
 		this.farmacia = farmacia;
 	}
 	public String getLaboratorio() {

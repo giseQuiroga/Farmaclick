@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.hibernate.Session;
@@ -32,5 +34,12 @@ public class ProductoDaoImpl implements ProductoDao {
 	public void guardarProducto(Producto producto){
 		final Session session = sessionFactory.getCurrentSession();
 		session.save(producto);
+	}
+	
+	public List<Producto> obtenerProductos(){
+		final Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<Producto> productos = (List<Producto>)session.createCriteria(Producto.class).list();
+		return productos;
 	}
 }

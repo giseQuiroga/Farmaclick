@@ -44,7 +44,13 @@ public class ControladorProductos {
 			model.put("listaProductos", listaProductos);
 			return new ModelAndView("productosTodos", model);
 		}
-		
-		
+	}
+	
+	@RequestMapping(path="Productos")
+	public ModelAndView mostrarTodosProductos(){
+		ModelMap model=new ModelMap();
+		List<Producto> listaProductos=servicioProducto.obtenerProductos();
+		model.put("listaProductos", listaProductos);
+		return new ModelAndView("productosTodos", model);
 	}
 }

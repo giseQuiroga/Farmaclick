@@ -26,7 +26,7 @@
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="home">FARMACLICK</a>
+		      <a class="navbar-brand" href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:60%"></a>
 		    </div>
 		    <ul class="nav navbar-nav">
 		      <li class="dropdown">
@@ -53,8 +53,7 @@
 		      		Productos<b class="caret"></b>
 		      	</a>
 		      		<ul class="dropdown-menu">
-			          <li><a href="productosTodos">Listado de medicamentos</a></li>
-			          <li><a href="buscarProducto">Buscar por genérico</a></li>
+			          <li><a href="Productos">Listado de medicamentos</a></li>
 			          <c:set var = "mainObjectClass" value = "${mainObject.getClass().name}"/>
      				  <c:if test = "${fn:contains(mainObjectClass, 'Farmacia')}">			          
 						<li><a href="alta">Agregar Producto</a></li>					  	
