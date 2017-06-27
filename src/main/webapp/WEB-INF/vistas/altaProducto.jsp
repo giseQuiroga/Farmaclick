@@ -12,6 +12,7 @@
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	</head>
 	<body>
+<div class = "container">
 	<nav class="navbar navbar-default" role="navigation">
   <!-- El logotipo y el icono que despliega el menú se agrupan
        para mostrarlos mejor en los dispositivos móviles -->
@@ -23,7 +24,7 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="#">FarmaClick</a>
+	     <a href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:50%;"></a>
 	  </div>
 	 
 	  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
@@ -31,11 +32,7 @@
 	  <div class="collapse navbar-collapse navbar-ex1-collapse">
 	    <ul class="nav navbar-nav">
 	      <li class="active"><a href="#">Crear Producto</a></li>
-	      <li><a href="registroUsuario">Registrarse</a></li>
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	          Iniciar Sesión <b class="caret"></b>
-	        </a>
 	        <ul class="dropdown-menu">
 	          <li><a href="loginUsuario">Usuario</a></li>
 	          <li><a href="#">Farmacia</a></li>
@@ -43,6 +40,7 @@
 	      </li>
 	    </ul>
 	 
+	<div class="text-right navbar-right">
 	    <form class="navbar-form navbar-left" role="search">
 	      <div class="form-group">
 	        <input type="text" class="form-control" placeholder="Buscar Productos">
@@ -50,8 +48,9 @@
 	      <button type="submit" class="btn btn-default">Buscar</button>
 	    </form>
 	  </div>
+	 </div>
 	</nav>
-		<div class = "container">
+
 			<div class="panel panel-default">
 			    <div class="panel-heading">Nuevo Producto</div>
 			    <div class="panel-body">

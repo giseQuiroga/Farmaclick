@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -23,14 +22,14 @@
 	</head>
 	</head>
 	<body>
-			<nav class="navbar navbar-default">
-		  <div class="container-fluid">
+	
+		<div class="container">		
+		<nav class="navbar navbar-default">
+		   <div class="container-fluid" style="width:auto;">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:60%"></a>
+		      <a href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:50%;"></a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      
-		      
 		      
 		      <li class="dropdown">
 		      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -50,7 +49,8 @@
 			    
 		    </ul>
 		    
-		    <!-- Buscador -->
+			<!-- Buscador -->
+		    <div class="text-right navbar-right">
 			<form:form class="navbar-form navbar-left" action="procesarBusqueda" method="POST" modelAttribute="productoBuscado">  
 				<div class="form-group">									
 					<input path="nombre" name="nombre" id="nombre" type="text" class="form-control" placeholder="Buscar..."/>
@@ -59,6 +59,9 @@
 					<span class="glyphicon glyphicon-search"></span>  
 				</button>
 			</form:form>
+			
+			<a href="cerrarSesion" class="btn btn-notice btn-lg">Cerrar Sesión</a>	
+			</div>
 			
 			<!-- Viejo buscador (sin funcion)-->
 		    <!--form class="navbar-form navbar-left">
@@ -69,7 +72,7 @@
 		    </form-->
 		  </div>
 		</nav>
-	<div class = "container">
+
 			<div class="panel panel-default">
 				<div class="panel-heading">Listado de Productos</div>
 			    <div class="panel-body">
@@ -96,6 +99,12 @@
 					</table>	
 				</div>
 			</div>
+		
+		<!-- AGREGADO -->
+		PRUEBA DE DATOS DE SESION<br> 
+		Nombre del Usuario: ${sessionScope.nombre}<br>
+		Nombre del ID Usuario: ${sessionScope.idUsuario}
+		
 		</div>
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>

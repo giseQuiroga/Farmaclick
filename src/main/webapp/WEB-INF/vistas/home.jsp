@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
-
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
@@ -19,19 +18,16 @@
 		</style>
 	</head>
 	<body>
-		<div class = "container">
-				
-		<h1>¡Bienvenidos a FarmaClick!</h1>
+		<div class="container">		
+		<h1>¡Bienvenido a FarmaClick ${sessionScope.nombre}!</h1>
 		<!-- ACÁ VA EL LOGO -->	
 		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
+		  <div class="container-fluid" style="width:auto;">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:60%"></a>
-		    </div>
+		      <a href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:50%;"></a>
+		    </div>		    
+		    
 		    <ul class="nav navbar-nav">
-		      
-		      
-		      
 		      <li class="dropdown">
 		      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		      		Productos<b class="caret"></b>
@@ -42,15 +38,12 @@
      				  <c:if test = "${fn:contains(mainObjectClass, 'Farmacia')}">			          
 						<li><a href="altaProductos">Agregar Producto</a></li>					  	
 				      </c:if>
-									          
-			       
 			        </ul>
 			    </li>
-			    
-			    
 		    </ul>
 		    
 		    <!-- Buscador -->
+		    <div class="navbar-form navbar-right">
 			<form:form class="navbar-form navbar-left" action="procesarBusqueda" method="POST" modelAttribute="productoBuscado">  
 				<div class="form-group">									
 					<input path="nombre" name="nombre" id="nombre" type="text" class="form-control" placeholder="Buscar..."/>
@@ -59,6 +52,10 @@
 					<span class="glyphicon glyphicon-search"></span>  
 				</button>
 			</form:form>
+			
+			<a href="cerrarSesion" class="btn btn-notice btn-lg">Cerrar Sesión</a>	
+			</div>
+			
 			
 			<!-- Viejo buscador (sin funcion)-->
 		    <!--form class="navbar-form navbar-left">
@@ -87,9 +84,10 @@
 			</div>
 		</div>	
 		
+		<h2>Farmacias y medicamentos a un click de distancia</h2><br><br>
+		
 		<!-- inicio de carrusel -->
 		<div id="carruselHome" class="carousel slide" data-ride="carousel">
-		<h2>Farmacias y medicamentos a un click de distancia</h2><br><br>
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
 		    <li data-target="#carruselHome" data-slide-to="0" class="active"></li>
@@ -134,7 +132,14 @@
 		  </a>
 		</div>	
 		 
+		</br>
+		</br>
+
+		<div class="navbar navbar-default">
+		</div>		 
+		 
 		</div>
+		
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
 		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
