@@ -36,23 +36,8 @@ public class ControladorBuscarProducto
 		ModelMap Model = new ModelMap();
 		
 		String artNombre = productoBuscado.getNombre();
-		List<Producto> listaProductos = new LinkedList<Producto>();
-		List<Producto> listaEncontrados = new LinkedList<Producto>();
 		
-		Producto producto1 = new Producto(); 
-		producto1.setNombre("Aspirinas");
-		//producto1.setCodigo("ABC123JK");
-		producto1.setAccion("Alivian el dolor de cabeza");
-		
-		Producto producto2 = new Producto();	
-		producto2.setNombre("Curitas");
-		//producto2.setCodigo("XYZ987OP");
-		producto2.setAccion("Te curan las lastimaduras");
-		
-		listaProductos.add(producto1);
-		listaProductos.add(producto2);
-		
-		listaEncontrados.addAll(servicioBuscarProducto.filtrarProducto(listaProductos, artNombre));
+		List<Producto> listaEncontrados = servicioBuscarProducto.buscarProductos(artNombre);
 		
 		Model.put("productoList", listaEncontrados);
 		return new ModelAndView("home", Model);

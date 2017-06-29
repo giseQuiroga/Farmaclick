@@ -6,6 +6,6 @@ import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 public interface ServicioBuscarProducto {
 	
-	List<Producto> filtrarProducto(List<Producto> listaProductos, String artNombre);
+	List<Producto> buscarProductos(String artNombre);
 
 }

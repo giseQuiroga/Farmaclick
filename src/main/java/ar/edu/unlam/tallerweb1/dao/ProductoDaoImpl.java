@@ -42,4 +42,18 @@ public class ProductoDaoImpl implements ProductoDao {
 		List<Producto> productos = (List<Producto>)session.createCriteria(Producto.class).list();
 		return productos;
 	}
+
+	@Override
+	public List<Producto> buscarProducto(String artNombre) 
+		{
+		final Session session = sessionFactory.getCurrentSession();
+		//return session.getCurrentSession().createCriteria(Producto.class)
+		//return session.createCriteria(Producto.class).add(Restrictions.eq("nombre",artNombre)).list();
+		@SuppressWarnings("unchecked")
+		List<Producto> ListaP = (List<Producto>)session.createCriteria(Producto.class)
+								.add(Restrictions.eq("nombre",artNombre))
+								.list(); 
+		return ListaP;
+		}
+	
 }
