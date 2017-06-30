@@ -1,11 +1,10 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Producto {
@@ -15,8 +14,8 @@ public class Producto {
 	public long id;
 	public int codigo;
 	public String nombre;
-//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cuit")
-	public String farmacia;
+	@ManyToOne
+	public Farmacia farmacia;
 	public String laboratorio;
 	public String accion;
 	public float precio;
@@ -39,12 +38,13 @@ public class Producto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getFarmacia() {
+	public Farmacia getFarmacia() {
 		return farmacia;
 	}
-	public void setFarmacia(String farmacia) {
+	public void setFarmacia(Farmacia farmacia) {
 		this.farmacia = farmacia;
 	}
+	
 	public String getLaboratorio() {
 		return laboratorio;
 	}

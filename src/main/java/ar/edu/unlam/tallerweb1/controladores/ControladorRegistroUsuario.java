@@ -1,7 +1,15 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 
+import java.io.IOException;
+
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,7 +22,10 @@ import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioRegistroUsuario;
 
 @Controller
-public class ControladorRegistroUsuario {
+@WebServlet("/ControladorRegistroUsuario")
+public class ControladorRegistroUsuario extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Inject
 	private ServicioRegistroUsuario servicioRegistroUsuario;
@@ -31,18 +42,27 @@ public class ControladorRegistroUsuario {
 		
 /* Se valida el Registro del Usuario */
 		@RequestMapping(path = "/registrar-usuario", method = RequestMethod.POST)
-		public ModelAndView validarRegistroUsuario(@ModelAttribute("usuario") Usuario usuario){
+		protected ModelAndView validarRegistroUsuario(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("usuario") Usuario usuario) throws ServletException, IOException{
+			
 			ModelMap model = new ModelMap();
-			//Logica de negocio en Servicio
-			model.put("usuarioIngresado", usuario);
+			
 			Usuario usuarioObtenido = servicioRegistroUsuario.buscarUsuario(usuario);
+			
 			if (usuarioObtenido == null){
+				model.put("usuarioIngresado", usuario);
 				model.put("error", "Usuario registrado, Intente con otro Email.");
 				
 				return new ModelAndView("registroUsuario", model);
 			}
-			
 				model.put("mainObject", usuarioObtenido);
+				/*Creo una variable sesion*/
+				HttpSession sesion = request.getSession();
+				
+				/*las seteo con los datos que vienen del usuario encontrado en la bd*/
+				sesion.setAttribute("nombre", usuarioObtenido.getNombre());
+				sesion.setAttribute("idUsuario", usuarioObtenido.getId());
+				
+				
 				return new ModelAndView("home", model);
 			
 			

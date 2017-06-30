@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Farmacia {
@@ -16,6 +18,7 @@ public class Farmacia {
 	private Integer telefono;
 	private String email;
 	private String password;
+	
 	
 	
 	public Long getId() {

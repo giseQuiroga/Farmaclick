@@ -1,7 +1,15 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 
+import java.io.IOException;
+
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +23,10 @@ import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFarmacia;
 
 @Controller
-public class ControladorRegistroFarmacia {
+@WebServlet("/ControladorRegistroFarmacia")
+public class ControladorRegistroFarmacia extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Inject
 	private ServicioFarmacia servicioFarmacia;
@@ -31,12 +42,17 @@ public class ControladorRegistroFarmacia {
 	
 	// Login de Farmacias
 	@RequestMapping(path = "/validar-loginFarmacia", method = RequestMethod.POST)
-	public ModelAndView validarLoginFarmacia(@ModelAttribute("farmacia") Farmacia farmacia) {
+	protected ModelAndView validarLoginFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) throws ServletException, IOException {
 		ModelMap model = new ModelMap();
 		//Logica de negocio en Servicio
 		Farmacia farmaciaObtenida = servicioFarmacia.logear(farmacia);
 		if (farmaciaObtenida != null){
 			model.put("mainObject", farmaciaObtenida);
+			HttpSession sesion = request.getSession();
+			
+			/*las seteo con los datos que vienen del usuario encontrado en la bd*/
+			sesion.setAttribute("nombre", farmaciaObtenida.getCuit());
+			sesion.setAttribute("idUsuario", farmaciaObtenida.getId());
 			
 			return new ModelAndView("home", model);
 		}
@@ -54,7 +70,7 @@ public class ControladorRegistroFarmacia {
 		
 /* Se valida el Registro de Farmacia */
 		@RequestMapping(path = "/confirmarRegistroFarmacia", method = RequestMethod.POST)
-		public ModelAndView validarRegistroFarmacia(@ModelAttribute("farmacia") Farmacia farmacia){
+		protected ModelAndView validarRegistroFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) throws ServletException, IOException{
 			
 			ModelMap model = new ModelMap();
 			
@@ -69,7 +85,11 @@ public class ControladorRegistroFarmacia {
 			
 			
 			model.put("mainObject", farmaciaNueva);
+			HttpSession sesion = request.getSession();
 			
+			/*las seteo con los datos que vienen del usuario encontrado en la bd*/
+			sesion.setAttribute("nombre", farmaciaNueva.getCuit());
+			sesion.setAttribute("idUsuario", farmaciaNueva.getId());
 			return new ModelAndView("home", model);
 		}
 
