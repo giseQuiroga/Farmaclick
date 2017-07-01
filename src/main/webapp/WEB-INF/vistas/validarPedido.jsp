@@ -62,56 +62,29 @@
 			
 			<a href="cerrarSesion" class="btn btn-notice btn-lg">Cerrar Sesión</a>	
 			</div>
-			
-			<!-- Viejo buscador (sin funcion)-->
-		    <!--form class="navbar-form navbar-left">
-		      <div class="form-group">
-		        <input type="text" class="form-control" placeholder="Medicamentos, farmacias y mucho más">
-		      </div>
-		      <button type="submit" class="btn btn-default">Buscar</button>
-		    </form-->
-		  </div>
-		</nav>
-
-			<div class="panel panel-default">
-				<div class="panel-heading">Listado de Productos</div>
-			    <div class="panel-body">
-					<table class="table table-striped">
-						<thead>
-							<th>Codigo</th>
-							<th>Nombre del Producto</th>
-							<th>Laboratorio</th>
-							<th>Precio</th>
-							<th>Accion Farmacologica</th>
-							<th>Farmacia</th>
-							<th></th>
-						</thead>
-						<tbody>
-							<c:forEach items="${listaProductos}" var="item">
-								<tr>
-									<td><c:out value="${item.codigo}"/> </td> 
-									<td><c:out value="${item.nombre}"/> </td>
-									<td><c:out value="${item.laboratorio}"/> </td> 
-									<td><c:out value="${item.precio}"/> </td>
-									<td><c:out value="${item.accion}"/> </td>
-									<td><c:out value="${item.farmacia.razonSocial}"/> </td>
-									<td><a href="validarPedido?producto=${item.id}" class="btn btn-success">Comprar</a></td>
-								</tr> 
-							</c:forEach> 
-						</tbody>
-					</table>	
-				</div>
-			</div>
-		
-		<!-- AGREGADO -->
-		PRUEBA DE DATOS DE SESION<br> 
-		Nombre del Usuario: ${sessionScope.nombre}<br>
-		Nombre del ID Usuario: ${sessionScope.idUsuario}
-		
 		</div>
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-		<script src="js/bootstrap.min.js" type="text/javascript"></script>
-</body>
-</html>
+	</nav>
+	<div class="panel panel-default">
+		<div class="panel-heading">Listado de Productos</div>
+	    <div class="panel-body">
+			<table class="table table-striped">
+				<thead>
+					<th>Nombre del Producto</th>
+					<th>Farmacia</th>
+					<th>Usuario</th>
+					<th>Precio</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>${pedido.producto.nombre}</td> 
+						<td>${pedido.producto.farmacia.razonSocial}</td>
+						<td>${pedido.usuario.nombre} </td>
+						<td>${pedido.producto.precio}</td>
+					</tr> 
+				</tbody>
+			</table>	
+		</div>
+	</div>
+	</div>
+	</body>
+	</html>

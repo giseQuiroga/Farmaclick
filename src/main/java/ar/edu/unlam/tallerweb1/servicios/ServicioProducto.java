@@ -8,4 +8,5 @@ public interface ServicioProducto {
 
 	Boolean verificarProducto(Producto producto, Integer idFarmacia);
 	List<Producto> obtenerProductos();
+	Producto buscarProducto(long idProd);
 }

@@ -11,4 +11,5 @@ public interface ProductoDao {
 	List<Producto> obtenerProductos();
 	//Buscar producto por nombre.
 	List<Producto> buscarProducto(String artNombre);
+	Producto buscarProducto(long idProd);
 }

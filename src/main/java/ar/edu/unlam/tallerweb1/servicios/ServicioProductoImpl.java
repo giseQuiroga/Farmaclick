@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServlet;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +15,7 @@ import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 @Service("servicioProducto")
 @Transactional
-public class ServicioProductoImpl implements ServicioProducto  {
+public class ServicioProductoImpl implements ServicioProducto {
 
 	@Inject
 	private ProductoDao productoDao;
@@ -47,5 +46,10 @@ public class ServicioProductoImpl implements ServicioProducto  {
 	public List<Producto> obtenerProductos(){
 		List<Producto>productos=productoDao.obtenerProductos();
 		return productos;
+	}
+	
+	public Producto buscarProducto(long idProd){
+		Producto producto=productoDao.buscarProducto(idProd);
+		return producto;				
 	}
 }

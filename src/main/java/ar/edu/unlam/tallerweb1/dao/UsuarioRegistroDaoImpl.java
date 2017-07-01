@@ -32,4 +32,11 @@ public class UsuarioRegistroDaoImpl implements UsuarioRegistroDao {
 		session.save(usuario);
 	}
 	
+	public Usuario buscarUsuarioPorId(Integer idUsuario){
+		final Session session = sessionFactory.getCurrentSession();
+		return (Usuario) session.createCriteria(Usuario.class)
+				.add(Restrictions.eq("id", idUsuario))
+				.uniqueResult();
+	}
+
 }

@@ -56,4 +56,10 @@ public class ProductoDaoImpl implements ProductoDao {
 		return ListaP;
 		}
 	
+	public Producto buscarProducto(long idProd){
+		final Session session = sessionFactory.getCurrentSession();
+		Producto producto = (Producto)session.createCriteria(Producto.class)
+								.add(Restrictions.eq("id",idProd)).uniqueResult();
+		return producto;
+	}
 }

@@ -30,5 +30,8 @@ public class ServicioRegistroUsuarioImpl implements ServicioRegistroUsuario {
 		return null;
 	}
 
-	
+	public Usuario buscarUsuarioPorId(Integer idUsuario){
+		Usuario UsuarioObtenido = servicioUsuarioRegistroDao.buscarUsuarioPorId(idUsuario);
+		return UsuarioObtenido;
+	}
 }
