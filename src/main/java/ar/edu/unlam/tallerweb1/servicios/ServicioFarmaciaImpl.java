@@ -18,17 +18,13 @@ public class ServicioFarmaciaImpl implements ServicioFarmacia{
 	@Override
 	public Farmacia ingresarFarmaciaNueva (Farmacia farmacia) {
 
-		
-		
 		if (farmaciaDao.consultarFarmacia(farmacia) != null){
 			return null;
 		}
 		farmaciaDao.guardarFarmaciaNueva(farmacia);
 		Farmacia farmaciaObtenida = farmaciaDao.consultarFarmacia(farmacia);
-		return farmaciaObtenida;	
-		
+		return farmaciaObtenida;			
 	}
-
 
 	@Override
 	public Farmacia logear(Farmacia farmacia) {
@@ -39,17 +35,6 @@ public class ServicioFarmaciaImpl implements ServicioFarmacia{
 				return farmaciaObtenida;
 			}
 		}
-		return null;	
-		
+		return null;		
 	}
-	
 }
-
-
-
-
-
-
-	
-
-

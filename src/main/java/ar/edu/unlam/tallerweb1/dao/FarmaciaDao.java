@@ -6,4 +6,6 @@ public interface FarmaciaDao {
 	void guardarFarmaciaNueva (Farmacia farmacia);
 	
 	Farmacia consultarFarmacia (Farmacia farmacia);
+	
+	Farmacia consultarFarmaciaPorId (Integer idFarmacia);
 }

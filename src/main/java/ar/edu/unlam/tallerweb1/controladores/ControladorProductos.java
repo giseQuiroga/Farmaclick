@@ -1,9 +1,16 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,7 +23,10 @@ import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 
 @Controller
-public class ControladorProductos {
+@WebServlet("/ControladorProductos")
+public class ControladorProductos extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Inject
 	private ServicioProducto servicioProducto;
@@ -28,17 +38,21 @@ public class ControladorProductos {
 	}
 	
 	@RequestMapping(path = "/listadoProductos", method = RequestMethod.POST)
-	public ModelAndView validarRegistroProducto(@ModelAttribute("producto") Producto producto){
+	protected ModelAndView validarRegistroProducto(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("producto") Producto producto)throws ServletException, IOException{
 		ModelMap model = new ModelMap();
 		//resultadoRegistroFarmacia
 		model.put("producto", producto);
 		String mensaje;
-		if (!servicioProducto.verificarProducto(producto)){
+		
+		Object attribute = request.getSession().getAttribute("idUsuario");
+		Integer idSesionFarmacia = Integer.parseInt(String.valueOf(attribute));
+		
+		if (!servicioProducto.verificarProducto(producto, idSesionFarmacia)){
 			mensaje= "El producto ingresado ya esta registrado.";
 			model.put("mensaje", mensaje);
 			return new ModelAndView("altaProducto", model);
 		}
-		else{
+		else{	
 			List<Producto> listaProductos=new LinkedList<Producto>();
 			listaProductos.add(producto);
 			model.put("listaProductos", listaProductos);

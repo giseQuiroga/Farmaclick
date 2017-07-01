@@ -29,4 +29,13 @@ public class FarmaciaDaoImpl implements FarmaciaDao {
 				.add(Restrictions.eq("cuit", farmacia.getCuit()))
 				.uniqueResult();
 	}
+	
+	@Override
+	public Farmacia consultarFarmaciaPorId(Integer idFarmacia) {
+
+		final Session session = sessionFactory.getCurrentSession();
+		return (Farmacia) session.createCriteria(Farmacia.class)
+				.add(Restrictions.eq("id", idFarmacia))
+				.uniqueResult();
+	}
 }

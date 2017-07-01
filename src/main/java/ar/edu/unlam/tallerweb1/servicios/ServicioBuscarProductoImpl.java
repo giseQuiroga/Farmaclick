@@ -20,7 +20,7 @@ public class ServicioBuscarProductoImpl implements ServicioBuscarProducto
 	@Override
 	public List<Producto> buscarProductos(String artNombre) 
 		{
-		// TODO Auto-generated method stub
+		
 		return ProductoDao.buscarProducto(artNombre);
 		}
 	
