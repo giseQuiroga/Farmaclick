@@ -40,28 +40,6 @@ public class ControladorLogin extends HttpServlet{ /*AGREGO EXTENDS para que fun
 		return new ModelAndView("loginUsuario", modelo);
 	}
 
-
-/*PARA SESION ----------------------------------------------------------------------------------------------------------------------*/
-	
-	/* LO QUE TENIAMOS ANTERIORMENTE A AGREGAR SESIONES
-	 * 
-	 * Esto era lo ultimo que teniamos
-	 * 	
-		@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
-		public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario) {
-			ModelMap model = new ModelMap();
-			//Logica de negocio en Servicio
-			Usuario usuarioObtenido = servicioLogin.logearUsuario(usuario);
-			if (usuarioObtenido != null){
-				model.put("mainObject", usuarioObtenido);
-				
-				return new ModelAndView("home", model);
-			}
-			model.put("error", "Email o contraseña incorrecta.");
-			return new ModelAndView("loginUsuario", model);
-		}	*/
-	
-//metodo encargado de la gestión del método POST
 	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
     protected ModelAndView iniciarSesion(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("usuario") Usuario usuario) throws ServletException, IOException{
 		ModelMap model = new ModelMap();
@@ -105,11 +83,17 @@ public class ControladorLogin extends HttpServlet{ /*AGREGO EXTENDS para que fun
 		return new ModelAndView("redirect:/loginUsuario");
 	}
 	
-	@RequestMapping ("/home")
-		public ModelAndView home(){
-			ModelMap model = new ModelMap();
-			return new ModelAndView("home", model);
-		}
+	@RequestMapping("/home")
+	protected ModelAndView home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+		if(null == request.getSession(false)){  
+			return new ModelAndView("loginUsuario"); 
+			}else{  
+				return new ModelAndView("home");
+			} 
+			
+		
+	}
 		
 	@RequestMapping ("/listaFarmacias")
 		public ModelAndView listaFarmacias(){
