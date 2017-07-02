@@ -41,6 +41,10 @@ public class ServicioFarmaciaImpl implements ServicioFarmacia{
 		return null;		
 	}
 	
+	public void setfarmaciaDao(FarmaciaDao farmaciaDao) {
+		this.farmaciaDao = farmaciaDao;
+	}
+	
 	@Override
 	public List<Pedido> obtenerPedidosPorFarmacia(Integer idFarmacia){
 		List<Pedido> pedidos=farmaciaDao.obtenerPedidosPorFarmacia(idFarmacia);

@@ -9,5 +9,6 @@ public interface ServicioFarmacia {
 	Farmacia ingresarFarmaciaNueva(Farmacia farmacia);
 
 	Farmacia logear(Farmacia farmacia);
+	
 	List<Pedido> obtenerPedidosPorFarmacia(Integer idFarmacia);
 }

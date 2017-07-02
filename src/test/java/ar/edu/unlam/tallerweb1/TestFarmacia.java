@@ -19,6 +19,7 @@ import ar.edu.unlam.tallerweb1.controladores.ControladorRegistroFarmacia;
 import ar.edu.unlam.tallerweb1.dao.FarmaciaDao;
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFarmacia;
+import ar.edu.unlam.tallerweb1.servicios.ServicioFarmaciaImpl;
 
 public class TestFarmacia extends SpringTest {
 	
@@ -100,4 +101,25 @@ public class TestFarmacia extends SpringTest {
 		ModelAndView mav = farmaciaControlador.validarRegistroFarmacia(request, response, miFarmacia);
 		Assert.assertEquals("home", mav.getViewName());
 	}
+	
+	@Test
+	public void TestQuePruebaServicioFarmaciaLoguear(){
+		ServicioFarmaciaImpl servicioFarmaciaTest = new ServicioFarmaciaImpl();
+		FarmaciaDao farmaciaDaoFake = mock(FarmaciaDao.class);
+		servicioFarmaciaTest.setfarmaciaDao(farmaciaDaoFake);
+		
+		Farmacia miFarmacia = new Farmacia();
+		miFarmacia.setPassword("123456");
+		Farmacia farmaciaObtenida = new Farmacia();
+		farmaciaObtenida.setPassword("123456");
+		
+		when(farmaciaDaoFake.consultarFarmacia(miFarmacia)).thenReturn(farmaciaObtenida);
+		
+		Farmacia farmaciaResultado = servicioFarmaciaTest.logear(miFarmacia);
+		
+		Assert.assertNotNull(farmaciaResultado);
+	}
 }
+
+
+	
