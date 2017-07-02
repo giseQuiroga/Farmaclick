@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1;
 
 import javax.inject.Inject;
+import javax.servlet.ServletException;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import static org.mockito.Mockito.*;
+
+import java.io.IOException;
 
 import ar.edu.unlam.tallerweb1.controladores.ControladorRegistroFarmacia;
 import ar.edu.unlam.tallerweb1.dao.FarmaciaDao;
@@ -82,7 +85,7 @@ public class TestFarmacia extends SpringTest {
 	}
 	
 	@Test
-	public void TestQuePruebaElRegistroDeFarmacia(){
+	public void TestQuePruebaElRegistroDeFarmacia() throws ServletException, IOException{
 		ControladorRegistroFarmacia farmaciaControlador = new ControladorRegistroFarmacia();
 		ServicioFarmacia farmaFake = mock(ServicioFarmacia.class);
 		farmaciaControlador.setServicioFarmacia(farmaFake);

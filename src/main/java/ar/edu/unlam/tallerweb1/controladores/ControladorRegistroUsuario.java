@@ -42,7 +42,7 @@ public class ControladorRegistroUsuario extends HttpServlet {
 		
 /* Se valida el Registro del Usuario */
 		@RequestMapping(path = "/registrar-usuario", method = RequestMethod.POST)
-		protected ModelAndView validarRegistroUsuario(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("usuario") Usuario usuario) throws ServletException, IOException{
+		public ModelAndView validarRegistroUsuario(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("usuario") Usuario usuario) throws ServletException, IOException{
 			
 			ModelMap model = new ModelMap();
 			
@@ -66,5 +66,11 @@ public class ControladorRegistroUsuario extends HttpServlet {
 				return new ModelAndView("home", model);
 			
 			
-		}	
+		}
+
+
+		public void usuarioFake(ServicioRegistroUsuario usuarioFake) {
+			this.servicioRegistroUsuario = usuarioFake;			
+		}
+
 }

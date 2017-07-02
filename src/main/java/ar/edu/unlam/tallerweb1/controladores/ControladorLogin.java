@@ -41,7 +41,7 @@ public class ControladorLogin extends HttpServlet{ /*AGREGO EXTENDS para que fun
 	}
 
 	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
-    protected ModelAndView iniciarSesion(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("usuario") Usuario usuario) throws ServletException, IOException{
+	public ModelAndView iniciarSesion(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("usuario") Usuario usuario) throws ServletException, IOException{
 		ModelMap model = new ModelMap();
 		Usuario usuarioObtenido = servicioLogin.logearUsuario(usuario);
 		
@@ -91,8 +91,6 @@ public class ControladorLogin extends HttpServlet{ /*AGREGO EXTENDS para que fun
 			}else{  
 				return new ModelAndView("home");
 			} 
-			
-		
 	}
 		
 	@RequestMapping ("/listaFarmacias")
@@ -100,7 +98,9 @@ public class ControladorLogin extends HttpServlet{ /*AGREGO EXTENDS para que fun
 			ModelMap model = new ModelMap();
 			return new ModelAndView ("listaFarmacias", model);
 		}
-		
-	}
-	
 
+	public void setServicioUsuario(ServicioLogin servicioUsuario) {
+		this.servicioLogin = servicioUsuario;		
+	}
+		
+}
