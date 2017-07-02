@@ -34,18 +34,26 @@ public class TestFarmacia extends SpringTest {
 	@Test
 	@Transactional @Rollback(true)
 	public void PruebaConsultarFarmacia() {
-		
-		/* Preparacion */
 		Farmacia farmaciaPrueba = new Farmacia();
 		farmaciaPrueba.setCuit("20355823866");
-		
-		/* Operacion */
+			
 		farmaciaDao.guardarFarmaciaNueva(farmaciaPrueba);
 		Farmacia farmaciaBuscada = farmaciaDao.consultarFarmacia(farmaciaPrueba);
 		
-		/* Verifiacion */
 		Farmacia farmaciaObtenida = sessionFactory.getCurrentSession().get(Farmacia.class, farmaciaBuscada.getId()); 
-		Assert.assertTrue(farmaciaObtenida.getCuit().equals("20355823866"));
+		Assert.assertTrue(farmaciaObtenida.getCuit().equals(farmaciaBuscada.getCuit()));
+	}
+	
+	@Test
+	@Transactional @Rollback(true)
+	public void PruebaConsultarFarmaciaPorId(){		
+		Farmacia farmaciaPrueba = new Farmacia();
+		
+		farmaciaDao.guardarFarmaciaNueva(farmaciaPrueba);
+		Farmacia farmaciaBuscada = farmaciaDao.consultarFarmaciaPorId(1);
+		
+		Farmacia farmaciaObtenida = sessionFactory.getCurrentSession().get(Farmacia.class, farmaciaBuscada.getId());
+		Assert.assertTrue(farmaciaObtenida.getId().equals(farmaciaBuscada.getId()));
 	}
 //	
 //	@Test

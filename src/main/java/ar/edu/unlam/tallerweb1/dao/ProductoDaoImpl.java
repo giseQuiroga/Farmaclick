@@ -19,8 +19,7 @@ public class ProductoDaoImpl implements ProductoDao {
 
 	@Override
 	public Producto validarProducto(Producto producto) {
-
-		final Session session = sessionFactory.openSession();
+		final Session session = sessionFactory.getCurrentSession();
 		return (Producto) session.createCriteria(Producto.class)
 				.add(Restrictions.eq("nombre", producto.getNombre()))
 				.add(Restrictions.eq("codigo", producto.getCodigo()))

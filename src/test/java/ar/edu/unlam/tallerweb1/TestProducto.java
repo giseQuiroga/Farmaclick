@@ -16,9 +16,8 @@ public class TestProducto extends SpringTest {
 	
 	@Test
 	@Transactional @Rollback(true)
-	public void TestCrearNuevoProducto() {
+	public void TestGuardarProducto() {
 		/* Preparacion */
-		//long codigo=(long)12345;
 		Producto productoPrueba = new Producto();
 		productoPrueba.setCodigo(123452);
 		
@@ -27,7 +26,13 @@ public class TestProducto extends SpringTest {
 		
 		/* Verifiacion */
 		Producto productoObtenido = sessionFactory.getCurrentSession().get(Producto.class, productoPrueba.getCodigo());
-		Assert.assertTrue(productoObtenido.getCodigo()==123452);
+		Assert.assertTrue(productoObtenido.getCodigo() == 123452);
+	}
+	
+	@Test
+	@Transactional @Rollback(true)
+	public void TestValidarProducto(){
+		
 	}
 
 }
