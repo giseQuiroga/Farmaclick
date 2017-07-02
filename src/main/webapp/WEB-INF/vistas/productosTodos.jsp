@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -37,8 +38,8 @@
 		      	</a>
 		      		<ul class="dropdown-menu">
 			          <li><a href="Productos">Listado de medicamentos</a></li>
-			          <c:set var = "mainObjectClass" value = "${mainObject.getClass().name}"/>
-     				  <c:if test = "${fn:contains(mainObjectClass, 'Farmacia')}">			          
+			          <c:set var = "mainObjectClass" value = "${sessionScope.tipoUsuario}"/>
+     				  <c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
 						<li><a href="altaProductos">Agregar Producto</a></li>					  	
 				      </c:if>
 									          
@@ -95,7 +96,9 @@
 									<td><c:out value="${item.precio}"/> </td>
 									<td><c:out value="${item.accion}"/> </td>
 									<td><c:out value="${item.farmacia.razonSocial}"/> </td>
+									<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">
 									<td><a href="validarPedido?producto=${item.id}" class="btn btn-success">Comprar</a></td>
+									</c:if>
 								</tr> 
 							</c:forEach> 
 						</tbody>

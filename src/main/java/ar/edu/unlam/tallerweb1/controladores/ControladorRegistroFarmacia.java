@@ -53,7 +53,8 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 			/*las seteo con los datos que vienen del usuario encontrado en la bd*/
 			sesion.setAttribute("nombre", farmaciaObtenida.getCuit());
 			sesion.setAttribute("idUsuario", farmaciaObtenida.getId());
-			
+			sesion.setAttribute("tipoUsuario", "farmacia");
+			sesion.setAttribute("razonSocial", farmaciaObtenida.getRazonSocial());
 			return new ModelAndView("home", model);
 		}
 		else{
@@ -90,6 +91,8 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 			/*las seteo con los datos que vienen del usuario encontrado en la bd*/
 			sesion.setAttribute("nombre", farmaciaNueva.getCuit());
 			sesion.setAttribute("idUsuario", farmaciaNueva.getId());
+			sesion.setAttribute("tipoUsuario", "farmacia");
+			sesion.setAttribute("razonSocial", farmaciaNueva.getRazonSocial());
 			return new ModelAndView("home", model);
 		}
 

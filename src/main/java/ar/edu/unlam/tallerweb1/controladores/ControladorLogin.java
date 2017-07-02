@@ -54,7 +54,7 @@ public class ControladorLogin extends HttpServlet{ /*AGREGO EXTENDS para que fun
 			/*las seteo con los datos que vienen del usuario encontrado en la bd*/
 			sesion.setAttribute("nombre", usuarioObtenido.getNombre());
 			sesion.setAttribute("idUsuario", usuarioObtenido.getId());
-			
+			sesion.setAttribute("tipoUsuario", "usuario");
 			return new ModelAndView("home", model);
 		}
 		else{

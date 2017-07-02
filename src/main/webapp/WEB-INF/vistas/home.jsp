@@ -18,8 +18,15 @@
 		</style>
 	</head>
 	<body>
-		<div class="container">		
-		<h1>¡Bienvenido a FarmaClick ${sessionScope.nombre}!</h1>
+		<div class="container">	
+		<c:set var = "mainObjectClass" value = "${sessionScope.tipoUsuario}"/>
+     				  <c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+						<li><h1>¡Bienvenido a FarmaClick, ${sessionScope.razonSocial}!</h1></li>					  	
+				      </c:if>	
+			 <c:if test = "${fn:contains(mainObjectClass, 'usuario')}">			          
+						<li><h1>¡Bienvenido a FarmaClick, ${sessionScope.nombre}!</h1></li>					  	
+				      </c:if>
+		
 		<!-- ACÁ VA EL LOGO -->	
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid" style="width:auto;">
@@ -33,9 +40,9 @@
 		      		Productos<b class="caret"></b>
 		      	</a>
 		      		<ul class="dropdown-menu">
-			          <li><a href="Productos">Listado de medicamentos</a></li>
-			          <c:set var = "mainObjectClass" value = "${mainObject.getClass().name}"/>
-     				  <c:if test = "${fn:contains(mainObjectClass, 'Farmacia')}">			          
+			           <li><a href="Productos">Listado de medicamentos</a></li>
+			          
+     				  <c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
 						<li><a href="altaProductos">Agregar Producto</a></li>					  	
 				      </c:if>
 			        </ul>

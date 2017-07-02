@@ -61,7 +61,7 @@ public class ControladorRegistroUsuario extends HttpServlet {
 				/*las seteo con los datos que vienen del usuario encontrado en la bd*/
 				sesion.setAttribute("nombre", usuarioObtenido.getNombre());
 				sesion.setAttribute("idUsuario", usuarioObtenido.getId());
-				
+				sesion.setAttribute("tipoUsuario", "usuario");
 				
 				return new ModelAndView("home", model);
 			
