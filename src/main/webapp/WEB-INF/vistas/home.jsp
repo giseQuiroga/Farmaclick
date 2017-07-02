@@ -40,11 +40,16 @@
 		      		Productos<b class="caret"></b>
 		      	</a>
 		      		<ul class="dropdown-menu">
-			           <li><a href="Productos">Listado de medicamentos</a></li>
-			          
-     				  <c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-						<li><a href="altaProductos">Agregar Producto</a></li>					  	
-				      </c:if>
+		      			<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">	
+			           		<li><a href="Productos">Listado de medicamentos</a></li>
+			           	</c:if>
+			           	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+							<li><a href="misProductos">Listado de medicamentos</a></li>					  	
+					    </c:if>
+				          
+     				  	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+							<li><a href="altaProductos">Agregar Producto</a></li>					  	
+				     	 </c:if>
 			        </ul>
 			    </li>
 			    <c:if test = "${fn:contains(mainObjectClass, 'usuario')}">			          

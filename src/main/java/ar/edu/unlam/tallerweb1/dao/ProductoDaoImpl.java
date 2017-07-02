@@ -77,5 +77,15 @@ public class ProductoDaoImpl implements ProductoDao {
 				.list(); 
 		return pedidosRealizados;
 	}
+	
+	public	List<Producto> obtenerProductosPorFarmacia(Integer idFarmacia){
+		final Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<Producto> productos = (List<Producto>)session.createCriteria(Producto.class)
+								.add(Restrictions.eq("farmacia.id",idFarmacia))
+								.list();
+		return productos;
+	}
+
 
 }

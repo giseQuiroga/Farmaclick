@@ -74,6 +74,17 @@ public class ControladorProductos {
 		model.put("listaProductos", listaProductos);
 		return new ModelAndView("productosTodos", model);
 	}
+	
+	@RequestMapping(path = "misProductos")
+	public ModelAndView mostrarProductosPorFarmacia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession sesion = request.getSession();
+		
+		Integer idFarmacia = (Integer) sesion.getAttribute("idUsuario");
+		ModelMap model = new ModelMap();
+		List<Producto> listaProductos = servicioProducto.obtenerProductosPorFarmacia(idFarmacia);
+		model.put("listaProductos", listaProductos);
+		return new ModelAndView("productosTodos", model);
+	}
 
 	@RequestMapping(path = "validarPedido", method = RequestMethod.GET)
 	public ModelAndView mostrarDetalleDeCompra(HttpServletRequest request, HttpServletResponse response,

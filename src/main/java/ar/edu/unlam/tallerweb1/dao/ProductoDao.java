@@ -15,5 +15,6 @@ public interface ProductoDao {
 	Producto buscarProductoPorId(long idProd);
 	void guardarCompra(Pedido pedido);
 	List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario);
+	List<Producto> obtenerProductosPorFarmacia(Integer idFarmacia);
 
 }

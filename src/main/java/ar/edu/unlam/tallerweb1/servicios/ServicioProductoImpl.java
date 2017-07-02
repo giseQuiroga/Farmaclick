@@ -62,4 +62,9 @@ public class ServicioProductoImpl implements ServicioProducto {
 		List<Pedido> pedidos=productoDao.obtenerPedidosPorUsuario(idUsuario);
 		return pedidos;
 	}
+	
+	public List<Producto> obtenerProductosPorFarmacia(Integer idFarmacia){
+		List<Producto>productos=productoDao.obtenerProductosPorFarmacia(idFarmacia);
+		return productos;
+	}
 }
