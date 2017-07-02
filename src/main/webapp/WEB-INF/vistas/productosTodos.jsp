@@ -31,37 +31,30 @@
 		      <a href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:50%;"></a>
 		    </div>
 		    <ul class="nav navbar-nav">
+		      
 		      <li class="dropdown">
 		      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		      		Productos<b class="caret"></b>
 		      	</a>
 		      		<ul class="dropdown-menu">
-		      			<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">	
-			           		<li><a href="Productos">Listado de medicamentos</a></li>
-			           	</c:if>
-			           	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-							<li><a href="misProductos">Listado de medicamentos</a></li>					  	
-					    </c:if>
-				          
-     				  	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-							<li><a href="altaProductos">Agregar Producto</a></li>					  	
-				     	 </c:if>
+			          <li><a href="Productos">Listado de medicamentos</a></li>
+			          <c:set var = "mainObjectClass" value = "${sessionScope.tipoUsuario}"/>
+     				  <c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+						<li><a href="altaProductos">Agregar Producto</a></li>					  	
+				      </c:if>									          			       
 			        </ul>
 			    </li>
-			    <c:if test = "${fn:contains(mainObjectClass, 'usuario')}">			          
-					<li><a href="misCompras">Mis Compras</a></li>					  	
-				</c:if>
-				<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-					<li><a href="misPedidos">Mis Pedidos</a></li>					  	
-				</c:if>
+			    
+			    
 		    </ul>
+		    
 			<!-- Buscador -->
 		    <div class="text-right navbar-right">
 			<form:form class="navbar-form navbar-left" action="procesarBusqueda" method="POST" modelAttribute="productoBuscado">  
 				<div class="form-group">									
 					<input path="nombre" name="nombre" id="nombre" type="text" class="form-control" placeholder="Buscar..."/>
 				</div>
-				<button class="btn btn-info btn-lg" name="Submit" type="Submit">
+				<button class="btn btn-info btn-md" name="Submit" type="Submit">
 					<span class="glyphicon glyphicon-search"></span>  
 				</button>
 			</form:form>
@@ -69,13 +62,6 @@
 			<a href="cerrarSesion" class="btn btn-notice btn-lg">Cerrar Sesión</a>	
 			</div>
 			
-			<!-- Viejo buscador (sin funcion)-->
-		    <!--form class="navbar-form navbar-left">
-		      <div class="form-group">
-		        <input type="text" class="form-control" placeholder="Medicamentos, farmacias y mucho más">
-		      </div>
-		      <button type="submit" class="btn btn-default">Buscar</button>
-		    </form-->
 		  </div>
 		</nav>
 
@@ -105,12 +91,26 @@
 									<td><a href="validarPedido?producto=${item.id}" class="btn btn-success">Comprar</a></td>
 									</c:if>
 								</tr> 
+							</c:forEach>
+							<c:forEach items="${productoList}" var="item">
+								<tr>				
+									<td><c:out value="${item.codigo}"/> </td> 
+									<td><c:out value="${item.nombre}"/> </td>
+									<td><c:out value="${item.laboratorio}"/> </td> 
+									<td><c:out value="${item.precio}"/> </td>
+									<td><c:out value="${item.accion}"/> </td>
+									<td><c:out value="${item.farmacia.razonSocial}"/> </td>
+								
+									<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">
+									<td><a href="validarPedido?producto=${item.id}" class="btn btn-success">Comprar</a></td>
+									</c:if>
+								</tr>				
 							</c:forEach> 
 						</tbody>
 					</table>	
 				</div>
 			</div>
-		
+			
 		
 		</div>
 		<!-- Placed at the end of the document so the pages load faster -->

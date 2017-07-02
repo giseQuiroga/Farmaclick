@@ -78,7 +78,7 @@
 									
 									
 									<input type="text" class="form-control" name="razonSocial" id="razonSocial"  placeholder="Ingrese razon social"
-									required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,15}" title="Mayor a 3 caracteres, menor a 20 y solo letras." value="${farmacia.razonSocial}"/>
+									required pattern="[a-zA-Z ñÑáéíóúÁÉÍÓÚ]{3,20}" title="Mayor a 3 caracteres, menor a 20 y solo letras." value="${farmacia.razonSocial}"/>
 								</div>
 							</div>
 						</div>
@@ -102,7 +102,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="telefono" id="telefono"  placeholder="Ingrese un telefono"
-									required pattern="[0-9]{8,8}" title="Telefono incorrecto." value="${farmacia.telefono}"/>
+									required pattern="[0-9]{8,10}" title="Telefono incorrecto." value="${farmacia.telefono}"/>
 								</div>
 							</div>
 						</div>
@@ -144,13 +144,13 @@
 
 						<div class="form-group ">
 <!-- 							<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a> -->
-						 <button type="submit" class="btn btn-success btn-lg btn-primary btn-block">registrar</button>
+						 <button type="submit" class="btn btn-success btn-lg btn-primary btn-block">Registrar</button>
 						 
 						</div>
 						
 <!--             <button type="submit" class="btn btn-success">Registrar</button> -->						
 					</form:form> 
-					<a href="loginFarmacia"><button class="btn btn-success btn-lg btn-primary btn-block">volver</button></a>
+					<a href="loginFarmacia"><button class="btn btn-success btn-lg btn-primary btn-block">Volver al login</button></a>
 					</br>
 				</div>
 			</div>

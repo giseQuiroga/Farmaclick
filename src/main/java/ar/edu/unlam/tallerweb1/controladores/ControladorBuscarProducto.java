@@ -40,7 +40,7 @@ public class ControladorBuscarProducto
 		List<Producto> listaEncontrados = servicioBuscarProducto.buscarProductos(artNombre);
 		
 		Model.put("productoList", listaEncontrados);
-		return new ModelAndView("home", Model);
+		return new ModelAndView("productosTodos", Model);
 		}
 		
 	}

@@ -12,98 +12,75 @@
 	    
 		<style>
 		img {
-		    width: 100%;
-		    height: auto;
-		}
+		    width: 100%;  		
+			}
+		
+		.navbar 
+			{
+		    margin-bottom: 0px;
+			}	
+			
+		.carousel-caption h1 
+			{			
+			color: #33cc33 !important;
+			}
+			
+		/* Description text */
+		.carousel-caption p 
+			{			
+			color: #33cc33 !important;
+			}
+
 		</style>
 	</head>
 	<body>
-		<div class="container">	
-		<c:set var = "mainObjectClass" value = "${sessionScope.tipoUsuario}"/>
-     				  <c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-						<li><h1>¡Bienvenido a FarmaClick, ${sessionScope.razonSocial}!</h1></li>					  	
-				      </c:if>	
-			 <c:if test = "${fn:contains(mainObjectClass, 'usuario')}">			          
-						<li><h1>¡Bienvenido a FarmaClick, ${sessionScope.nombre}!</h1></li>					  	
-				      </c:if>
-		
-		<!-- ACÁ VA EL LOGO -->	
+		<div class="container">
 		<nav class="navbar navbar-default">
-		  <div class="container-fluid" style="width:auto;">
+		  <div class="container-fluid">
 		    <div class="navbar-header">
 		      <a href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:50%;"></a>
-		    </div>		    
+		    </div>
 		    
 		    <ul class="nav navbar-nav">
-		      <li class="dropdown">
+		     <li class="dropdown">
 		      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		      		Productos<b class="caret"></b>
 		      	</a>
-		      		<ul class="dropdown-menu">
-		      			<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">	
-			           		<li><a href="Productos">Listado de medicamentos</a></li>
-			           	</c:if>
-			           	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-							<li><a href="misProductos">Listado de medicamentos</a></li>					  	
-					    </c:if>
-				          
-     				  	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-							<li><a href="altaProductos">Agregar Producto</a></li>					  	
-				     	 </c:if>
-			        </ul>
-			    </li>
-			    <c:if test = "${fn:contains(mainObjectClass, 'usuario')}">			          
-					<li><a href="misCompras">Mis Compras</a></li>					  	
-				</c:if>
-				<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-					<li><a href="misPedidos">Mis Pedidos</a></li>					  	
-				</c:if>
+	      		<ul class="dropdown-menu">
+		            <li><a href="Productos">Listado de medicamentos</a></li>			          
+    				<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+				   	<li><a href="altaProductos">Agregar Producto</a></li>					  	
+			       	</c:if>
+		        </ul>
+		 	 </li>
 		    </ul>
 		    
-		    <!-- Buscador -->
-		    <div class="navbar-form navbar-right">
-			<form:form class="navbar-form navbar-left" action="procesarBusqueda" method="POST" modelAttribute="productoBuscado">  
+		    <form:form class="navbar-form navbar-left" action="procesarBusqueda" method="POST" modelAttribute="productoBuscado">  
 				<div class="form-group">									
 					<input path="nombre" name="nombre" id="nombre" type="text" class="form-control" placeholder="Buscar..."/>
 				</div>
-				<button class="btn btn-info btn-lg" name="Submit" type="Submit">
+				<button class="btn btn-info btn-md" name="Submit" type="Submit">
 					<span class="glyphicon glyphicon-search"></span>  
 				</button>
-			</form:form>
-			
-			<a href="cerrarSesion" class="btn btn-notice btn-lg">Cerrar Sesión</a>	
-			</div>
-			
-			
-			<!-- Viejo buscador (sin funcion)-->
-		    <!--form class="navbar-form navbar-left">
-		      <div class="form-group">
-		        <input type="text" class="form-control" placeholder="Medicamentos, farmacias y mucho más">
-		      </div>
-		      <button type="submit" class="btn btn-default">Buscar</button>
-		    </form-->
+		  	</form:form>
+		    
+		    <ul class="nav navbar-nav navbar-right">
+		      <li>		      	
+		      	<c:set var = "mainObjectClass" value = "${sessionScope.tipoUsuario}"/>		   			
+			   	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+					<a>¡Bienvenido, ${sessionScope.razonSocial}!</a>					  	
+				</c:if>	
+				<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">			          
+					<a>¡Bienvenido, ${sessionScope.nombre}!</a>					  	
+				</c:if>
+			  </li>
+		      <li>
+		      	<a href="cerrarSesion" class="btn btn-notice btn-md"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a>
+		      </li>
+		    </ul>
 		  </div>
 		</nav>
-		
-		<div class="row">
-			<div class="col-md-6">
-				<h3>${productoBuscado.nombre}</h3>
-				<label>${mensaje}</label>
-				<br>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<c:forEach items="${productoList}" var="item">				
-					Nombre:<c:out value="${item.nombre}"></c:out><br>
-					Codigo:<c:out value="${item.codigo}"></c:out><br>
-					Accion:<c:out value="${item.accion}"></c:out><br>				
-				</c:forEach>
-			</div>
-		</div>	
-		
-		<h2>Farmacias y medicamentos a un click de distancia</h2><br><br>
-		
+		      
 		<!-- inicio de carrusel -->
 		<div id="carruselHome" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
@@ -116,46 +93,61 @@
 		    <li data-target="#carruselHome" data-slide-to="5"></li>
 		  </ol>
 		
-		  <!-- Wrapper for slides -->
-		 <div class="carousel-inner">
-		    <div class="item active">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="item active">
 		      <img src="img/img1.jpg" alt="Servicio eficiente">
+		      <div class="carousel-caption">
+			      <h1>Farmaclick</h1>
+			      <p>Farmacias y medicamentos a un click de distancia</p>
+		      </div>
 		    </div>
-		
+							
 		    <div class="item">
 		      <img src="img/img2.jpg" alt="Estamos para ayudar">
+		      <div class="carousel-caption">
+			      <h1>Farmaclick</h1>
+			      <p>Farmacias y medicamentos a un click de distancia</p>
+		      </div>
 		    </div>
 		
 		    <div class="item">
 		      <img src="img/img3.jpg" alt="Sencillo y rápido">
+		      <div class="carousel-caption">
+			      <h1>Farmaclick</h1>
+			      <p>Farmacias y medicamentos a un click de distancia</p>
+		      </div>
 		    </div>
 		    
 		    <div class="item">
-		    <img src="img/img4.jpg" alt="Al alcance de nuestros clientes">
+			  <img src="img/img4.jpg" alt="Al alcance de nuestros clientes">
+			  <div class="carousel-caption">
+			  	  <h1>Farmaclick</h1>
+			      <p>Farmacias y medicamentos a un click de distancia</p>
+			  </div>
 		    </div>
 		    
 		    <div class="item">
-		    <img src="img/img5.jpg" alt="Aceptamos todos los medios de pago">
+		      <img src="img/img5.jpg" alt="Aceptamos todos los medios de pago">
+		      <div class="carousel-caption">
+			  	  <h1>Farmaclick</h1>
+			      <p>Farmacias y medicamentos a un click de distancia</p>
+			  </div>
 		    </div>
 		 </div>
 		
-		  <!-- Left and right controls -->
-		  <a class="left carousel-control" href="#carruselHome" data-slide="prev">
-		    <span class="glyphicon glyphicon-chevron-left"></span>
-		    <span class="sr-only">Atras</span>
-		  </a>
-		  <a class="right carousel-control" href="#carruselHome" data-slide="next">
-		    <span class="glyphicon glyphicon-chevron-right"></span>
-		    <span class="sr-only">Siguiente</span>
-		  </a>
-		</div>	
-		 
-		</br>
-		</br>
-
-		<div class="navbar navbar-default">
-		</div>		 
-		 
+			 <!-- Left and right controls -->
+			 <a class="left carousel-control" href="#carruselHome" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left"></span>
+			    <span class="sr-only">Atras</span>
+			 </a>
+			 <a class="right carousel-control" href="#carruselHome" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right"></span>
+			    <span class="sr-only">Siguiente</span>
+			 </a>
+			</div>	
+		 		
+				 		
 		</div>
 		
 		<!-- Placed at the end of the document so the pages load faster -->
