@@ -14,5 +14,6 @@ public interface ProductoDao {
 	List<Producto> buscarProducto(String artNombre);
 	Producto buscarProductoPorId(long idProd);
 	void guardarCompra(Pedido pedido);
+	List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario);
 
 }

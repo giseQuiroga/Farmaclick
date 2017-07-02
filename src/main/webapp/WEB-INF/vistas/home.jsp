@@ -48,7 +48,10 @@
 			        </ul>
 			    </li>
 			    <c:if test = "${fn:contains(mainObjectClass, 'usuario')}">			          
-					<li><a href="altaProductos">Mis Compras</a></li>					  	
+					<li><a href="misCompras">Mis Compras</a></li>					  	
+				</c:if>
+				<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+					<li><a href="misPedidos">Mis Pedidos</a></li>					  	
 				</c:if>
 		    </ul>
 		    

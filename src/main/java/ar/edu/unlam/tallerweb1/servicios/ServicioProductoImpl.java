@@ -57,4 +57,9 @@ public class ServicioProductoImpl implements ServicioProducto {
 	public void guardarCompra(Pedido pedido){
 		productoDao.guardarCompra(pedido);
 	}
+	
+	public List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario){
+		List<Pedido> pedidos=productoDao.obtenerPedidosPorUsuario(idUsuario);
+		return pedidos;
+	}
 }

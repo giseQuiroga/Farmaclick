@@ -44,7 +44,7 @@
 	  </div>
 	 </div>
 	</nav>
-
+${mensaje}
 			<div class="panel panel-default">
 			    <div class="panel-heading">Nuevo Producto</div>
 			    <div class="panel-body">

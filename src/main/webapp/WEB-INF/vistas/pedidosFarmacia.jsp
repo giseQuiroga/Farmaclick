@@ -71,19 +71,27 @@
 			<table class="table table-striped">
 				<thead>
 					<th>Nombre del Producto</th>
-					<th>Farmacia</th>
 					<th>Usuario</th>
+					<th>Direccion</th>
+					<th>Ciudad</th>
+					<th>Email</th>
+					<th>Telefono</th>
 					<th>Precio</th>
 					<th>Fecha de Pedido</th>
+					<th>Farmacia</th>
 				</thead>
 				<tbody>
 					<c:forEach items="${listaPedido}" var="item">
 						<tr>
 							<td>${item.producto.nombre}</td> 
-							<td>${item.producto.farmacia.razonSocial}</td>
 							<td>${item.usuario.nombre} </td>
+							<td>${item.usuario.direccion} </td>
+							<td>${item.usuario.ciudad} </td>
+							<td>${item.usuario.email} </td>
+							<td>${item.usuario.telefono} </td>
 							<td>${item.producto.precio}</td>
 							<td>${item.fechaPedido}</td>
+							<td>${item.producto.farmacia.razonSocial}</td>
 						</tr> 
 					</c:forEach> 
 				</tbody>

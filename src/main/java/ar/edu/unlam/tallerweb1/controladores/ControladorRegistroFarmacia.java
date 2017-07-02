@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
+import ar.edu.unlam.tallerweb1.modelo.Pedido;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFarmacia;
 
@@ -71,19 +73,19 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 		
 /* Se valida el Registro de Farmacia */
 		@RequestMapping(path = "/confirmarRegistroFarmacia", method = RequestMethod.POST)
-		public ModelAndView validarRegistroFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) {
+		public ModelAndView validarRegistroFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) throws ServletException, IOException{
 			
 			ModelMap model = new ModelMap();
 			
 			String mensajeConfirmacionRegistroFarmaciaNueva;
 			Farmacia farmaciaNueva = servicioFarmacia.ingresarFarmaciaNueva(farmacia); 
-			
 			if (farmaciaNueva == null){
 				mensajeConfirmacionRegistroFarmaciaNueva = "El CUIT ingresado ya esta registrado.";
 				model.put("farmacia", farmacia);
 				model.put("mensajeConfirmacionRegistroFarmaciaNueva", mensajeConfirmacionRegistroFarmaciaNueva);
 				return new ModelAndView("registroFarmacia", model);
 			}
+			
 			
 			model.put("mainObject", farmaciaNueva);
 			HttpSession sesion = request.getSession();
@@ -100,5 +102,24 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 			this.servicioFarmacia = servicioFarmacia;
 		}
 		
+		@RequestMapping(path = "misPedidos", method = RequestMethod.GET)
+		public ModelAndView mostrarComprasUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			HttpSession sesion = request.getSession();
+			
+			Integer idFarmacia = (Integer) sesion.getAttribute("idUsuario");
+			
+			ModelMap model = new ModelMap();
+			List<Pedido> listaPedido = servicioFarmacia.obtenerPedidosPorFarmacia(idFarmacia);
+			String mensaje;
+			if (listaPedido==null){
+				mensaje="Aun no se han recibido pedidos";
+				model.put("mensaje", mensaje);
+				return new ModelAndView("pedidosFarmacia", model);
+			}
+			else{
+				model.put("listaPedido", listaPedido);
+				return new ModelAndView("pedidosFarmacia", model);
+			}
+		}
 		
 }

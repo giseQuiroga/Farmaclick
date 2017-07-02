@@ -94,4 +94,24 @@ public class ControladorProductos {
 		model.put("pedido", pedido);
 		return new ModelAndView("validarPedido", model);
 	}
+	
+	@RequestMapping(path = "misCompras", method = RequestMethod.GET)
+	public ModelAndView mostrarComprasUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession sesion = request.getSession();
+		
+		Integer idUsuario = (Integer) sesion.getAttribute("idUsuario");
+		
+		ModelMap model = new ModelMap();
+		List<Pedido> listaPedido = servicioProducto.obtenerPedidosPorUsuario(idUsuario);
+		String mensaje;
+		if (listaPedido==null){
+			mensaje="Aun no se han realizado compras";
+			model.put("mensaje", mensaje);
+			return new ModelAndView("comprarProducto", model);
+		}
+		else{
+			model.put("listaPedido", listaPedido);
+			return new ModelAndView("comprarProducto", model);
+		}
+	}
 }

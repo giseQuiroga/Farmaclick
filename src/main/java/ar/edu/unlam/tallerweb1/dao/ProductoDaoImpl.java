@@ -68,4 +68,14 @@ public class ProductoDaoImpl implements ProductoDao {
 		final Session session = sessionFactory.getCurrentSession();
 		session.save(pedido);
 	}
+	
+	public List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario){
+		final Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<Pedido> pedidosRealizados=(List<Pedido>)session.createCriteria(Pedido.class)
+				.add(Restrictions.eq("usuario.id",idUsuario))
+				.list(); 
+		return pedidosRealizados;
+	}
+
 }

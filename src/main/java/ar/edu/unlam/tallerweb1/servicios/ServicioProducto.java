@@ -11,4 +11,5 @@ public interface ServicioProducto {
 	List<Producto> obtenerProductos();
 	Producto buscarProductoPorId(long idProd);
 	void guardarCompra(Pedido pedido);
+	List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario);
 }
