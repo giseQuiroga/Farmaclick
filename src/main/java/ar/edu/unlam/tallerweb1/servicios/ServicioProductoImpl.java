@@ -27,15 +27,12 @@ public class ServicioProductoImpl implements ServicioProducto {
 	public Boolean verificarProducto(Producto producto, Integer idFarmacia) {
 		List<Producto> productosExistentes= new LinkedList<Producto>();
 		Boolean existeProducto=true;
-		
-		
-		
+
 		for(Producto unProducto : productosExistentes){
 			if (unProducto.getCodigo()==producto.getCodigo()){
 				existeProducto=false;
 				break;
-			}
-			
+			}		
 		}
 		Farmacia farmaciaID = farmaciaDao.consultarFarmaciaPorId(idFarmacia);
 		producto.setFarmacia(farmaciaID);

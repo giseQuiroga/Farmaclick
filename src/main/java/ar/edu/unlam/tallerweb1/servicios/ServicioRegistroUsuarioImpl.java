@@ -17,9 +17,8 @@ public class ServicioRegistroUsuarioImpl implements ServicioRegistroUsuario {
 	private UsuarioRegistroDao servicioUsuarioRegistroDao;
 
 	@Override
-	public Usuario buscarUsuario (Usuario usuario) {				
-		/*Valida que no sea un usuario repetido y lo registra*/
-		
+	public Usuario buscarUsuario (Usuario usuario) {	//registra usuario también			
+
 		Usuario UsuarioObtenido = servicioUsuarioRegistroDao.buscarUsuario(usuario);
 		
 		if(UsuarioObtenido == null){
@@ -28,6 +27,10 @@ public class ServicioRegistroUsuarioImpl implements ServicioRegistroUsuario {
 				return UsuarioObtenidoCompleto;
 			}
 		return null;
+	}
+	
+	public void setUsuarioDao (UsuarioRegistroDao usuarioRegistroDao){
+		this.servicioUsuarioRegistroDao = usuarioRegistroDao;
 	}
 
 	public Usuario buscarUsuarioPorId(Integer idUsuario){

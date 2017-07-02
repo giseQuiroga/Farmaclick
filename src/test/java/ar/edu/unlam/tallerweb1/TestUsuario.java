@@ -1,6 +1,5 @@
 package ar.edu.unlam.tallerweb1;
 
-
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
@@ -21,6 +20,7 @@ import ar.edu.unlam.tallerweb1.dao.UsuarioRegistroDao;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.ServicioRegistroUsuario;
+import ar.edu.unlam.tallerweb1.servicios.ServicioRegistroUsuarioImpl;
 
 public class TestUsuario extends SpringTest {
 
@@ -143,6 +143,25 @@ public class TestUsuario extends SpringTest {
 		
 		ModelAndView miModelo = usuarioControlador.validarRegistroUsuario(request, response, miUsuario);
 		Assert.assertEquals("home", miModelo.getViewName());
+	}
+	
+	@Test @Transactional @Rollback(true)
+	public void TestServicioRegistrarUsuario(){
+	
+		ServicioRegistroUsuarioImpl servicio = new ServicioRegistroUsuarioImpl();
+		UsuarioRegistroDao usuarioDaoFake = mock(UsuarioRegistroDao.class);
+		servicio.setUsuarioDao(usuarioDaoFake);
+		
+		Usuario miUsuario = new Usuario();
+		miUsuario.setEmail("usuario@mail.com");
+		Usuario usuarioObtenido = new Usuario();
+		usuarioObtenido.setEmail("usuario@mail.com");
+		
+		when(usuarioDaoFake.buscarUsuario(miUsuario)).thenReturn(null, usuarioObtenido);
+		
+		Usuario usuarioRestulado = servicio.buscarUsuario(miUsuario);
+		
+		Assert.assertNotNull(usuarioRestulado);	
 	}
 	
 }

@@ -28,4 +28,6 @@ public class ProductoTest extends SpringTest {
 		assertThat(productoBuscado.getFarmacia()).isNotNull();
 		assertThat(productoBuscado.getFarmacia().getRazonSocial()).isEqualTo(farmaciaPrueba.getRazonSocial());
 	}
+	
+	
 }
