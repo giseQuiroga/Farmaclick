@@ -31,22 +31,16 @@
 	       otro elemento que se pueda ocultar al minimizar la barra -->
 	  <div class="collapse navbar-collapse navbar-ex1-collapse">
 	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Crear Producto</a></li>
+	      
 	      <li class="dropdown">
 	        <ul class="dropdown-menu">
-	          <li><a href="loginUsuario">Usuario</a></li>
-	          <li><a href="#">Farmacia</a></li>
+	          
 	        </ul>
 	      </li>
 	    </ul>
 	 
 	<div class="text-right navbar-right">
-	    <form class="navbar-form navbar-left" role="search">
-	      <div class="form-group">
-	        <input type="text" class="form-control" placeholder="Buscar Productos">
-	      </div>
-	      <button type="submit" class="btn btn-default">Buscar</button>
-	    </form>
+	    
 	  </div>
 	 </div>
 	</nav>

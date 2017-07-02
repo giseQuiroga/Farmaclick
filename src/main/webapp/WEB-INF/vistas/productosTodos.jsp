@@ -106,10 +106,6 @@
 				</div>
 			</div>
 		
-		<!-- AGREGADO -->
-		PRUEBA DE DATOS DE SESION<br> 
-		Nombre del Usuario: ${sessionScope.nombre}<br>
-		Nombre del ID Usuario: ${sessionScope.idUsuario}
 		
 		</div>
 		<!-- Placed at the end of the document so the pages load faster -->
