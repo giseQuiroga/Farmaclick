@@ -1,23 +1,23 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Pedido {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
-	@OneToMany
-	public Usuario usuario;
-	@OneToMany
-	public Producto producto;
-	public Date fechaPedido;
-	public int cantidad;
+	private long id;
+	@ManyToOne
+	private Usuario usuario;
+	@ManyToOne
+	private Producto producto;
+	private String fechaPedido;
 	
 	public long getId() {
 		return id;
@@ -37,16 +37,10 @@ public class Pedido {
 	public void setProducto(Producto producto) {
 		this.producto = producto;
 	}
-	public Date getFechaPedido() {
+	public String getFechaPedido() {
 		return fechaPedido;
 	}
-	public void setFechaPedido(Date fechaPedido) {
+	public void setFechaPedido(String fechaPedido) {
 		this.fechaPedido = fechaPedido;
-	}
-	public int getCantidad() {
-		return cantidad;
-	}
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
 	}
 }

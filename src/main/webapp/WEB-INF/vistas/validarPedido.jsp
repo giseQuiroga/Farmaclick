@@ -73,6 +73,7 @@
 					<th>Farmacia</th>
 					<th>Usuario</th>
 					<th>Precio</th>
+					<th>Fecha de Pedido</th>
 				</thead>
 				<tbody>
 					<tr>
@@ -80,6 +81,7 @@
 						<td>${pedido.producto.farmacia.razonSocial}</td>
 						<td>${pedido.usuario.nombre} </td>
 						<td>${pedido.producto.precio}</td>
+						<td>${pedido.fechaPedido}</td>
 					</tr> 
 				</tbody>
 			</table>	

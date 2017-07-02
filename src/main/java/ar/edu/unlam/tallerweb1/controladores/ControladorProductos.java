@@ -1,6 +1,9 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -79,11 +82,15 @@ public class ControladorProductos {
 
 		Pedido pedido = new Pedido();
 		ModelMap model = new ModelMap();
-		Producto producto = servicioProducto.buscarProducto(idProd);
+		Producto producto = servicioProducto.buscarProductoPorId(idProd);
 		pedido.setProducto(producto);
 		Integer idUsuario = (Integer) sesion.getAttribute("idUsuario");
 		Usuario usuario = servicioRegistroUsuario.buscarUsuarioPorId(idUsuario);
 		pedido.setUsuario(usuario);
+		Date hoy = Calendar.getInstance().getTime();
+		SimpleDateFormat fechaPedido = new SimpleDateFormat("dd/MM/yyyy");
+		pedido.setFechaPedido(fechaPedido.format(hoy));
+		servicioProducto.guardarCompra(pedido);
 		model.put("pedido", pedido);
 		return new ModelAndView("validarPedido", model);
 	}

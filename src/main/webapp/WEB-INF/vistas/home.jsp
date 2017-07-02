@@ -47,6 +47,9 @@
 				      </c:if>
 			        </ul>
 			    </li>
+			    <c:if test = "${fn:contains(mainObjectClass, 'usuario')}">			          
+					<li><a href="altaProductos">Mis Compras</a></li>					  	
+				</c:if>
 		    </ul>
 		    
 		    <!-- Buscador -->

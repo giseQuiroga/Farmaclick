@@ -9,7 +9,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
-import ar.edu.unlam.tallerweb1.modelo.Producto;;
+import ar.edu.unlam.tallerweb1.modelo.Pedido;
+import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 @Service("productoDao")
 public class ProductoDaoImpl implements ProductoDao {
@@ -19,7 +20,8 @@ public class ProductoDaoImpl implements ProductoDao {
 
 	@Override
 	public Producto validarProducto(Producto producto) {
-		final Session session = sessionFactory.getCurrentSession();
+
+		final Session session = sessionFactory.openSession();
 		return (Producto) session.createCriteria(Producto.class)
 				.add(Restrictions.eq("nombre", producto.getNombre()))
 				.add(Restrictions.eq("codigo", producto.getCodigo()))
@@ -55,10 +57,15 @@ public class ProductoDaoImpl implements ProductoDao {
 		return ListaP;
 		}
 	
-	public Producto buscarProducto(long idProd){
+	public Producto buscarProductoPorId(long idProd){
 		final Session session = sessionFactory.getCurrentSession();
 		Producto producto = (Producto)session.createCriteria(Producto.class)
 								.add(Restrictions.eq("id",idProd)).uniqueResult();
 		return producto;
+	}
+	
+	public void guardarCompra(Pedido pedido){
+		final Session session = sessionFactory.getCurrentSession();
+		session.save(pedido);
 	}
 }

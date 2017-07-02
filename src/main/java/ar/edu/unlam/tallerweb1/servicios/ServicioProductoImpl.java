@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.dao.FarmaciaDao;
 import ar.edu.unlam.tallerweb1.dao.ProductoDao;
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
+import ar.edu.unlam.tallerweb1.modelo.Pedido;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 @Service("servicioProducto")
@@ -48,8 +49,12 @@ public class ServicioProductoImpl implements ServicioProducto {
 		return productos;
 	}
 	
-	public Producto buscarProducto(long idProd){
-		Producto producto=productoDao.buscarProducto(idProd);
+	public Producto buscarProductoPorId(long idProd){
+		Producto producto=productoDao.buscarProductoPorId(idProd);
 		return producto;				
+	}
+	
+	public void guardarCompra(Pedido pedido){
+		productoDao.guardarCompra(pedido);
 	}
 }
