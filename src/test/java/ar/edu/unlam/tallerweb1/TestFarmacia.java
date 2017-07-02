@@ -78,7 +78,6 @@ public class TestFarmacia extends SpringTest {
 		
 		ModelAndView mav = farmaciaControlador.validarLoginFarmacia(request, response, miFarmacia);
 		
-		Assert.assertEquals("home", mav.getViewName());
-		
+		Assert.assertEquals("home", mav.getViewName());	
 	}
 }
