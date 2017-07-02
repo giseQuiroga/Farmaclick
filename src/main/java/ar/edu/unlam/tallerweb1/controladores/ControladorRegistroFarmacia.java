@@ -71,19 +71,19 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 		
 /* Se valida el Registro de Farmacia */
 		@RequestMapping(path = "/confirmarRegistroFarmacia", method = RequestMethod.POST)
-		protected ModelAndView validarRegistroFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) throws ServletException, IOException{
+		public ModelAndView validarRegistroFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) {
 			
 			ModelMap model = new ModelMap();
 			
 			String mensajeConfirmacionRegistroFarmaciaNueva;
 			Farmacia farmaciaNueva = servicioFarmacia.ingresarFarmaciaNueva(farmacia); 
+			
 			if (farmaciaNueva == null){
 				mensajeConfirmacionRegistroFarmaciaNueva = "El CUIT ingresado ya esta registrado.";
 				model.put("farmacia", farmacia);
 				model.put("mensajeConfirmacionRegistroFarmaciaNueva", mensajeConfirmacionRegistroFarmaciaNueva);
 				return new ModelAndView("registroFarmacia", model);
 			}
-			
 			
 			model.put("mainObject", farmaciaNueva);
 			HttpSession sesion = request.getSession();

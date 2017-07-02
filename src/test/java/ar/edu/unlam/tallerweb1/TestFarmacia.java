@@ -80,4 +80,21 @@ public class TestFarmacia extends SpringTest {
 		
 		Assert.assertEquals("home", mav.getViewName());	
 	}
+	
+	@Test
+	public void TestQuePruebaElRegistroDeFarmacia(){
+		ControladorRegistroFarmacia farmaciaControlador = new ControladorRegistroFarmacia();
+		ServicioFarmacia farmaFake = mock(ServicioFarmacia.class);
+		farmaciaControlador.setServicioFarmacia(farmaFake);
+		
+		Farmacia miFarmacia = new Farmacia();
+		Farmacia farmaciaObtenida = new Farmacia();
+		when(farmaFake.ingresarFarmaciaNueva(miFarmacia)).thenReturn(farmaciaObtenida);
+		
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		MockHttpServletResponse response = new MockHttpServletResponse();
+		
+		ModelAndView mav = farmaciaControlador.validarRegistroFarmacia(request, response, miFarmacia);
+		Assert.assertEquals("home", mav.getViewName());
+	}
 }
