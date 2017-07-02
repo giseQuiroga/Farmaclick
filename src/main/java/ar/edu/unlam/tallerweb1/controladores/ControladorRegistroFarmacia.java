@@ -42,7 +42,7 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 	
 	// Login de Farmacias
 	@RequestMapping(path = "/validar-loginFarmacia", method = RequestMethod.POST)
-	protected ModelAndView validarLoginFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) throws ServletException, IOException {
+	public ModelAndView validarLoginFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) {
 		ModelMap model = new ModelMap();
 		//Logica de negocio en Servicio
 		Farmacia farmaciaObtenida = servicioFarmacia.logear(farmacia);
