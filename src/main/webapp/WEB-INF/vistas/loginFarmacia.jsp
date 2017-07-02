@@ -12,7 +12,7 @@
 		<div class = "container">
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 				<form:form action="validar-loginFarmacia" method="POST" modelAttribute="farmacia">      
-			    	<h3 class="form-signin-heading text-center">Farmaclick - Inicio de Sesión</h3>
+			    	<h3 class="form-signin-heading text-center">Farmaclick - Farmacia</h3>
 					<hr class="colorgraph">
 					
 					<div class="text-center text-danger">
