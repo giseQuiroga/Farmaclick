@@ -41,18 +41,32 @@
 		      <a href="home"><img src="img/logo.jpg" alt="Farmaclick" style="width:50%;"></a>
 		    </div>
 		    
-		    <ul class="nav navbar-nav">
-		     <li class="dropdown">
+		      <ul class="nav navbar-nav">
+		      <li class="dropdown">
 		      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		      		Productos<b class="caret"></b>
 		      	</a>
-	      		<ul class="dropdown-menu">
-		            <li><a href="Productos">Listado de medicamentos</a></li>			          
-    				<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-				   	<li><a href="altaProductos">Agregar Producto</a></li>					  	
-			       	</c:if>
-		        </ul>
-		 	 </li>
+		      		<ul class="dropdown-menu">
+		      			<c:set var = "mainObjectClass" value = "${sessionScope.tipoUsuario}"/>
+		      			<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">	
+			           		<li><a href="Productos">Listado de medicamentos</a></li>
+			           	</c:if>
+			           	
+			           	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+							<li><a href="misProductos">Listado de medicamentos</a></li>					  	
+					    </c:if>
+				          
+     				  	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+							<li><a href="altaProductos">Agregar Producto</a></li>					  	
+				     	 </c:if>
+			        </ul>
+			    </li>
+			    <c:if test = "${fn:contains(mainObjectClass, 'usuario')}">			          
+					<li><a href="misCompras">Mis Compras</a></li>					  	
+				</c:if>
+				<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
+					<li><a href="misPedidos">Mis Pedidos</a></li>					  	
+				</c:if>
 		    </ul>
 		    
 		    <form:form class="navbar-form navbar-left" action="procesarBusqueda" method="POST" modelAttribute="productoBuscado">  
