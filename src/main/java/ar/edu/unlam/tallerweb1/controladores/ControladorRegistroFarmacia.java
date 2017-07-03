@@ -21,8 +21,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 import ar.edu.unlam.tallerweb1.modelo.Pedido;
+import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFarmacia;
+import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 
 @Controller
 @WebServlet("/ControladorRegistroFarmacia")
@@ -30,6 +32,8 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Inject
+	private ServicioProducto servicioProducto;
 	@Inject
 	private ServicioFarmacia servicioFarmacia;
 	
@@ -57,6 +61,9 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 			sesion.setAttribute("idUsuario", farmaciaObtenida.getId());
 			sesion.setAttribute("tipoUsuario", "farmacia");
 			sesion.setAttribute("razonSocial", farmaciaObtenida.getRazonSocial());
+			
+			List<Producto> listaProductos = servicioProducto.obtenerProductosSinStock();
+			model.put("listaProductos", listaProductos);
 			return new ModelAndView("home", model);
 		}
 		else{

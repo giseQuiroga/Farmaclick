@@ -51,8 +51,9 @@ public class ServicioProductoImpl implements ServicioProducto {
 		return producto;				
 	}
 	
-	public void guardarCompra(Pedido pedido){
-		productoDao.guardarCompra(pedido);
+	public void guardarCompra(Pedido pedido, Producto producto){
+		
+		productoDao.guardarCompra(pedido, producto);
 	}
 	
 	public List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario){
@@ -62,6 +63,11 @@ public class ServicioProductoImpl implements ServicioProducto {
 	
 	public List<Producto> obtenerProductosPorFarmacia(Integer idFarmacia){
 		List<Producto>productos=productoDao.obtenerProductosPorFarmacia(idFarmacia);
+		return productos;
+	}
+	
+	public List<Producto> obtenerProductosSinStock(){
+		List<Producto> productos= productoDao.obtenerProductosSinStock();
 		return productos;
 	}
 }

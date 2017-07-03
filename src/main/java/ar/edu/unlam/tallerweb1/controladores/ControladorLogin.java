@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
+import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 
 @Controller
 @WebServlet("/ControladorLogin")	/*AGREGADO*/
@@ -30,6 +33,8 @@ public class ControladorLogin extends HttpServlet{ /*AGREGO EXTENDS para que fun
 	
 	@Inject
 	private ServicioLogin servicioLogin;
+	@Inject
+	private ServicioProducto servicioProducto;
 	
 	@RequestMapping("/loginUsuario")
 	public ModelAndView irAloginFarmaclick() {
@@ -86,11 +91,10 @@ public class ControladorLogin extends HttpServlet{ /*AGREGO EXTENDS para que fun
 	@RequestMapping("/home")
 	protected ModelAndView home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
-		if(null == request.getSession(false)){  
-			return new ModelAndView("loginUsuario"); 
-			}else{  
-				return new ModelAndView("home");
-			} 
+		ModelMap model = new ModelMap();
+		List<Producto> listaProductos = servicioProducto.obtenerProductosSinStock();
+		model.put("listaProductos", listaProductos);
+		return new ModelAndView("home", model);
 	}
 		
 	@RequestMapping ("/listaFarmacias")

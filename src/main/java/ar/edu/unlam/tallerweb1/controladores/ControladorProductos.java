@@ -94,6 +94,7 @@ public class ControladorProductos {
 		Pedido pedido = new Pedido();
 		ModelMap model = new ModelMap();
 		Producto producto = servicioProducto.buscarProductoPorId(idProd);
+		producto.setStock(producto.getStock()-1);
 		pedido.setProducto(producto);
 		Integer idUsuario = (Integer) sesion.getAttribute("idUsuario");
 		Usuario usuario = servicioRegistroUsuario.buscarUsuarioPorId(idUsuario);
@@ -101,7 +102,7 @@ public class ControladorProductos {
 		Date hoy = Calendar.getInstance().getTime();
 		SimpleDateFormat fechaPedido = new SimpleDateFormat("dd/MM/yyyy");
 		pedido.setFechaPedido(fechaPedido.format(hoy));
-		servicioProducto.guardarCompra(pedido);
+		servicioProducto.guardarCompra(pedido,producto);
 		model.put("pedido", pedido);
 		return new ModelAndView("validarPedido", model);
 	}
@@ -125,4 +126,12 @@ public class ControladorProductos {
 			return new ModelAndView("comprarProducto", model);
 		}
 	}
+	
+	/*@RequestMapping(path="homeFarmacia")
+	public ModelAndView mostrarProductosSinStock(){
+		ModelMap model = new ModelMap();
+		List<Producto> listaProductos = servicioProducto.obtenerProductosSinStock();
+		model.put("listaProductos", listaProductos);
+		return new ModelAndView("home", model);
+	}*/
 }

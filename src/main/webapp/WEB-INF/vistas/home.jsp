@@ -96,6 +96,7 @@
 		</nav>
 		      
 		<!-- inicio de carrusel -->
+		<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">
 		<div id="carruselHome" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
@@ -160,8 +161,39 @@
 			    <span class="sr-only">Siguiente</span>
 			 </a>
 			</div>	
-		 		
-				 		
+		 	</c:if>	
+			<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">
+			<div class="panel panel-default">
+				<div class="panel-heading">Productos Sin Stock</div>
+			    <div class="panel-body">
+					<table class="table table-striped">
+						<thead>
+							<th>Codigo</th>
+							<th>Nombre del Producto</th>
+							<th>Laboratorio</th>
+							<th>Precio</th>
+							<th>Accion Farmacologica</th>
+							<th>Farmacia</th>
+							<th>Stock</th>
+							<th></th>
+						</thead>
+						<tbody>
+							<c:forEach items="${listaProductos}" var="item">
+								<tr>
+									<td><c:out value="${item.codigo}"/> </td> 
+									<td><c:out value="${item.nombre}"/> </td>
+									<td><c:out value="${item.laboratorio}"/> </td> 
+									<td><c:out value="${item.precio}"/> </td>
+									<td><c:out value="${item.accion}"/> </td>
+									<td><c:out value="${item.farmacia.razonSocial}"/> </td>
+									<td><c:out value="${item.stock}"/> </td>
+								</tr> 
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</c:if>	 		
 		</div>
 		
 		<!-- Placed at the end of the document so the pages load faster -->

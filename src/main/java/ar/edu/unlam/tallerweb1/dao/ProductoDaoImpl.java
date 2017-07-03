@@ -21,7 +21,7 @@ public class ProductoDaoImpl implements ProductoDao {
 	@Override
 	public Producto validarProducto(Producto producto) {
 
-		final Session session = sessionFactory.openSession();
+		final Session session = sessionFactory.getCurrentSession();
 		return (Producto) session.createCriteria(Producto.class)
 				.add(Restrictions.eq("nombre", producto.getNombre()))
 				.add(Restrictions.eq("codigo", producto.getCodigo()))
@@ -40,7 +40,8 @@ public class ProductoDaoImpl implements ProductoDao {
 	public List<Producto> obtenerProductos(){
 		final Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		List<Producto> productos = (List<Producto>)session.createCriteria(Producto.class).list();
+		List<Producto> productos = (List<Producto>)session.createCriteria(Producto.class)
+		.add(Restrictions.not(Restrictions.eq("stock", 0))).list();
 		return productos;
 	}
 
@@ -53,6 +54,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		@SuppressWarnings("unchecked")
 		List<Producto> ListaP = (List<Producto>)session.createCriteria(Producto.class)
 								.add(Restrictions.eq("nombre",artNombre))
+								.add(Restrictions.not(Restrictions.eq("stock", 0)))
 								.list(); 
 		return ListaP;
 		}
@@ -64,9 +66,10 @@ public class ProductoDaoImpl implements ProductoDao {
 		return producto;
 	}
 	
-	public void guardarCompra(Pedido pedido){
+	public void guardarCompra(Pedido pedido, Producto producto){
 		final Session session = sessionFactory.getCurrentSession();
 		session.save(pedido);
+		session.update(producto);
 	}
 	
 	public List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario){
@@ -87,5 +90,11 @@ public class ProductoDaoImpl implements ProductoDao {
 		return productos;
 	}
 
-
+	public List<Producto> obtenerProductosSinStock(){
+		final Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<Producto> productos = (List<Producto>)session.createCriteria(Producto.class)
+		.add(Restrictions.eq("stock", 0)).list();
+		return productos;
+	}
 }

@@ -11,15 +11,22 @@ public class Producto {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long id;
-	public int codigo;
-	public String nombre;
+	private long id;
+	private int codigo;
+	private String nombre;
 	@ManyToOne
-	public Farmacia farmacia;
-	public String laboratorio;
-	public String accion;
-	public float precio;
+	private Farmacia farmacia;
+	private String laboratorio;
+	private String accion;
+	private float precio;
+	private Integer stock;
 	
+	public Integer getStock() {
+		return stock;
+	}
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
 	public long getId() {
 		return id;
 	}

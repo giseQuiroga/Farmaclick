@@ -13,8 +13,8 @@ public interface ProductoDao {
 	//Buscar producto por nombre.
 	List<Producto> buscarProducto(String artNombre);
 	Producto buscarProductoPorId(long idProd);
-	void guardarCompra(Pedido pedido);
+	void guardarCompra(Pedido pedido, Producto producto);
 	List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario);
 	List<Producto> obtenerProductosPorFarmacia(Integer idFarmacia);
-
+	List<Producto> obtenerProductosSinStock();
 }

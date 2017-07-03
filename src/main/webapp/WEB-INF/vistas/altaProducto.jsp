@@ -98,13 +98,22 @@ ${mensaje}
 					    <div class="col-lg-4">
 					      <input type="text" class="form-control" id="precio" name="precio" placeholder="Precio" required pattern="[0-9]+([\.,][0-9]+)?" title="El precio debe ser numerico">
 					    </div>
+					    
 					  </div>
+					  
 					  <div class="form-group">
+					  <label class="col-lg-2 control-label">Stock:</label>
+					    <div class="col-lg-4">
+					      <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock" required pattern="[0-9]+([\.,][0-9]+)?" title="El stock debe ser numerico">
+					    </div>
 					    <label class="col-lg-2 control-label">Acción Farmacológica:</label>
 					    <div class="col-lg-4">
 					      <textarea class="form-control" id="accion" name="accion" placeholder="Acción Farmacológica" rows="4" required></textarea>
 					    </div>
+					    
 					  </div>
+					  
+					  
 					  <div class="form-group">
 					    <div class="col-lg-2 pull-right">
 					      <button type="submit" class="btn btn-success">Guardar</button>

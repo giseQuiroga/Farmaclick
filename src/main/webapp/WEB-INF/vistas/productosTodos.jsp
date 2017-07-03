@@ -95,6 +95,7 @@
 							<th>Precio</th>
 							<th>Accion Farmacologica</th>
 							<th>Farmacia</th>
+							<th>Stock</th>
 							<th></th>
 						</thead>
 						<tbody>
@@ -106,6 +107,9 @@
 									<td><c:out value="${item.precio}"/> </td>
 									<td><c:out value="${item.accion}"/> </td>
 									<td><c:out value="${item.farmacia.razonSocial}"/> </td>
+									<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">
+									<td><c:out value="${item.stock}"/> </td>
+									</c:if>
 									<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">
 									<td><a href="validarPedido?producto=${item.id}" class="btn btn-success">Comprar</a></td>
 									</c:if>
@@ -119,7 +123,6 @@
 									<td><c:out value="${item.precio}"/> </td>
 									<td><c:out value="${item.accion}"/> </td>
 									<td><c:out value="${item.farmacia.razonSocial}"/> </td>
-								
 									<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">
 									<td><a href="validarPedido?producto=${item.id}" class="btn btn-success">Comprar</a></td>
 									</c:if>
