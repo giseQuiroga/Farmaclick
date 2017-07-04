@@ -20,7 +20,14 @@ public class Producto {
 	private String accion;
 	private float precio;
 	private Integer stock;
+	private boolean ocultar = false;
 	
+	public boolean isOcultar() {
+		return ocultar;
+	}
+	public void setOcultar(boolean ocultar) {
+		this.ocultar = ocultar;
+	}
 	public Integer getStock() {
 		return stock;
 	}

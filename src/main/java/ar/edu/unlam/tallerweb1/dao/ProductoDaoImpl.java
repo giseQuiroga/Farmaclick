@@ -41,7 +41,9 @@ public class ProductoDaoImpl implements ProductoDao {
 		final Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
 		List<Producto> productos = (List<Producto>)session.createCriteria(Producto.class)
-		.add(Restrictions.not(Restrictions.eq("stock", 0))).list();
+		.add(Restrictions.not(Restrictions.eq("stock", 0)))
+		.add(Restrictions.eq("ocultar", false))
+		.list();
 		return productos;
 	}
 
@@ -54,6 +56,7 @@ public class ProductoDaoImpl implements ProductoDao {
 		@SuppressWarnings("unchecked")
 		List<Producto> ListaP = (List<Producto>)session.createCriteria(Producto.class)
 								.add(Restrictions.eq("nombre",artNombre))
+								.add(Restrictions.eq("ocultar", false))
 								.add(Restrictions.not(Restrictions.eq("stock", 0)))
 								.list(); 
 		return ListaP;
@@ -99,4 +102,22 @@ public class ProductoDaoImpl implements ProductoDao {
 		.list();
 		return productos;
 	}
+	
+	public void ocultarProducto(long idProducto){
+		final Session sesion = sessionFactory.getCurrentSession();
+		Producto productoObtenido = (Producto) sesion.createCriteria(Producto.class)
+				.add(Restrictions.eq("id", idProducto)).uniqueResult();
+		
+		if (productoObtenido.isOcultar() == true){
+			productoObtenido.setOcultar(false);
+		} else if (productoObtenido.isOcultar() == false){
+			productoObtenido.setOcultar(true);
+		}
+		sesion.update(productoObtenido);
+		
+		
+	}
+		
+	
+	
 }

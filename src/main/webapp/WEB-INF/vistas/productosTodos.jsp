@@ -120,6 +120,14 @@
 									<c:if test = "${fn:contains(mainObjectClass, 'usuario')}">
 									<td><a href="validarPedido?producto=${item.id}" class="btn btn-success">Comprar</a></td>
 									</c:if>
+									<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">
+									<c:if test = "${item.ocultar eq true}">
+									<td><a href="ocultarProducto?producto=${item.id}" class="btn btn-success">Oculto</a></td>
+									</c:if>
+									<c:if test = "${item.ocultar eq false}">
+									<td><a href="ocultarProducto?producto=${item.id}" class="btn btn-success">Publicado</a></td>
+									</c:if>
+									</c:if>
 								</tr> 
 							</c:forEach>
 							<c:forEach items="${productoList}" var="item">

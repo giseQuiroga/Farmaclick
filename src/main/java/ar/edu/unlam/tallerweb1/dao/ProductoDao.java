@@ -17,4 +17,5 @@ public interface ProductoDao {
 	List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario);
 	List<Producto> obtenerProductosPorFarmacia(Integer idFarmacia);
 	List<Producto> obtenerProductosSinStock(Integer idFarmacia);
+	void ocultarProducto(long idProducto);
 }

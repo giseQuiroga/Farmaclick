@@ -107,6 +107,11 @@ public class ControladorProductos {
 		return new ModelAndView("validarPedido", model);
 	}
 	
+			@RequestParam("producto") long idProducto) {
+		
+		
+	}
+	
 	@RequestMapping(path = "misCompras", method = RequestMethod.GET)
 	public ModelAndView mostrarComprasUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sesion = request.getSession();

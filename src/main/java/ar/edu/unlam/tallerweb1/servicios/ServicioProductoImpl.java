@@ -70,4 +70,9 @@ public class ServicioProductoImpl implements ServicioProducto {
 		List<Producto> productos= productoDao.obtenerProductosSinStock(idFarmacia);
 		return productos;
 	}
+	
+	public void ocultarProducto(long idProducto){
+		productoDao.ocultarProducto(idProducto);
+		
+	}
 }
