@@ -107,9 +107,12 @@ public class ControladorProductos {
 		return new ModelAndView("validarPedido", model);
 	}
 	
-			@RequestParam("producto") long idProducto) {
+	@RequestMapping(path = "ocultarProducto", method = RequestMethod.GET)
+	public ModelAndView OcultaProductoParaLosUsuarios(HttpServletRequest request, HttpServletResponse response,@RequestParam("producto") long idProducto) {
 		
+		servicioProducto.ocultarProducto(idProducto);
 		
+		return new ModelAndView("redirect:/misProductos");
 	}
 	
 	@RequestMapping(path = "misCompras", method = RequestMethod.GET)
