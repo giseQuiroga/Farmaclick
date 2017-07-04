@@ -62,7 +62,9 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 			sesion.setAttribute("tipoUsuario", "farmacia");
 			sesion.setAttribute("razonSocial", farmaciaObtenida.getRazonSocial());
 			
-			List<Producto> listaProductos = servicioProducto.obtenerProductosSinStock();
+			Integer idFarmacia = (Integer) sesion.getAttribute("idUsuario");
+			
+			List<Producto> listaProductos = servicioProducto.obtenerProductosSinStock(idFarmacia);
 			model.put("listaProductos", listaProductos);
 			return new ModelAndView("home", model);
 		}

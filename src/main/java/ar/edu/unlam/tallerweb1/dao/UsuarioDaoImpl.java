@@ -17,7 +17,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	@Override
 	public Usuario consultaUsuario(Usuario usuario) {
-		final Session session = sessionFactory.openSession();
+		final Session session = sessionFactory.getCurrentSession();
 		return (Usuario) session.createCriteria(Usuario.class)
 				.add(Restrictions.eq("email", usuario.getEmail()))
 				.add(Restrictions.eq("password", usuario.getPassword()))

@@ -16,5 +16,5 @@ public interface ProductoDao {
 	void guardarCompra(Pedido pedido, Producto producto);
 	List<Pedido>obtenerPedidosPorUsuario(Integer idUsuario);
 	List<Producto> obtenerProductosPorFarmacia(Integer idFarmacia);
-	List<Producto> obtenerProductosSinStock();
+	List<Producto> obtenerProductosSinStock(Integer idFarmacia);
 }

@@ -90,11 +90,13 @@ public class ProductoDaoImpl implements ProductoDao {
 		return productos;
 	}
 
-	public List<Producto> obtenerProductosSinStock(){
+	public List<Producto> obtenerProductosSinStock(Integer idFarmacia){
 		final Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
 		List<Producto> productos = (List<Producto>)session.createCriteria(Producto.class)
-		.add(Restrictions.eq("stock", 0)).list();
+		.add(Restrictions.eq("stock", 0))
+		.add(Restrictions.eq("farmacia.id", idFarmacia))
+		.list();
 		return productos;
 	}
 }

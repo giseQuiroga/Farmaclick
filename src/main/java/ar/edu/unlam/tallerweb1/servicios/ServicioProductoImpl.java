@@ -66,8 +66,8 @@ public class ServicioProductoImpl implements ServicioProducto {
 		return productos;
 	}
 	
-	public List<Producto> obtenerProductosSinStock(){
-		List<Producto> productos= productoDao.obtenerProductosSinStock();
+	public List<Producto> obtenerProductosSinStock(Integer idFarmacia){
+		List<Producto> productos= productoDao.obtenerProductosSinStock(idFarmacia);
 		return productos;
 	}
 }

@@ -127,11 +127,5 @@ public class ControladorProductos {
 		}
 	}
 	
-	/*@RequestMapping(path="homeFarmacia")
-	public ModelAndView mostrarProductosSinStock(){
-		ModelMap model = new ModelMap();
-		List<Producto> listaProductos = servicioProducto.obtenerProductosSinStock();
-		model.put("listaProductos", listaProductos);
-		return new ModelAndView("home", model);
-	}*/
+	
 }

@@ -95,9 +95,8 @@
 							<th>Precio</th>
 							<th>Accion Farmacologica</th>
 							<th>Farmacia</th>
-							
 							<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">
-								<c:forEach items="${listaProductos}" var="item">
+								<c:forEach items="${listaProductos}" var="item"  begin="0" end="0">
 									<c:set var = "stock" value = "${item.stock}"/>
 									<c:if test = "${stock != null}">
 										<th>Stock</th>

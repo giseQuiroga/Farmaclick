@@ -91,12 +91,16 @@ public class ControladorLogin extends HttpServlet{ /*AGREGO EXTENDS para que fun
 	@RequestMapping("/home")
 	protected ModelAndView home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
+		
+		Integer idFarmacia = (Integer) request.getSession().getAttribute("idUsuario");
 		ModelMap model = new ModelMap();
-		List<Producto> listaProductos = servicioProducto.obtenerProductosSinStock();
+		List<Producto> listaProductos = servicioProducto.obtenerProductosSinStock(idFarmacia);
 		model.put("listaProductos", listaProductos);
 		return new ModelAndView("home", model);
 	}
 		
+	
+
 	@RequestMapping ("/listaFarmacias")
 		public ModelAndView listaFarmacias(){
 			ModelMap model = new ModelMap();
