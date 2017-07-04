@@ -85,7 +85,7 @@
 		</nav>
 	${mensaje}
 	<div class="panel panel-default">
-		<div class="panel-heading">Listado de Productos</div>
+		<div class="panel-heading">Listado de Pedidos</div>
 	    <div class="panel-body">
 			<table class="table table-striped">
 				<thead>
