@@ -69,8 +69,8 @@ public class ControladorRegistroUsuario extends HttpServlet {
 		}
 
 
-		public void usuarioFake(ServicioRegistroUsuario usuarioFake) {
-			this.servicioRegistroUsuario = usuarioFake;			
+		public void setServicioUsuario(ServicioRegistroUsuario usuarioFake) {
+			this.servicioRegistroUsuario = usuarioFake;				
 		}
 
 }

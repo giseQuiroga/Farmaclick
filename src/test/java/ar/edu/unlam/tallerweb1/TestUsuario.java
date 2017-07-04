@@ -29,7 +29,7 @@ public class TestUsuario extends SpringTest {
 
 /*TEST REGISTRA USUARIO*/	
 	@Test
-	@Transactional @Rollback(false)
+	@Transactional @Rollback(true)
 	public void PruebaRegistrarUnUsuario() {
 		
 /* 1) Preparacion - Preparo un usuario --------------------------------------------------------------------------------------- */
@@ -50,7 +50,7 @@ public class TestUsuario extends SpringTest {
 	
 /*TEST BUSCA USUARIO*/	
 	@Test
-	@Transactional @Rollback(false)
+	@Transactional @Rollback(true)
 	public void PruebaBuscarUnRegistroDeUsuario(){
 		
 /* 1) Preparacion - Ingreso varios usuarios y repito el ultimo -----------------------------------------------------------------*/
@@ -103,7 +103,7 @@ public class TestUsuario extends SpringTest {
 	}
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
-	//MOCK//			//MOCK//			//MOCK//			//MOCK//				//MOCK//
+	//MOCK//			//MOCK//			//MOCK//			//MOCK//				//MOCK//					//MOCK//
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 //Mock pega controlador Login	
@@ -114,7 +114,7 @@ public class TestUsuario extends SpringTest {
 		usuarioControlador.setServicioUsuario(usuarioFake);
 		
 		Usuario miUsuario = new Usuario();
-		Usuario usuarioObtenido = new Usuario();
+		Usuario usuarioObtenido = new Usuario();	
 		when(usuarioFake.logearUsuario(miUsuario)).thenReturn(usuarioObtenido);
 		
 		MockHttpServletRequest request = new MockHttpServletRequest();
@@ -126,13 +126,13 @@ public class TestUsuario extends SpringTest {
 	}
 	
 	
-//Mock pega controlador Registro 
+//Mock pega controlador Registro Usuario
 	
 	@Test
 	public void TestQuePruebaElRegistroDeUsuario() throws Exception, IOException{
 		ControladorRegistroUsuario usuarioControlador = new ControladorRegistroUsuario();
 		ServicioRegistroUsuario usuarioFake = mock(ServicioRegistroUsuario.class);
-		usuarioControlador.usuarioFake(usuarioFake);
+		usuarioControlador.setServicioUsuario(usuarioFake);
 		
 		Usuario miUsuario = new Usuario();
 		Usuario usuarioObtenido = new Usuario();
@@ -144,6 +144,9 @@ public class TestUsuario extends SpringTest {
 		ModelAndView miModelo = usuarioControlador.validarRegistroUsuario(request, response, miUsuario);
 		Assert.assertEquals("home", miModelo.getViewName());
 	}
+	
+	
+//Mock de servicio
 	
 	@Test @Transactional @Rollback(true)
 	public void TestServicioRegistrarUsuario(){
@@ -157,7 +160,7 @@ public class TestUsuario extends SpringTest {
 		Usuario usuarioObtenido = new Usuario();
 		usuarioObtenido.setEmail("usuario@mail.com");
 		
-		when(usuarioDaoFake.buscarUsuario(miUsuario)).thenReturn(null, usuarioObtenido);
+		when(usuarioDaoFake.buscarUsuario(miUsuario)).thenReturn(null, usuarioObtenido);	//1ra vuelta - resto de vuelta
 		
 		Usuario usuarioRestulado = servicio.buscarUsuario(miUsuario);
 		
