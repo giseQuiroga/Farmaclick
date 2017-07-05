@@ -40,6 +40,10 @@ public class ServicioProductoImpl implements ServicioProducto {
 		productoDao.guardarProducto(producto);
 		return existeProducto;
 	}
+	
+	public void guardarProductoEditado(Producto producto){
+		productoDao.guardarProducto(producto);
+	}
 
 	public List<Producto> obtenerProductos(){
 		List<Producto>productos=productoDao.obtenerProductos();
@@ -74,5 +78,10 @@ public class ServicioProductoImpl implements ServicioProducto {
 	public void ocultarProducto(long idProducto){
 		productoDao.ocultarProducto(idProducto);
 		
+	}
+	
+	public Producto buscarProductoPorCodigo(int codigo){
+		Producto producto=productoDao.buscarProductoPorCodigo(codigo);
+		return producto;				
 	}
 }

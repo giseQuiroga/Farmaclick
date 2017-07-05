@@ -18,4 +18,5 @@ public interface ProductoDao {
 	List<Producto> obtenerProductosPorFarmacia(Integer idFarmacia);
 	List<Producto> obtenerProductosSinStock(Integer idFarmacia);
 	void ocultarProducto(long idProducto);
+	Producto buscarProductoPorCodigo(int codigo);
 }

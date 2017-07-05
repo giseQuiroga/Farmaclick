@@ -34,7 +34,7 @@ public class ProductoDaoImpl implements ProductoDao {
 	
 	public void guardarProducto(Producto producto){
 		final Session session = sessionFactory.getCurrentSession();
-		session.save(producto);
+		session.saveOrUpdate(producto);
 	}
 	
 	public List<Producto> obtenerProductos(){
@@ -118,6 +118,11 @@ public class ProductoDaoImpl implements ProductoDao {
 		
 	}
 		
-	
+	public Producto buscarProductoPorCodigo(int codigo){
+		final Session session = sessionFactory.getCurrentSession();
+		Producto producto = (Producto)session.createCriteria(Producto.class)
+								.add(Restrictions.eq("codigo",codigo)).uniqueResult();
+		return producto;
+	}
 	
 }

@@ -15,5 +15,6 @@ public interface ServicioProducto {
 	List<Producto> obtenerProductosPorFarmacia(Integer idFarmacia);
 	List<Producto> obtenerProductosSinStock(Integer idFarmacia);
 	void ocultarProducto(long idProducto);
-	
+	void guardarProductoEditado(Producto producto);
+	Producto buscarProductoPorCodigo(int codigo);
 }

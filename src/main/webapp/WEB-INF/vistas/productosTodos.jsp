@@ -47,7 +47,7 @@
 					    </c:if>
 				          
      				  	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-							<li><a href="altaProductos">Agregar Producto</a></li>					  	
+							<li><a href="altaProductos?producto=0">Agregar Producto</a></li>					  	
 				     	 </c:if>
 			        </ul>
 			    </li>

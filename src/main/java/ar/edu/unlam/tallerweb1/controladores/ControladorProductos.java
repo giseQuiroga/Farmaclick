@@ -39,10 +39,32 @@ public class ControladorProductos {
 	@Inject
 	private ServicioRegistroUsuario servicioRegistroUsuario;
 
-	@RequestMapping("/altaProductos")
-	public ModelAndView altaProducto() {
+	@RequestMapping(path = "/altaProductos", method = RequestMethod.GET)
+	public ModelAndView altaProducto(@RequestParam("producto") long idProducto) {
 		ModelMap modelo = new ModelMap();
+		if (idProducto != 0){
+			modelo.put("producto", servicioProducto.buscarProductoPorId(idProducto));
+		}
 		return new ModelAndView("altaProducto", modelo);
+	}
+	
+/*	@RequestMapping(path = "editarProducto", method = RequestMethod.GET)
+	public ModelAndView editarProducto(@RequestParam("producto") long idProducto){
+		ModelMap model = new ModelMap();	
+		model.put("producto", servicioProducto.buscarProductoPorId(idProducto));
+		return new ModelAndView ("redirect:/altaProductos", model);
+	}*/
+	
+	@RequestMapping(path = "editarProducto", method = RequestMethod.POST)
+	public ModelAndView editarProducto(@ModelAttribute("producto") Producto producto){
+		Producto productoEncontrado=servicioProducto.buscarProductoPorCodigo(producto.getCodigo());
+		productoEncontrado.setStock(producto.getStock());
+		servicioProducto.guardarProductoEditado(productoEncontrado);
+		ModelMap model = new ModelMap();	
+		List<Producto> listaProductos=new LinkedList<Producto>();
+		listaProductos.add(productoEncontrado);
+		model.put("listaProductos", listaProductos);
+		return new ModelAndView("productosTodos", model);
 	}
 
 	@RequestMapping(path = "/listadoProductos", method = RequestMethod.POST)
@@ -136,4 +158,5 @@ public class ControladorProductos {
 	}
 	
 	
-}
+		
+	}

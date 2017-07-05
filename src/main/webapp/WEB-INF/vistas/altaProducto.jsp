@@ -37,7 +37,7 @@
 					    </c:if>
 				          
      				  	<c:if test = "${fn:contains(mainObjectClass, 'farmacia')}">			          
-							<li><a href="altaProductos">Agregar Producto</a></li>					  	
+							<li><a href="altaProductos?producto=0">Agregar Producto</a></li>					  	
 				     	 </c:if>
 			        </ul>
 			    </li>
@@ -78,24 +78,38 @@ ${mensaje}
 			<div class="panel panel-default">
 			    <div class="panel-heading">Nuevo Producto</div>
 			    <div class="panel-body">
+			    <c:set var = "producto" value = "${producto}" />
+			    <c:if test="${producto.id == null}">
+			    
 			    	<form:form action="listadoProductos" modelAttribute="producto" method="POST" class="form-horizontal" role="form">
+					  
+					  
 					  <div class="form-group">
 					    <label class="col-lg-2 control-label">Nombre:</label>
 					    <div class="col-lg-4">
+					      
+					      
+					   
 					      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+					   	
 					    </div>
 					    <label class="col-lg-2 control-label">Laboratorio:</label>
 					    <div class="col-lg-4">
+					    	
 					      <input type="text" class="form-control" id="laboratorio" name="laboratorio" placeholder="Laboratorio" required>
+					    	
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="col-lg-2 control-label">Código:</label>
 					    <div class="col-lg-4">
-					      <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código" required  title="El Codigo debe ser numerico.">
-					    </div>
+					    	
+					      <input  type="text" class="form-control" id="codigo" name="codigo" placeholder="Código" required  title="El Codigo debe ser numerico.">
+							
+</div>
 					    <label class="col-lg-2 control-label">Precio:</label>
 					    <div class="col-lg-4">
+					    
 					      <input type="text" class="form-control" id="precio" name="precio" placeholder="Precio" required pattern="[0-9]+([\.,][0-9]+)?" title="El precio debe ser numerico">
 					    </div>
 					    
@@ -108,7 +122,7 @@ ${mensaje}
 					    </div>
 					    <label class="col-lg-2 control-label">Acción Farmacológica:</label>
 					    <div class="col-lg-4">
-					      <textarea class="form-control" id="accion" name="accion" placeholder="Acción Farmacológica" rows="4" required></textarea>
+					      <textarea  class="form-control" id="accion" name="accion" placeholder="Acción Farmacológica" rows="4" required></textarea>
 					    </div>
 					    
 					  </div>
@@ -116,10 +130,73 @@ ${mensaje}
 					  
 					  <div class="form-group">
 					    <div class="col-lg-2 pull-right">
+					   
 					      <button type="submit" class="btn btn-success">Guardar</button>
+					      
+					     
 					    </div>
 					  </div>
 					</form:form>
+					</c:if>
+					
+					 <c:if test="${not empty producto.id}">
+			    
+			    	<form:form action="editarProducto" modelAttribute="producto" method="POST" class="form-horizontal" role="form">
+					  
+					  
+					  <div class="form-group">
+					    <label class="col-lg-2 control-label">Nombre:</label>
+					    <div class="col-lg-4">
+					      <input type="hidden" value="${producto.id}" />
+					      <input  type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="${producto.nombre}" required>
+					   
+					    </div>
+					    <label class="col-lg-2 control-label">Laboratorio:</label>
+					    <div class="col-lg-4">
+					    	
+					      <input value="${producto.laboratorio}"  type="text" class="form-control" id="laboratorio" name="laboratorio" placeholder="Laboratorio" required></input>
+					    	
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-lg-2 control-label">Código:</label>
+					    <div class="col-lg-4">
+					    	 
+					      <input  value="${producto.codigo}" type="text" class="form-control" id="codigo" name="codigo" placeholder="Código" required  title="El Codigo debe ser numerico.">
+							
+</div>
+					    <label class="col-lg-2 control-label">Precio:</label>
+					    <div class="col-lg-4">
+					    
+					      <input type="text" value="${producto.precio}" class="form-control" id="precio" name="precio" placeholder="Precio" required pattern="[0-9]+([\.,][0-9]+)?" title="El precio debe ser numerico">
+					    </div>
+					    
+					  </div>
+					  
+					  <div class="form-group">
+					  <label class="col-lg-2 control-label">Stock:</label>
+					    <div class="col-lg-4">
+					      <input type="text" value="${producto.stock}" class="form-control" id="stock" name="stock" placeholder="Stock" required pattern="[0-9]+([\.,][0-9]+)?" title="El stock debe ser numerico">
+					    </div>
+					    <label class="col-lg-2 control-label">Acción Farmacológica:</label>
+					    <div class="col-lg-4">
+					      <textarea   class="form-control" id="accion" name="accion" placeholder="Acción Farmacológica" rows="4" required>${producto.accion}</textarea>
+					    </div>
+					    
+					  </div>
+					  
+					  
+					  <div class="form-group">
+					    <div class="col-lg-2 pull-right">
+					   
+					      <button type="submit" class="btn btn-success">Modificar</button>
+					      
+					    </div>
+					  </div>
+					</form:form>
+					</c:if>
+					
+					
 				</div>
 			</div>
 		</div>
