@@ -14,12 +14,16 @@ import org.springframework.web.servlet.ModelAndView;
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 import ar.edu.unlam.tallerweb1.controladores.ControladorRegistroFarmacia;
 import ar.edu.unlam.tallerweb1.dao.FarmaciaDao;
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
+import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFarmacia;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFarmaciaImpl;
+import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 
 public class TestFarmacia extends SpringTest {
 	
@@ -67,23 +71,7 @@ public class TestFarmacia extends SpringTest {
 		Assert.assertTrue(farmaciaObtenida.getId().equals(farmaciaBuscada.getId()));
 	}
 	
-	@Test
-	public void TestQuePruebaFarmaciaCorrecta(){
-		ControladorRegistroFarmacia farmaciaControlador = new ControladorRegistroFarmacia();
-		ServicioFarmacia farmaFake = mock(ServicioFarmacia.class);
-		farmaciaControlador.setServicioFarmacia(farmaFake);
-		
-		Farmacia miFarmacia = new Farmacia();
-		Farmacia farmaciaObtenida = new Farmacia();
-		when(farmaFake.logear(miFarmacia)).thenReturn(farmaciaObtenida);
-		
-		MockHttpServletRequest request = new MockHttpServletRequest();
-		MockHttpServletResponse response = new MockHttpServletResponse();
-		
-		ModelAndView mav = farmaciaControlador.validarLoginFarmacia(request, response, miFarmacia);
-		
-		Assert.assertEquals("home", mav.getViewName());	
-	}
+	
 	
 	@Test
 	public void TestQuePruebaElRegistroDeFarmacia() throws ServletException, IOException{

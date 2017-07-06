@@ -48,10 +48,11 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 	
 	// Login de Farmacias
 	@RequestMapping(path = "/validar-loginFarmacia", method = RequestMethod.POST)
-	public ModelAndView validarLoginFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) {
+	public ModelAndView validarLoginFarmacia(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("farmacia") Farmacia farmacia) throws ServletException, IOException {
 		ModelMap model = new ModelMap();
-		//Logica de negocio en Servicio
+		
 		Farmacia farmaciaObtenida = servicioFarmacia.logear(farmacia);
+		
 		if (farmaciaObtenida != null){
 			model.put("mainObject", farmaciaObtenida);
 			HttpSession sesion = request.getSession();
@@ -65,6 +66,7 @@ public class ControladorRegistroFarmacia extends HttpServlet {
 			Integer idFarmacia = (Integer) sesion.getAttribute("idUsuario");
 			
 			List<Producto> listaProductos = servicioProducto.obtenerProductosSinStock(idFarmacia);
+			
 			model.put("listaProductos", listaProductos);
 			return new ModelAndView("home", model);
 		}
