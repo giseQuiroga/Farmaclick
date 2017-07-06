@@ -13,7 +13,7 @@ import ar.edu.unlam.tallerweb1.dao.ProductoDao;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 public class TestBuscador extends SpringTest
-	{/*
+	{
 	@Inject
 	private ProductoDao ProductoDao;
 	
@@ -34,6 +34,6 @@ public class TestBuscador extends SpringTest
 		assertThat(productoObtenido.equals(productoBuscado));
 		}
 		
-		*/
+		
 	
 	}

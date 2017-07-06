@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class ProductoTest extends SpringTest {
 
-/*	@Test @Transactional @Rollback(true)
+	@Test @Transactional @Rollback(true)
 	public void testCrearProducto(){
 		Farmacia farmaciaPrueba = new Farmacia();
 		farmaciaPrueba.setRazonSocial("RSfarmaciaPrueba");
@@ -27,7 +27,7 @@ public class ProductoTest extends SpringTest {
 		Producto productoBuscado = getSession().get(Producto.class, p.getId());
 		assertThat(productoBuscado.getFarmacia()).isNotNull();
 		assertThat(productoBuscado.getFarmacia().getRazonSocial()).isEqualTo(farmaciaPrueba.getRazonSocial());
-	}*/
+	}
 	
 	
 }
