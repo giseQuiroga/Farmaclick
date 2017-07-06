@@ -147,14 +147,14 @@ ${mensaje}
 					  <div class="form-group">
 					    <label class="col-lg-2 control-label">Nombre:</label>
 					    <div class="col-lg-4">
-					      <input type="hidden" value="${producto.id}" />
-					      <input  type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="${producto.nombre}" required>
+					      
+					      <input readonly="readonly"   type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="${producto.nombre}" required>
 					   
 					    </div>
 					    <label class="col-lg-2 control-label">Laboratorio:</label>
 					    <div class="col-lg-4">
 					    	
-					      <input value="${producto.laboratorio}"  type="text" class="form-control" id="laboratorio" name="laboratorio" placeholder="Laboratorio" required></input>
+					      <input  readonly="readonly" value="${producto.laboratorio}"  type="text" class="form-control" id="laboratorio" name="laboratorio" placeholder="Laboratorio" required></input>
 					    	
 					    </div>
 					  </div>
@@ -162,13 +162,13 @@ ${mensaje}
 					    <label class="col-lg-2 control-label">Código:</label>
 					    <div class="col-lg-4">
 					    	 
-					      <input  value="${producto.codigo}" type="text" class="form-control" id="codigo" name="codigo" placeholder="Código" required  title="El Codigo debe ser numerico.">
+					      <input readonly="readonly"  value="${producto.codigo}" type="text" class="form-control" id="codigo" name="codigo" placeholder="Código" required  title="El Codigo debe ser numerico.">
 							
 </div>
 					    <label class="col-lg-2 control-label">Precio:</label>
 					    <div class="col-lg-4">
 					    
-					      <input type="text" value="${producto.precio}" class="form-control" id="precio" name="precio" placeholder="Precio" required pattern="[0-9]+([\.,][0-9]+)?" title="El precio debe ser numerico">
+					      <input  readonly="readonly" type="text" value="${producto.precio}" class="form-control" id="precio" name="precio" placeholder="Precio" required pattern="[0-9]+([\.,][0-9]+)?" title="El precio debe ser numerico">
 					    </div>
 					    
 					  </div>
@@ -180,7 +180,7 @@ ${mensaje}
 					    </div>
 					    <label class="col-lg-2 control-label">Acción Farmacológica:</label>
 					    <div class="col-lg-4">
-					      <textarea   class="form-control" id="accion" name="accion" placeholder="Acción Farmacológica" rows="4" required>${producto.accion}</textarea>
+					      <textarea  readonly="readonly"   class="form-control" id="accion" name="accion" placeholder="Acción Farmacológica" rows="4" required>${producto.accion}</textarea>
 					    </div>
 					    
 					  </div>
