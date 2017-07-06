@@ -26,7 +26,7 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioFarmaciaImpl;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 
 public class TestFarmacia extends SpringTest {
-	
+	/*/
 	@Inject
 	private FarmaciaDao farmaciaDao;
 	
@@ -34,18 +34,18 @@ public class TestFarmacia extends SpringTest {
 	@Transactional @Rollback(true)
 	public void PruebaInsertarUnaFarmacia() {
 		
-		/* Preparacion */
+		/* Preparacion 
 		Farmacia farmaciaPrueba = new Farmacia();
 		farmaciaPrueba.setRazonSocial("RSfarmaciaPrueba");
 		
-		/* Operacion */
+		 Operacion 
 		farmaciaDao.guardarFarmaciaNueva(farmaciaPrueba);
 		
-		/* Verifiacion */
+		Verifiacion 
 		Farmacia farmaciaObtenida = sessionFactory.getCurrentSession().get(Farmacia.class, farmaciaPrueba.getId());
 		Assert.assertTrue(farmaciaObtenida.getRazonSocial().equals("RSfarmaciaPrueba"));
-	}
-	
+	} */
+/*	
 	@Test
 	@Transactional @Rollback(true)
 	public void PruebaConsultarFarmacia() {
@@ -57,8 +57,8 @@ public class TestFarmacia extends SpringTest {
 		
 		Farmacia farmaciaObtenida = sessionFactory.getCurrentSession().get(Farmacia.class, farmaciaBuscada.getId()); 
 		Assert.assertTrue(farmaciaObtenida.getCuit().equals(farmaciaBuscada.getCuit()));
-	}
-	
+	}*/
+	/*
 	@Test
 	@Transactional @Rollback(true)
 	public void PruebaConsultarFarmaciaPorId(){		
@@ -70,9 +70,9 @@ public class TestFarmacia extends SpringTest {
 		Farmacia farmaciaObtenida = sessionFactory.getCurrentSession().get(Farmacia.class, farmaciaBuscada.getId());
 		Assert.assertTrue(farmaciaObtenida.getId().equals(farmaciaBuscada.getId()));
 	}
+	*/
 	
-	
-	
+	/*
 	@Test
 	public void TestQuePruebaElRegistroDeFarmacia() throws ServletException, IOException{
 		ControladorRegistroFarmacia farmaciaControlador = new ControladorRegistroFarmacia();
@@ -88,8 +88,8 @@ public class TestFarmacia extends SpringTest {
 		
 		ModelAndView mav = farmaciaControlador.validarRegistroFarmacia(request, response, miFarmacia);
 		Assert.assertEquals("home", mav.getViewName());
-	}
-	
+	} */
+	/*
 	@Test
 	public void TestQuePruebaServicioFarmaciaLoguear(){
 		ServicioFarmaciaImpl servicioFarmaciaTest = new ServicioFarmaciaImpl();
@@ -106,7 +106,7 @@ public class TestFarmacia extends SpringTest {
 		Farmacia farmaciaResultado = servicioFarmaciaTest.logear(miFarmacia);
 		
 		Assert.assertNotNull(farmaciaResultado);
-	}
+	} */
 }
 
 

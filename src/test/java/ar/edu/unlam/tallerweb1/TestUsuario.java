@@ -23,38 +23,38 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioRegistroUsuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioRegistroUsuarioImpl;
 
 public class TestUsuario extends SpringTest {
-
+/*
 	@Inject
 	private UsuarioRegistroDao usuarioRegistroDao;
 
 /*TEST REGISTRA USUARIO*/	
-	@Test
+/*	@Test
 	@Transactional @Rollback(true)
 	public void PruebaRegistrarUnUsuario() {
 		
 /* 1) Preparacion - Preparo un usuario --------------------------------------------------------------------------------------- */
-		Usuario usuarioRegistroTestAInsertar = new Usuario();
+/*		Usuario usuarioRegistroTestAInsertar = new Usuario();
 		usuarioRegistroTestAInsertar.setNombre("Rocío");
 		usuarioRegistroTestAInsertar.setApellido("Bareiro");
 		usuarioRegistroTestAInsertar.setEmail("bareiro@gmail.com");
 		usuarioRegistroTestAInsertar.setPassword("bareiro");
 		
 /* 2) Operacion - Registro al usuario ----------------------------------------------------------------------------------------- */
-		usuarioRegistroDao.guardarUsuario(usuarioRegistroTestAInsertar);
+/*		usuarioRegistroDao.guardarUsuario(usuarioRegistroTestAInsertar);
 		
 /* 3) Verifiacion - Usuario registrado es igual al usuario que quiero buscar por medio del email ------------------------------ */
-		Usuario usuarioObtenido = sessionFactory.getCurrentSession().get(Usuario.class, usuarioRegistroTestAInsertar.getId());
+/*		Usuario usuarioObtenido = sessionFactory.getCurrentSession().get(Usuario.class, usuarioRegistroTestAInsertar.getId());
 		Assert.assertTrue(usuarioObtenido.getEmail().equals("bareiro@gmail.com"));
 	}
 	
 	
 /*TEST BUSCA USUARIO*/	
-	@Test
+/*	@Test
 	@Transactional @Rollback(true)
 	public void PruebaBuscarUnRegistroDeUsuario(){
 		
 /* 1) Preparacion - Ingreso varios usuarios y repito el ultimo -----------------------------------------------------------------*/
-		Usuario usuarioRegistroTestABuscar1 = new Usuario();
+/*		Usuario usuarioRegistroTestABuscar1 = new Usuario();
 		usuarioRegistroTestABuscar1.setNombre("Rocío");
 		usuarioRegistroTestABuscar1.setApellido("Castañer");
 		usuarioRegistroTestABuscar1.setEmail("castaner@gmail.com");
@@ -73,7 +73,7 @@ public class TestUsuario extends SpringTest {
 		usuarioRegistroTestABuscar3.setPassword("garcia");
 		
 /*Nota al margen: Ingresa repetidos, ver esto.*/
-		Usuario usuarioRegistroTestABuscar4 = new Usuario();
+/*		Usuario usuarioRegistroTestABuscar4 = new Usuario();
 		usuarioRegistroTestABuscar4.setNombre("Pablo");
 		usuarioRegistroTestABuscar4.setApellido("Garcia");
 		usuarioRegistroTestABuscar4.setEmail("garcia@gmail.com");
@@ -87,27 +87,27 @@ public class TestUsuario extends SpringTest {
 
 /* 2) Operacion - Busco el usuario que quiero --------------------------------------------------------------------------------------- */
 		/*Guardo los usuarios*/
-		usuarioRegistroDao.guardarUsuario(usuarioRegistroTestABuscar1);
+/*		usuarioRegistroDao.guardarUsuario(usuarioRegistroTestABuscar1);
 		usuarioRegistroDao.guardarUsuario(usuarioRegistroTestABuscar2);
 		usuarioRegistroDao.guardarUsuario(usuarioRegistroTestABuscar3);
 		usuarioRegistroDao.guardarUsuario(usuarioRegistroTestABuscar4);
 		usuarioRegistroDao.guardarUsuario(usuarioRegistroTestABuscar5);
 		
 		/*busco el usuario que quiero*/
-		Usuario miUsuarioBuscado = usuarioRegistroDao.buscarUsuario(usuarioRegistroTestABuscar5);
+/*		Usuario miUsuarioBuscado = usuarioRegistroDao.buscarUsuario(usuarioRegistroTestABuscar5);
 		
 /* 3) Verificacion - El usuario con el email X se encuentra en la tabla ------------------------------------------------------------- */
-		Usuario usuarioObtenido = sessionFactory.getCurrentSession().get(Usuario.class, miUsuarioBuscado.getId()); 
-		Assert.assertTrue(usuarioObtenido.getEmail().equals("martinez@gmail.com"));
+//		Usuario usuarioObtenido = sessionFactory.getCurrentSession().get(Usuario.class, miUsuarioBuscado.getId()); 
+//		Assert.assertTrue(usuarioObtenido.getEmail().equals("martinez@gmail.com"));
 
-	}
+//	}
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	//MOCK//			//MOCK//			//MOCK//			//MOCK//				//MOCK//					//MOCK//
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 //Mock pega controlador Login	
-	@Test
+/*	@Test
 	public void TestQuePruebaUsuarioCorrecto() throws Exception, IOException{
 		ControladorLogin usuarioControlador = new ControladorLogin();
 		ServicioLogin usuarioFake = mock(ServicioLogin.class);
@@ -124,10 +124,10 @@ public class TestUsuario extends SpringTest {
 		
 		Assert.assertEquals("home", miModelo.getViewName());
 	}
-	
+	*/
 	
 //Mock pega controlador Registro Usuario
-	
+/*	
 	@Test
 	public void TestQuePruebaElRegistroDeUsuario() throws Exception, IOException{
 		ControladorRegistroUsuario usuarioControlador = new ControladorRegistroUsuario();
@@ -145,9 +145,9 @@ public class TestUsuario extends SpringTest {
 		Assert.assertEquals("home", miModelo.getViewName());
 	}
 	
-	
+	*/
 //Mock de servicio
-	
+	/*
 	@Test @Transactional @Rollback(true)
 	public void TestServicioRegistrarUsuario(){
 	
@@ -166,5 +166,5 @@ public class TestUsuario extends SpringTest {
 		
 		Assert.assertNotNull(usuarioRestulado);	
 	}
-	
+	*/
 }
